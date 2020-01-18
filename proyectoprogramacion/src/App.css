@@ -1,5 +1,6 @@
 .contenido{
   padding: 15px;
+
 }
 .row-1{
   background-color: blueviolet;
@@ -11,8 +12,4 @@
 }
 .icono{
   padding-right: 5px;
-}
-
-.nav.navbar-nav.navbar-right li a {
-  color: blue;
 }
