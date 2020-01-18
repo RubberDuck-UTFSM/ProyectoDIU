@@ -51,7 +51,7 @@ export default class Home extends Component{
                         <div className="container text-center">
                             <h2>Título para información sobre la página</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rutrum viverra ligula. Duis facilisis ipsum arcu. Vivamus in ornare nulla. Nunc scelerisque rhoncus tempus. Duis varius mattis laoreet. Fusce condimentum, lacus quis accumsan gravida, elit ante tempor diam, vitae varius lorem velit quis orci. Donec nec vestibulum arcu. Vivamus a velit a ligula dignissim bibendum sit amet faucibus turpis.</p>
-                            <button type="button" className="btn btn-primary">Saber más <i className="fas fa-chevron-right icono"></i></button>
+                            <button type="button" className="btn btn-primary">Saber más! <i className="fas fa-chevron-right icono"></i></button>
                         </div>
                     </div>
                     <div className="col"></div>
