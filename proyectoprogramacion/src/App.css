@@ -13,3 +13,8 @@
 .icono{
   padding-right: 5px;
 }
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
