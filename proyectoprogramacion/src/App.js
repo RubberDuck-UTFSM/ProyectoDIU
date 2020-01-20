@@ -3,6 +3,7 @@ import Home from './views/Home';
 import About from './views/About';
 import Contenido from './views/Contenido';
 import Material from './views/Material';
+import Estudiantes from './views/Estudiantes';
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,9 +21,9 @@ import Popper from 'popper.js';
 
 function App() {
   return (
-    <div>
+    <div >
       <Router>
-        <div className="container-fluid">
+        <div className="container-fluid cuerpo">
           <div className="d-none d-lg-block">
           <div className="row bg-dark">
             <div className="col"></div>
@@ -58,7 +59,7 @@ function App() {
                     </li>
 
                     <li className="nav-item">
-                      <a className="nav-link" href="#">Estudiantes</a>
+                      <Link className="nav-link" to="/estudiantes">Estudiantes</Link>
                     </li>
                     <li className="nav-item">
                       <Link className="nav-link" to="/material">Material</Link>
@@ -76,23 +77,31 @@ function App() {
             <div className="col"></div>
           </div>
         </div>
-        <div>
+        <div className="cuerpo">
           <Switch>
-          <Route path="/material">
-            <Material/>
-          </Route>
-            
-          <Route path="/about">
+            <Route path="/about">
               <About/>
-          </Route>
-          <Route path="/contenido">
-              <Contenido/>
-          </Route>
-          <Route path="/">
-            <Home/>
-          </Route>
+            </Route>
+            <Route path="/material">
+              <Material/>
+            </Route>
+
+            <Route path="/contenido">
+                <Contenido/>
+            </Route>
+            <Route path="/estudiantes">
+              <Estudiantes/>
+            </Route>
+            <Route path="/">
+              <Home/>
+            </Route>
           </Switch>
         </div>
+        <footer id="sticky-footer cuerpo" className="py-4 bg-dark text-white-50">
+          <div className="container text-center">
+            <small>Desarrollado por María Paz Morales & Gonzalo Fernández</small>
+          </div>
+        </footer>
       </Router>
     </div>
   );

@@ -1,6 +1,7 @@
 .carousel-inner {
-    height: 400px;
-} 
+    width: 100%;
+    max-height: 400px ;
+}
 
 .informacion1{
     margin-top: 30px;
@@ -9,4 +10,22 @@
 
 .icono{
     padding-left: 5px;
+    padding-right: 5px;
+}
+
+.imagen-circular{
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width : 1200px) {
+    .carousel-caption
+    {
+      top: 250px;
+    }
+}
+.informaciones{
+    padding-bottom: 20px;
+}
+.cuerpo{
+    margin: auto;
 }
