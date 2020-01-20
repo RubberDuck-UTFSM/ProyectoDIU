@@ -1,6 +1,8 @@
 import React from 'react';
 import Home from './views/Home';
 import About from './views/About';
+import Contenido from './views/Contenido';
+import Material from './views/Material';
 import {
   BrowserRouter as Router,
   Switch,
@@ -59,7 +61,7 @@ function App() {
                       <a className="nav-link" href="#">Estudiantes</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="#">Material Docente</a>
+                      <Link className="nav-link" to="/material">Material</Link>
                     </li>
                     
                   </ul>
@@ -76,13 +78,19 @@ function App() {
         </div>
         <div>
           <Switch>
+          <Route path="/material">
+            <Material/>
+          </Route>
+            
           <Route path="/about">
               <About/>
-            </Route>
-            <Route path="/">
-              <Home/>
-            </Route>
-            
+          </Route>
+          <Route path="/contenido">
+              <Contenido/>
+          </Route>
+          <Route path="/">
+            <Home/>
+          </Route>
           </Switch>
         </div>
       </Router>
