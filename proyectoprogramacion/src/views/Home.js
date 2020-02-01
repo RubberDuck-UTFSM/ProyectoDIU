@@ -56,7 +56,7 @@ export default class Home extends Component{
                 <div className="cuerpo-home">
                     <div className="row informacion1">
                         <div className="col"></div>
-                        <div className="d-none d-lg-block col text-center imagen-robot ">
+                        <div className="d-none d-lg-block col text-center imagen-robot  ">
                             <i className="fas fa-robot fa-7x"></i>
                         </div>
                         <div className="col-lg-8">
@@ -69,7 +69,7 @@ export default class Home extends Component{
                     </div>
                     <div className="text-center">
                                 <button type="button" style={{marginTop:'10px'}} className="btn btn-danger"><i className="fas fa-terminal icono"></i>A programar! </button>
-                                </div>
+                    </div>
                     <div className="row contenido ">
                         <div className="col"></div>
                         <div className="col-lg-10">
@@ -83,7 +83,7 @@ export default class Home extends Component{
                                     <p>
                                     Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
                                     </p>
-                                    <button type="button" className="btn btn-primary">Saber más<i className="fas fa-chevron-right icono"></i></button>
+                                    <button type="button" className="btn btn-secondary">Saber más<i className="fas fa-chevron-right icono"></i></button>
 
                                 </div>
                                 <div className="col-lg-4 informaciones" align="center">
@@ -92,7 +92,7 @@ export default class Home extends Component{
                                     <p>
                                     Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
                                     </p>
-                                    <button type="button" className="btn btn-primary">Saber más <i className="fas fa-chevron-right icono"></i></button>
+                                    <button type="button" className="btn btn-secondary" >Saber más <i className="fas fa-chevron-right icono"></i></button>
 
                                 </div>
                                 <div className="col-lg-4 informaciones" align="center">
@@ -101,7 +101,7 @@ export default class Home extends Component{
                                     <p>
                                     Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
                                     </p>
-                                    <button type="button" className="btn btn-primary">Saber más <i className="fas fa-chevron-right icono"></i></button>
+                                    <button type="button" className="btn btn-secondary">Saber más <i className="fas fa-chevron-right icono"></i></button>
 
                                 </div>
                             </div>

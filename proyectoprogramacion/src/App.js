@@ -13,8 +13,7 @@ import {
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import $ from 'jquery';
-import Popper from 'popper.js';
+
 
 
 
@@ -24,7 +23,7 @@ function App() {
     <div >
       <Router>
         <div className="container-fluid cuerpo">
-          <div className="d-none d-lg-block">
+          <div className="d-none d-lg-block justify-content-between">
           <div className="row redes-sociales bg-dark">
             <div className="col"></div>
             <div className="col-lg-5">
@@ -98,7 +97,7 @@ function App() {
           </Switch>
         </div>
         <footer id="sticky-footer cuerpo" className="py-4 bg-dark text-white-50">
-          <div className="container text-center">
+          <div className="container text-center ">
             <small>Desarrollado por María Paz Morales & Gonzalo Fernández</small>
           </div>
         </footer>
