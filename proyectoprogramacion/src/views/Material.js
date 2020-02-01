@@ -190,7 +190,7 @@ export default class Material extends Component{
 							</div>
 						</div>
 		            </div>
-		            <div className="row justify-content-center">
+		            <div className="row ">
 						<div className="col-md-6">
 							<div className="card border-primary mb-5">
 							  <div className="row no-gutters align-items-center justify-content-center">
@@ -225,7 +225,7 @@ export default class Material extends Component{
 							</div>
 						</div>
 		            </div>
-		            <div className="row justify-content-center">
+		            <div className="row ">
 						<div className="col-md-6">
 							<div className="card border-primary mb-5">
 							  <div className="row no-gutters align-items-center justify-content-center">
@@ -243,22 +243,7 @@ export default class Material extends Component{
 							</div>
 						</div>
 						
-						<div className="col-md-6">
-							<div className="card border-primary mb-5">
-							  <div className="row no-gutters align-items-center justify-content-center">
-							    <div className="col-md-4">
-							      <img src="https://dummyimage.com/600x400/000/fff" className="card-img" alt="https://dummyimage.com/600x400/000/fff"></img>
-							    </div>
-							    <div className="col-md-8">
-							      <div className="card-body">
-							        <h5 className="card-title">Título Contenido</h5>
-							        <p className="card-text">En este contenido se verá el contenido correspondiente al título del contenido a ver.</p>
-		                            <a href="/contenido"><button type="button" className="btn btn-primary">Acceder <i className="fas fa-chevron-right icono"></i></button></a>
-							      </div>
-							    </div>
-							  </div>
-							</div>
-						</div>
+						
 		            </div>
 	            </div>
         	</section>

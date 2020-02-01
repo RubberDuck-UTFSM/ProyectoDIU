@@ -98,7 +98,7 @@ function App() {
         </div>
         <footer id="sticky-footer cuerpo" className="py-4 bg-dark text-white-50">
           <div className="container text-center ">
-            <small>Desarrollado por María Paz Morales & Gonzalo Fernández</small>
+            <small>Desarrollado por <i className="fas icono fa-fish"></i>  María Paz Morales & <i className="fas icono fa-frog"></i> Gonzalo Fernández</small>
           </div>
         </footer>
       </Router>
