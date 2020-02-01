@@ -17,4 +17,16 @@
 #sticky-footer {
   flex-shrink: none;
 }
+.cuerpo{
+  overflow: auto;
+  position: relative;
+}
 
+.redes-sociales{
+  line-height: 5px;
+  font-size: smaller;
+}
+
+Link:hover{
+  color: blueviolet;
+}

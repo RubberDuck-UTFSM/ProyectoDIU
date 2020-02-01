@@ -25,7 +25,7 @@ function App() {
       <Router>
         <div className="container-fluid cuerpo">
           <div className="d-none d-lg-block">
-          <div className="row bg-dark">
+          <div className="row redes-sociales bg-dark">
             <div className="col"></div>
             <div className="col-lg-5">
               <div className="text-light contenido">
@@ -44,7 +44,7 @@ function App() {
             <div className="col"></div>
             <div className="col-lg-10 navbar-light bg-light ">
               <nav className="navbar navbar-expand-lg ">
-                <a className="navbar-brand" href="#"><i className="fas fa-code icono"></i>Página<b>Programación</b></a>
+                <a className="navbar-brand" href="/"><i className="fas fa-code icono"></i>Página<b>Programación</b></a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                 </button>
@@ -59,10 +59,10 @@ function App() {
                     </li>
 
                     <li className="nav-item">
-                      <Link className="nav-link" to="/estudiantes">Estudiantes</Link>
+                      <Link className="nav-link" to="/estudiantes"><i className="icono fas fa-robot"></i>Estudiantes</Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/material">Material</Link>
+                      <Link className="nav-link" to="/material"><i className="icono fas fa-folder-open"></i>Material Docente</Link>
                     </li>
                     
                   </ul>
