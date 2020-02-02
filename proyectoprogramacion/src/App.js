@@ -84,7 +84,6 @@ function App() {
             <Route path="/material">
               <Material/>
             </Route>
-
             <Route path="/contenido">
                 <Contenido/>
             </Route>
