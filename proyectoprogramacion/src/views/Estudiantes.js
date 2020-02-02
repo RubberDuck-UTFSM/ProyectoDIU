@@ -43,7 +43,7 @@ function Curso(props){
             color={props.color}/>
             <div className="row corrector-estudiantes">
                 <div className="col"></div>
-                <div className="col-md-9">
+                <div className="col-md-10">
                     <div className="container contenidos cuerpo-home">
                         <div className="row">
                             <Contenido color={props.color} numero="1"
