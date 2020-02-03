@@ -7,8 +7,8 @@
 }
 
 .navbar{
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .icono{
   padding-right: 5px;
@@ -18,7 +18,7 @@
   flex-shrink: none;
 }
 .cuerpo{
-  overflow: auto;
+
   position: relative;
 }
 
@@ -26,4 +26,5 @@
   line-height: 5px;
   font-size: smaller;
 }
+
 

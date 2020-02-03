@@ -34,6 +34,16 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-
 	background: rgba(2,2,2,.6);
+}
+
+.barra-superior{
+	padding: 40px;
+}
+
+.sticky-list{
+    position: sticky;
+  	position: -webkit-sticky;
+  	top: 20px; /* required */
+  
 }

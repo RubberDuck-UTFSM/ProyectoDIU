@@ -7,6 +7,7 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
+    "classnames": "^2.2.6",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
     "react": "^16.12.0",
@@ -14,7 +15,9 @@
     "react-dom": "^16.12.0",
     "react-latex": "^1.5.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "react-scrollspy": "^3.4.2",
+    "react-sticky": "^6.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

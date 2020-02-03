@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Children } from 'react'
 import './Estudiantes.css';
 
 function InformacionCurso(props){
@@ -12,74 +12,78 @@ function InformacionCurso(props){
     )
 }
 
-function Contenido(props){
-    return(
-        <div className="col-md-6">
-            <div className={"card tarjetaContenido  border-"+props.color+" rounded mb-5"}>
-                <div className="row no-gutters align-items-center justify-content-center">
-                    <div className="col-md-4">
-                        <img src={props.image} 
-                        className="card-img" alt=""></img>
-                    </div>
-                    <div className="col-md-8">
-                        <div className="card-body">
-                            <h5 className="card-title">{props.numero}. {props.titulo} </h5>
-                            <p className="card-text">{props.descripcion}</p>
-                            <a href="/contenido"><button type="button" className={"text-white  btn btn-"+props.color}>Acceder <i className="fas fa-chevron-right icono"></i></button></a>
+class Contenido extends Component{
+    render(){
+        return(
+            <div className="col-md-6">
+                <div className={"card tarjetaContenido  border-"+this.props.color+" rounded mb-5"}>
+                    <div className="row no-gutters align-items-center justify-content-center">
+                        <div className="col-md-4">
+                            <img src={this.props.image} 
+                            className="card-img" alt=""></img>
+                        </div>
+                        <div className="col-md-8">
+                            <div className="card-body">
+                                <h5 className="card-title">{this.props.numero}. {this.props.titulo} </h5>
+                                <p className="card-text">{this.props.descripcion}</p>
+                                <a href="\contenido"><button type="button" className={"text-white  btn btn-"+this.props.color}>Acceder <i className="fas fa-chevron-right icono"></i></button></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-function Curso(props){
-    return(
-        <div>
-            <InformacionCurso nombreCurso={props.nombreCurso}
-            image={props.image}
-            descripcion={props.descripcion}
-            color={props.color}/>
-            <div className="row corrector-estudiantes">
-                <div className="col"></div>
-                <div className="col-md-10">
-                    <div className="container contenidos cuerpo-home">
-                        <div className="row">
-                            <Contenido color={props.color} numero="1"
-                            image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
-                            titulo="Título Contenido"
-                            descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
-                            <Contenido color={props.color} numero="2"
-                            image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
-                            titulo="Título Contenido"
-                            descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
-                            <Contenido color={props.color} numero="3"
-                            image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
-                            titulo="Título Contenido"
-                            descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
-                            <Contenido color={props.color} numero="4"
-                            image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
-                            titulo="Título Contenido"
-                            descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
-                            <Contenido color={props.color} numero="5"
-                            image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
-                            titulo="Título Contenido"
-                            descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
-                            <Contenido color={props.color} numero="6"
-                            image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
-                            titulo="Título Contenido"
-                            descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
-                            <Contenido color={props.color} numero="7"
-                            image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
-                            titulo="Título Contenido"
-                            descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>                        </div>
+class Curso extends Component{
+    render(){
+        return(
+            <div>
+                <InformacionCurso nombreCurso={this.props.nombreCurso}
+                image={this.props.image}
+                descripcion={this.props.descripcion}
+                color={this.props.color}/>
+                <div className="row corrector-estudiantes">
+                    <div className="col"></div>
+                    <div className="col-md-10">
+                        <div className="container contenidos cuerpo-home">
+                            <div className="row">
+                                <Contenido color={this.props.color} numero="1"
+                                image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
+                                titulo="Título Contenido"
+                                descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
+                                <Contenido color={this.props.color} numero="2"
+                                image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
+                                titulo="Título Contenido"
+                                descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
+                                <Contenido color={this.props.color} numero="3"
+                                image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
+                                titulo="Título Contenido"
+                                descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
+                                <Contenido color={this.props.color} numero="4"
+                                image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
+                                titulo="Título Contenido"
+                                descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
+                                <Contenido color={this.props.color} numero="5"
+                                image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
+                                titulo="Título Contenido"
+                                descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
+                                <Contenido color={this.props.color} numero="6"
+                                image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
+                                titulo="Título Contenido"
+                                descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>
+                                <Contenido color={this.props.color} numero="7"
+                                image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
+                                titulo="Título Contenido"
+                                descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>                        </div>
+                        </div>
                     </div>
+                    <div className="col"></div>
                 </div>
-                <div className="col"></div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default class Estudiantes extends Component{
