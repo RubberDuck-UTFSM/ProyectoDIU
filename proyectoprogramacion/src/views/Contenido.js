@@ -4,15 +4,19 @@ export default class Contenido extends Component {
     render(){
         return(
         	<section>
-				<ul className="nav nav-pills nav-fill mb-3 bg-light text-left" >
+				<ul className="nav nav-pills nav-fill mb-3 bg-light text-left">
                     <li className="nav-item niveles ">
                         <div className=" nav-link rounded-0 text-white bg-warning active clearfix has-text-center align-items-center">
-                            <div style={{marginLeft:"10%"}} className="float-left"> <i className="fas fa-terminal icono"></i>Básico</div>
-							<a style={{marginRight:"10%",paddingTop:"15px"}} className="float-right text-white h6 font-weight-light " href="\estudiantes"><i className="icono fas fa-chevron-left"></i>Volver a secciones</a>
+                            <div className="container">
+								<div className="float-left"> <i className="fas fa-terminal icono"></i>Básico</div>
+								<a style={{paddingTop:"15px"}} className="float-right text-white h6 font-weight-light " href="\estudiantes">
+									<i className="icono fas fa-chevron-left fa-sm"></i>volver a secciones
+								</a>
+							</div>
                         </div>
                     </li>
                 </ul>
-				<div className="container" style={{padding:"3.5%",paddingTop:"1%"}}>
+				<div className="container" style={{paddingTop:"18px"}}>
 					<div className="row">
 						<div className="col-sm-3" id="myScrollspy">
 							<div className="list-group sticky-list">
@@ -21,10 +25,18 @@ export default class Contenido extends Component {
 								<a className="list-group-item list-group-item-action" href="#section3">Section Three</a>
 								<a className="list-group-item list-group-item-action" href="#section4">Section Four</a>
 								<a className="list-group-item list-group-item-action" href="#section5">Section Five</a>
+								<div className="clearfix" style={{marginTop:"10px",marginBottom:"25px"}}>
+									<a href="\estudiantes" className="text-muted small float-left">
+									<i className="icono fas fa-chevron-left fa-sm"></i>sección anterior 
+									</a>
+									<a href="\estudiantes" className="text-muted small float-right">
+										sección siguiente<i className="icono fas fa-chevron-right fa-sm"></i>
+									</a>
+								</div>
 							</div>
 						</div>
 						<div className="col-sm-9" >
-							<h1 className="sicky-list">Bootstrap Scrollspy</h1>
+							<h1 className="sicky-list">1. Bootstrap Scrollspy</h1>
 							<hr></hr>
 							<div id="section1">
 								<h2>Section One</h2>

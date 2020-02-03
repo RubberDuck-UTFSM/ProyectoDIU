@@ -4,9 +4,12 @@ import './Estudiantes.css';
 function InformacionCurso(props){
     return(
         <div className="jumbotron paral2" style={{backgroundImage:"url("+props.image+")"}}>
-            <div className="overlay">
+            <div className="overlay container-fluid">
+                <div className="container" style={{paddingTop:"40px"}}>
                 <h1 className="display-3">Nivel <strong className={"text-"+props.color}>{props.nombreCurso}</strong></h1>
                 <p className="lead">{props.descripcion}</p>
+
+                </div>
             </div>
         </div>
     )
@@ -44,9 +47,7 @@ class Curso extends Component{
                 image={this.props.image}
                 descripcion={this.props.descripcion}
                 color={this.props.color}/>
-                <div className="row corrector-estudiantes">
-                    <div className="col"></div>
-                    <div className="col-md-10">
+                <div className="row container-fluid corrector-estudiantes">
                         <div className="container contenidos cuerpo-home">
                             <div className="row">
                                 <Contenido color={this.props.color} numero="1"
@@ -77,9 +78,11 @@ class Curso extends Component{
                                 image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEWxtbawtLWytrfBxcbFycq/w8TP09TO0tPIqrM6AAABTElEQVR4nO3TiW0DMQwAQT05u/+OczgkJRjGCjMVcCVyvPb+Odh+jWuebY895hwHuwtPDlz/hetc8ylc69tv/SFrKqxT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7BPYZ/CPoV9CvsU9insU9insE9hn8I+hX0K+xT2KexT2KewT2Gfwj6FfQr7FPYp7FPYp7Dvr3DMsU41x1M4Tv3Cp+zZ0m/P8UHzLrzuJR3zTPchzmu8r32y6/0Lfkcaweazk+sAAAAASUVORK5CYII="
                                 titulo="Título Contenido"
                                 descripcion="En este contenido se verá el contenido correspondiente al título del contenido a ver."/>                        </div>
-                        </div>
-                    </div>
-                    <div className="col"></div>
+                            </div>
+                    
+                    
+                    
+
                 </div>
             </div>
         )

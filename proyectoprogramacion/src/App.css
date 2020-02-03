@@ -1,10 +1,8 @@
 .contenido{
-  padding: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
-}
-.row-1{
-  background-color: blueviolet;
-}
 
 .navbar{
   margin-top: 5px;
@@ -17,14 +15,10 @@
 #sticky-footer {
   flex-shrink: none;
 }
-.cuerpo{
-
-  position: relative;
-}
-
 .redes-sociales{
-  line-height: 5px;
+  line-height: 20px;
   font-size: smaller;
+
 }
 
 

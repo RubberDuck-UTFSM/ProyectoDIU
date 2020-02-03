@@ -44,6 +44,5 @@
 .sticky-list{
     position: sticky;
   	position: -webkit-sticky;
-  	top: 20px; /* required */
-  
+	top: 27px;
 }
