@@ -1,7 +1,12 @@
 import React, { Component } from 'react' 
 import './Contenido.css';
+import { MarkdownPreview } from "react-marked-markdown";
+import 'katex/dist/katex.min.css';
+//import { InlineMath, BlockMath } from 'react-katex';
+
 export default class Contenido extends Component {
     render(){
+		var Latex = require('react-latex');
         return(
         	<section>
 				<ul className="nav nav-pills nav-fill mb-3 bg-light text-left">
@@ -45,6 +50,22 @@ export default class Contenido extends Component {
 								<p>Orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
 								<p>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
 								<p>Pulvinar leo id risus pellentesque vestibulum. Sed diam libero, sodales eget sapien vel, porttitor bibendum enim. Donec sed nibh vitae lorem porttitor blandit in nec ante. Pellentesque vitae metus ipsum. Phasellus sed nunc ac sem malesuada condimentum. Etiam in aliquam lectus. Nam vel sapien diam. Donec pharetra id arcu eget blandit. Proin imperdiet mattis augue in porttitor. Quisque tempus enim id lobortis feugiat. Suspendisse tincidunt risus quis dolor fringilla blandit. Ut sed sapien at purus lacinia porttitor. Nullam iaculis, felis a pretium ornare, dolor nisl semper tortor, vel sagittis lacus est consequat eros. Sed id pretium nisl. Curabitur dolor nisl, laoreet vitae aliquam id.</p>
+							
+								
+								<Latex displayMode={true}>$\int_0^\infty x^2 dx$</Latex>
+								<Latex>What is $(3\times 4) \div (5-3)$</Latex>
+								<Latex displayMode={true}>$$(3\times 4) \div (5-3)$$</Latex>
+								<MarkdownPreview value="
+								* Hola
+								* que
+								* _tal_"
+ />
+<MarkdownPreview 
+    value="Hey !"
+    markedOptions={{
+        langPrefix: "hljs" //
+    }}
+/>
 							</div>
 							<div id="section2">
 								<hr></hr>
