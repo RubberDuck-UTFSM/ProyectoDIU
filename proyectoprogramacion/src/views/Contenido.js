@@ -55,10 +55,11 @@ export default class Contenido extends Component {
 								<Latex displayMode={true}>$\int_0^\infty x^2 dx$</Latex>
 								<Latex>What is $(3\times 4) \div (5-3)$</Latex>
 								<Latex displayMode={true}>$$(3\times 4) \div (5-3)$$</Latex>
+								<code>some html codes here</code>
 								<MarkdownPreview value="
-								* Hola
-								* que
-								* _tal_"
+1. Hola Hola
+2. que
+3. _tal_"
  />
 <MarkdownPreview 
     value="Hey !"
