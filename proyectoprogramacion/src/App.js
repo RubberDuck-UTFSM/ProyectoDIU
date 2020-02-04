@@ -1,4 +1,5 @@
 import React from 'react';
+import { Component } from 'react'
 import Home from './views/Home';
 import About from './views/About';
 import Contenido from './views/Contenido';
@@ -8,15 +9,34 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useParams
 } from "react-router-dom"
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-function App() {
-  return (
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChangeBasico = this.handleChangeBasico.bind(this);
+    this.handleChangeIntermedio = this.handleChangeIntermedio.bind(this);
+    this.handleChangeAvanzado = this.handleChangeAvanzado.bind(this);
+    this.state = {basico: 'show active', intermedio: '',avanzado:''};
+  }
 
+  handleChangeBasico() {
+    this.setState({basico:'show active',intermedio:'',avanzado:''});
+  }
+  handleChangeIntermedio() {
+    this.setState({basico:'',intermedio:'show active',avanzado:''});
+  }
+  handleChangeAvanzado() {
+    this.setState({basico:'',intermedio:'',avanzado:'show active'});
+  }
+
+  render(){
+  return (
     <div >
       <Router>
         <div className=" container-fluid " >
@@ -55,7 +75,7 @@ function App() {
                       </li>
 
                       <li className="nav-item">
-                        <Link className="nav-link" to="/estudiantes"><i className="icono fas fa-robot"></i>Estudiantes</Link>
+                        <Link onClick={this.handleChangeBasico} className="nav-link" to="/estudiantes"><i className="icono fas fa-robot"></i>Estudiantes</Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link" to="/material"><i className="icono fas fa-folder-open"></i>Material Docente</Link>
@@ -66,7 +86,6 @@ function App() {
                       <button className="btn btn-primary my-2 my-sm-0" type="submit"><i className="fas icono fa-user-astronaut"></i> Ingreso Docentes</button>
                     </form>
                   </div>
-                
                 </nav>
               </div>
             </div>
@@ -82,11 +101,16 @@ function App() {
             <Route path="/material">
               <Material/>
             </Route>
-            <Route path="/contenido">
-                <Contenido/>
+            <Route path="/contenido/:nivel/:numero/:titulo/:color" children={<RedireccionarContenido/>}>
+            </Route>
+            <Route path="/estudiantes/Intermedio">
+              <Estudiantes basico="" intermedio="show active" avanzado=""/>
+            </Route>
+            <Route path="/estudiantes/Avanzado">
+              <Estudiantes basico="" intermedio="" avanzado="show active"/>
             </Route>
             <Route path="/estudiantes">
-              <Estudiantes />
+              <Estudiantes basico={this.state.basico} intermedio={this.state.intermedio} avanzado={this.state.avanzado}/>
             </Route>
             <Route path="/">
               <Home/>
@@ -103,5 +127,14 @@ function App() {
 
   );
 }
+}
 
 export default App;
+
+function RedireccionarContenido() {
+  let { nivel,numero,titulo,color} = useParams();
+  return (
+    <Contenido titulo={titulo} numero={numero} color={color} nivel={nivel}/>
+  );
+}
+
