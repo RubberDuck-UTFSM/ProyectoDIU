@@ -63,7 +63,7 @@ function App() {
                       
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
-                      <button className="btn btn-primary my-2 my-sm-0" type="submit">Ingreso Docentes</button>
+                      <button className="btn btn-primary my-2 my-sm-0" type="submit"><i className="fas icono fa-user-astronaut"></i> Ingreso Docentes</button>
                     </form>
                   </div>
                 

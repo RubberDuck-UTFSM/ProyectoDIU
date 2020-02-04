@@ -36,7 +36,7 @@ export default class Contenido extends Component {
 							</div>
 						</div>
 						<div className="col-sm-9" >
-							<h1 className="sicky-list">1. Bootstrap Scrollspy</h1>
+							<h1 className="sicky-list display-4">1. Bootstrap Scrollspy</h1>
 							<hr></hr>
 							<div id="section1">
 								<h2>Section One</h2>
