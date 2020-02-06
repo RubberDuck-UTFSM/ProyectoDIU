@@ -1,0 +1,8 @@
+Online Judge Tools - https://github.com/kmyk/online-judge-tools - Hace uso de jueces online para probar casos y códigos, implicaría usarlo para poder comunicarse con los principales jueces - Gratis
+
+JDoodle API - https://www.jdoodle.com/compiler-api/ - Permite compilar y ejecutar programas a través de una API, de este modo los estudiantes pueden correr sus programas desde el navegador, no obstante, los casos de prueba tendríamos que tenerlos nosotros - Costo mensual
+
+DMOJ: Modern Online Judge - https://github.com/DMOJ/online-judge - Un juez online de Código Abierto, algo así como SMOJ, los alumnos podrían trabajar sus códigos de manera online y ejecutarlos, nuevamente, los casos de prueba tendríamos que tenerlos nosotros - Gratis
+
+https://github.com/topics/onlinejudge - Muchos más jueces online
+
