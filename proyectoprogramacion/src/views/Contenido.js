@@ -198,8 +198,6 @@ export default class Contenido extends Component {
 						<div className="col-sm-9" >
 							<h1 className="sicky-list display-4">{this.props.numero}. {this.props.titulo}</h1>
 							{secciones}
-							<MarkdownPreview value="* Hola
-							* que"/>
 						</div>
 					</div>
 				</div>
