@@ -46,3 +46,60 @@
   	position: -webkit-sticky;
 	top: 27px;
 }
+
+.bs-callout {
+	padding: 20px;
+	margin: 20px 0;
+	border: 1px solid #eee;
+	border-left-width: 5px;
+	border-radius: .25rem;
+}
+.bs-callout h5 {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+.bs-callout p:last-child {margin-bottom: 0;}
+.bs-callout code {border-radius: 3px;}
+.bs-callout+.bs-callout {margin-top: -5px;}
+.bs-callout-default {border-left-color: #777;}
+.bs-callout-default h5 {color: #777;}
+.bs-callout-primary {border-left-color: #428bca;}
+.bs-callout-primary h5 {color: #428bca;}
+.bs-callout-success {border-left-color: #5cb85c;}
+.bs-callout-success h5 {color: #5cb85c;}
+.bs-callout-danger {border-left-color: #d9534f;}
+.bs-callout-danger h5 {color: #d9534f;}
+.bs-callout-warning {border-left-color: #f0ad4e;}
+.bs-callout-warning h5 {color: #f0ad4e;}
+.bs-callout-info {border-left-color: #5bc0de;}
+.bs-callout-info h5 {color: #5bc0de;}
+  
+.player-wrapper {
+position: relative;
+padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+}
+   
+.react-player {
+position: absolute;
+top: 0;
+left: 0;
+}
+@media only screen and (max-width: 1024px) {
+	.container-video{
+		width: auto !important;
+	}
+	.frase{
+		padding-left:35px !important;
+		padding-right:35px !important;
+	}
+}
+.container-video{
+	width: 700px;
+
+	margin-top: 25px;
+	margin-bottom:25px ;
+}
+.frase{
+	padding-left:65px;
+	padding-right:65px;
+}

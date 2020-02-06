@@ -61,6 +61,7 @@
 }
 .tarjetaContenido{
     margin: 15px ;
+    margin-top: 10px;
 }
 @media only screen and (max-width: 600px) {
     .tarjetaContenido{
