@@ -1,6 +1,5 @@
 import React, { Component } from 'react' 
 import './Contenido.css';
-import { MarkdownPreview } from "react-marked-markdown";
 import 'katex/dist/katex.min.css';
 //import { InlineMath, BlockMath } from 'react-katex';
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -8,7 +7,6 @@ import {agate as estiloCodigo} from 'react-syntax-highlighter/dist/esm/styles/hl
 import ReactPlayer from 'react-player'
 import imagen from './frog-solid.svg'
 import imagen2 from './imagen.jpeg'
-import { MarkdownInput } from 'react-marked-markdown/dist';
 //agate
 //androidstudio
 //atomOneDarkReasonable
@@ -31,7 +29,7 @@ class Codigo extends Component{
 class Alerta extends Component{
 	render(){
 		return(
-			<div className={"bs-callout bs-callout-"+this.props.color}>
+			<div className={"bs-callout shadow-sm bs-callout-"+this.props.color}>
 				<h5>{this.props.titulo}</h5>
 				<p>{this.props.contenido}</p>
 			</div>
