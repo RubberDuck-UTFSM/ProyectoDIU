@@ -90,7 +90,7 @@ export default class Estudiantes extends Component{
     render(){
         return(
             <div className="bodyEstudiantes">
-                <ul className="nav nav-pills nav-fill mb-3 bg-light" >
+                <ul className="nav nav-estudiantes nav-pills nav-fill mb-3 bg-light" >
                     <li className="nav-item niveles">
                         <a className={"nav-link rounded-0 text-white bg-warning "+this.props.basico} id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
                         <i className="fas fa-terminal icono"></i>Básico

@@ -19,11 +19,11 @@
     border: 0cm;
     
 }
-.nav-pills .nav-link:not(.active) {
+.nav-estudiantes .nav-link:not(.active) {
     background-color: white !important;
     color: rgba(0,0,0,.5) !important;
 }
-.nav-pills{
+.nav-estudiantes{
     margin: 0% !important;
     padding: 0% !important;
 }
@@ -48,7 +48,6 @@
 }
 .bodyEstudiantes{
     overflow-y:hidden;
-    
 }
 .nav-pills{
     margin: yada;
@@ -75,7 +74,7 @@
         padding: 0px !important;
     }
     .paral2 {
-        min-height: 1000px !important;
+        min-height: 1050px !important;
     } 
 }
 

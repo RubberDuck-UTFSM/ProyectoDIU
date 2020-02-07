@@ -40,6 +40,7 @@ class App extends Component {
     <div >
       <Router>
         <div className=" container-fluid " >
+          <a id="arriba"></a>
           <div className="d-none d-lg-block ">
             <div className="row redes-sociales bg-dark clearfix">
               <div className="container" >
@@ -49,22 +50,18 @@ class App extends Component {
                 <div className="text-light float-right contenido">
                 <i className="fab fa-facebook-square icono"></i> ProyectoProgramación
                 </div>
-              </div>
-           
+              </div>   
             </div>
           </div>
         
           <div className="row  bg-light" >
             <div className="container" style={{padding:"0px"}}>
               <div className="navbar-light bg-light ">
-           
-                <nav className="navbar navbar-expand-lg ">
-                  
+                <nav className="navbar navbar-expand-lg "> 
                   <a className="navbar-brand" href="/"><i className="fas fa-code icono"></i>Página<b>Programación</b></a>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                   </button>
-                
                   <div className="collapse navbar-collapse  " id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto " >
                       <li className="nav-item" >
@@ -73,14 +70,12 @@ class App extends Component {
                       <li className="nav-item">
                         <Link className="nav-link" to="/about">Sobre Nosotros</Link>
                       </li>
-
                       <li className="nav-item">
                         <Link onClick={this.handleChangeBasico} className="nav-link" to="/estudiantes"><i className="icono fas fa-robot"></i>Estudiantes</Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link" to="/material"><i className="icono fas fa-folder-open"></i>Material Docente</Link>
-                      </li>
-                      
+                      </li> 
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
                       <button className="btn btn-primary my-2 my-sm-0" type="submit"><i className="fas icono fa-user-astronaut"></i> Ingreso Docentes</button>
@@ -91,9 +86,7 @@ class App extends Component {
             </div>
           </div> 
         </div>
-  
-        <div  >
-          
+        <div >
           <Switch>
             <Route path="/about">
               <About/>
@@ -124,11 +117,9 @@ class App extends Component {
         </footer>
       </Router>
     </div>
-
   );
 }
 }
-
 export default App;
 
 function RedireccionarContenido() {
