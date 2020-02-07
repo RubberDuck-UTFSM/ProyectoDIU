@@ -25,7 +25,8 @@
     "react-syntax-highlighter": "^12.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "parcel ./public/index.html",
+    "start-react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4"
   }
 }

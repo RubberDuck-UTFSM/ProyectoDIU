@@ -12,7 +12,7 @@ function InformacionCurso(props){
                 </div>
             </div>
         </div>
-    )
+    ) 
 }
 
 class Contenido extends Component{

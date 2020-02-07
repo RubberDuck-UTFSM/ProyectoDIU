@@ -1,8 +1,11 @@
+var refractor = require('refractor');
+
 import React, { Component } from 'react' 
 import './Contenido.css';
 import 'katex/dist/katex.min.css';
 //import { InlineMath, BlockMath } from 'react-katex';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+//import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {agate as estiloCodigo} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import ReactPlayer from 'react-player'
 import imagen from './frog-solid.svg'
