@@ -68,7 +68,9 @@ export default class Home extends Component{
                             <a href="/estudiantes"><button type="button" className="btn btn-danger"><i className="fas fa-terminal icono"></i>A programar! </button></a>
                         </div>
                     </div>
-                    <hr className="container"></hr>                            
+                    <div className="container">
+                        <hr></hr>  
+                    </div>                          
                     <div  className="jumbotron bg-white" style={{margin:"0px",paddingTop:"10px",paddingBottom:"30px"}}>
                         <div className="container">
                             <h1  className="display-4" style={{fontSize:"3rem"}}>Herramientas Docentes</h1>

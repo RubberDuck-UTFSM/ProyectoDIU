@@ -8,6 +8,13 @@ fastify.register(require('fastify-static'), {
   root: DistPath,
 });
 
+fastify.get('/', (req, reply) => {
+	reply.sendFile('index.html');
+});
+fastify.get('/DamePDF', (req, reply) => {
+	reply.sendFile('presentacion.pdf');
+});
+
 // Fastify Initialization
 const start = async () => {
 	try {

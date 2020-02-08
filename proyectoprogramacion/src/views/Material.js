@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './Material.css';
 import ScrollToTop from "react-scroll-up";
-//<iframe src="file:///C:\Users\mauro\Documents\GitHub\ProyectoProgramacion\proyectoprogramacion\src\views\presentacion.pdf" width="100%" height="500px"></iframe>
-
+import 'react-checkbox-tree/lib/react-checkbox-tree.css';
+import CheckboxTree from 'react-checkbox-tree';
+import ReactPlayer from 'react-player'
+//target="_blank" rel="noopener noreferrer" Para abrir link de manera segura en nueva pestaña
 class Planificacion extends Component{
 	render(){
 		return(
@@ -229,55 +231,108 @@ class Planificacion extends Component{
 }
 
 class SeccionMaterial extends Component{
+	state = {
+		expanded: [],
+		presentacion:"",
+		showPresentacion:"d-none",
+		video:"",
+		showVideo:"d-none",
+	};
 	render(){
+		const nodes = [
+			{value: '1',
+			label: 'Sesión 1: Título Sesión 1',
+			showCheckbox:false,
+			children: [
+				{ icon:<i className="fas fa-file-powerpoint text-dark"></i> ,value: "presentacion1", 
+					label:<>Presentación Sesión 1 (<a href="#verpresentacion" onClick={() => this.setState({presentacion: "https://docs.google.com/presentation/d/e/2PACX-1vRbv-mC5vfe3HlNgt7VfRkxUaCHSNeIDppO2Gm-nNqahn0-19OLbUaNZcuIB5BbOFrM2_7gWjkf2WG7/embed?start=false&loop=false&delayms=3000",showPresentacion:"",showVideo:"d-none",video:""})}>Ver</a>)</>, showCheckbox:false,},
+				{ icon:<i className="far fa-file-code text-dark"></i>, value: 'ejercicio11', 
+					label:<a href="http://progra.usm.cl/apunte/ejercicios/1/saludo.html" target="_blank"  rel="noopener noreferrer">Ejercicio 1</a>, showCheckbox:false,},
+				{ icon:<i className="fas fa-film text-dark"></i>, value: 'video11', 
+					label:<>Video sobre algo (<a href="#vervideo" onClick={() => this.setState({presentacion: "", showPresentacion:"d-none",showVideo:"",video:"https://www.youtube.com/watch?v=6djggrlkHY8" })}>Ver</a>)</>, showCheckbox:false,}
+			]},
+			{value: '2',
+			label: 'Sesión 2: Título Sesión 2',
+			showCheckbox:false,
+			children: [
+				{ icon:<i className="fas fa-file-powerpoint text-dark"></i> ,value: "presentacion2", 
+					label:<>Presentación Sesión 2 (<a href="#verpresentacion" onClick={() => this.setState({presentacion:"https://docs.google.com/presentation/d/e/2PACX-1vQmd9ccIvLLrAKufpz6GcVE2cn1YlejwiAXh9Jz3yDw33zufAtiMrw4n6LnbeXOl9fLKtRG59yBXVB9/embed?start=false&loop=false&delayms=3000",showPresentacion:"",showVideo:"d-none",video:""})}>Ver</a>)</>, showCheckbox:false,},
+				{ value: 'archivo2', label:<a > Archivos </a>,showCheckbox:false, },
+			]},
+			{value: '3',
+			label: 'Sesión 3: Título Sesión 3',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo3', label:<a > Archivos </a>,showCheckbox:false, },
+			]},
+			{value: '4',
+			label: 'Sesión 4: Título Sesión 4',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo4', label:<a > Archivos </a>,showCheckbox:false, },
+			]},
+			{value: '5',
+			label: 'Sesión 5: Título Sesión 5',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo5', label:<a > Archivos </a>,showCheckbox:false, },
+			]},
+			{value: '6',
+			label: 'Sesión 6: Título Sesión 6',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo6', label:<a > Archivos </a>,showCheckbox:false, },			]},
+			{value: '7',
+			label: 'Sesión 7: Título Sesión 7',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo7', label:<a > Archivos </a>,showCheckbox:false, },
+			]},
+			{value: '8',
+			label: 'Sesión 8: Título Sesión 8',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo8', label:<a > Archivos </a>,showCheckbox:false, },
+			]},
+			{value: '9',
+			label: 'Sesión 9: Título Sesión 9',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo9', label:<a > Archivos </a>,showCheckbox:false, },
+			]},{value: '10',
+			label: 'Sesión 10: Título Sesión 10',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo10', label:<a > Archivos </a>,showCheckbox:false, },
+			]},
+			{value: '11',
+			label: 'Sesión 11: Título Sesión 11',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo11', label:<a > Archivos </a>,showCheckbox:false, },
+			]},
+			{value: '12',
+			label: 'Sesión 12: Título Sesión 12',
+			showCheckbox:false,
+			children: [
+				{ value: 'archivo12', label:<a > Archivos </a>,showCheckbox:false, },
+			]},
+		];
 		return(
 			<div>
 				<h1 className="sicky-list display-4">Material Digital</h1>
 				<hr></hr>
 				<p>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
-				<div className="accordion" id="accordionExample">
-					<div className="card">
-						<div className="card-header" id="headingOne">
-						<h5 className="mb-0">
-							<button className="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-							Collapsible Group Item #1
-							</button>
-						</h5>
-						</div>
-						<div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-						<div className="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						</div>
-						</div>
-					</div>
-					<div className="card">
-						<div className="card-header" id="headingTwo">
-						<h5 className="mb-0">
-							<button className="btn btn-link text-dark collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-							Collapsible Group Item #2
-							</button>
-						</h5>
-						</div>
-						<div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-						<div className="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						</div>
-						</div>
-					</div>
-					<div className="card">
-						<div className="card-header" id="headingThree">
-						<h5 className="mb-0">
-							<button className="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-							Collapsible Group Item #3
-							</button>
-						</h5>
-						</div>
-						<div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-						<div className="card-body">
-							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-						</div>
-						</div>
-					</div>
+				<CheckboxTree
+				iconsClass="fa5"
+                nodes={nodes}
+				expanded={this.state.expanded}
+                onExpand={expanded => this.setState({ expanded })}/>
+				<div style={{paddingTop:"30px"}} className="d-flex">
+					<iframe id="verpresentacion" className={this.state.showPresentacion} src={this.state.presentacion} frameBorder="0" width="800" height="479" allowFullScreen={true} mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+				</div>
+				<div className={'player-wrapper '+ this.state.showVideo} id="vervideo" style={{maxWidth:"800px"}}>
+					<ReactPlayer controls className='react-player' url={this.state.video} width='100%' height='100%'/>
 				</div>
 			</div>
 		)
@@ -317,21 +372,21 @@ export default class Material extends Component{
                     <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 						<div className="container">
 							<div className="row">
-								<div className="col-md-2 ">
+								<div className="col-lg-2 ">
 									<div className="nav flex-column nav-pills nav-material2 stiky-list" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 										<div className="link-material nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Planificación</div>
 										<div className="link-material nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Material</div>
-										<div className="link-material nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Consejos</div>
+										<div className="link-material nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Recomendaciones</div>
 										<div className="link-material nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Actividades de Recreación</div>
 									</div>
 								</div>
-								<div className="col-md-10" style={{paddingTop:"30px",paddingBottom:"30px"}}>
+								<div className="col-lg-10" style={{paddingTop:"30px",paddingBottom:"30px"}}>
 									<div className="tab-content" id="v-pills-tabContent">
 										<div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 											<Planificacion/>
 										</div>
 										<div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-											<SeccionMaterial/>
+											<SeccionMaterial s1="Nombre Sesión 1"/>
 											
 										</div>
 										<div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...2</div>
@@ -340,14 +395,15 @@ export default class Material extends Component{
 								</div>
 							</div>
 						</div>	
-                    </div>
-                    <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+					</div>
+					<div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-contact-tab">
                         2
                     </div>
                     <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         3
                     </div>
                 </div> 	
+			
         	</section>
         )
     }

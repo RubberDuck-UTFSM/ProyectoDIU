@@ -22,7 +22,7 @@
 	padding-top: 10px;
 	margin: 0em !important;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 991px) {
     .paral {
         min-height: 650px !important;
 	} 
@@ -66,4 +66,7 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-right:1px solid rgba(0,0,0,.1);
+}
+.rct-icon{
+	color:#212529 !important;
 }
