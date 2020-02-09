@@ -343,8 +343,8 @@ export default class Material extends Component{
     render(){
         return(
         	<section>
-				<div className="jumbotron paral paralbackground" >
-					<div className="overlay container-fluid">
+				<div className="jumbotron-fluid paral paralbackground" >
+					<div className="overlay ">
 						<div className="container">
 						<h1 className="display-3">Material<strong> Docente</strong></h1>
 						<p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus purus velit, sed suscipit neque maximus eget. Sed malesuada tempor tellus ut pretium. Etiam lorem ante, convallis in est eget, tempor molestie felis. Maecenas vitae risus vestibulum, rhoncus velit at, tincidunt diam. Suspendisse auctor eget sapien nec convallis. Aliquam erat volutpat.</p>

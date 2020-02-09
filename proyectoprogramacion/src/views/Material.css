@@ -3,7 +3,7 @@
 	min-height: 240px;
 	background-attachment: fixed;
 	background-size: cover;
-    background-position: 50% 50%;
+    
     margin: 0% !important;
     padding: 0%;
 }
@@ -24,13 +24,14 @@
 }
 @media only screen and (max-width: 991px) {
     .paral {
-        min-height: 650px !important;
+        min-height: 660px !important;
 	} 
 	.nav-material2{
 		border-right:transparent !important;
 		border-bottom: 1px solid rgba(0,0,0,.1);
 	}
 } 
+
 .jumbotron .paral { margin-bottom: 0; }
 
 .paralbackground {
