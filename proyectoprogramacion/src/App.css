@@ -21,4 +21,9 @@
 
 }
 
+@media only screen and (max-width: 329px) {
+	.correccionTitulo{
+		font-size: 1.1rem !important;
+	}
+}
 

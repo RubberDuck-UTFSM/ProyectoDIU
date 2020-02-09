@@ -39,6 +39,7 @@ class App extends Component {
   return (
     <React.Fragment>
       <Router>
+      <a id="arriba"></a>
         <div className=" container-fluid " >
           <div className="d-none d-lg-block ">
             <div className="row redes-sociales bg-dark clearfix">
@@ -57,7 +58,7 @@ class App extends Component {
             <div className="container" style={{padding:"0px"}}>
               <div className="navbar-light bg-light ">
                 <nav className="navbar navbar-expand-lg "> 
-                  <a className="navbar-brand" href="/"><i className="fas fa-code icono"></i>Página<b>Programación</b></a>
+                  <a className="navbar-brand correccionTitulo" href="/"><i className="fas fa-code icono"></i>Página<b>Programación</b></a>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                   </button>

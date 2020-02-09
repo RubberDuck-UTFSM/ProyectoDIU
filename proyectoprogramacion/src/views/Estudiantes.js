@@ -21,7 +21,7 @@ class Contenido extends Component{
             <div className="col-md-6" >
                 <div className={"card tarjetaContenido  border-"+this.props.color+" rounded mb-5"} >
                     <div className="row no-gutters align-items-center justify-content-center">
-                        <div className="col-md-4 d-none d-sm-block">
+                        <div className="col-md-4 d-none d-md-block">
                             <img src={this.props.image} 
                             className="card-img" alt=""></img>
                         </div>

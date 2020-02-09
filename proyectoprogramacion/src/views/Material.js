@@ -5,11 +5,12 @@ import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import CheckboxTree from 'react-checkbox-tree';
 import ReactPlayer from 'react-player'
 //target="_blank" rel="noopener noreferrer" Para abrir link de manera segura en nueva pestaña
+//lead
 class Planificacion extends Component{
 	render(){
 		return(
 			<div>
-				<h1 className="sicky-list display-4">Planificación Taller Básico</h1>
+				<h1 className="display-4">Planificación Taller Básico</h1>
 				<hr></hr>
 				<p>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
 				<table className="table table-bordered table-responsive">
@@ -246,7 +247,7 @@ class SeccionMaterial extends Component{
 			children: [
 				{ icon:<i className="fas fa-file-powerpoint text-dark"></i> ,value: "presentacion1", 
 					label:<>Presentación Sesión 1 (<a href="#verpresentacion" onClick={() => this.setState({presentacion: "https://docs.google.com/presentation/d/e/2PACX-1vRbv-mC5vfe3HlNgt7VfRkxUaCHSNeIDppO2Gm-nNqahn0-19OLbUaNZcuIB5BbOFrM2_7gWjkf2WG7/embed?start=false&loop=false&delayms=3000",showPresentacion:"",showVideo:"d-none",video:""})}>Ver</a>)</>, showCheckbox:false,},
-				{ icon:<i className="far fa-file-code text-dark"></i>, value: 'ejercicio11', 
+				{ icon:<i className="fas fa-external-link-alt text-dark"></i>, value: 'ejercicio11', 
 					label:<a href="http://progra.usm.cl/apunte/ejercicios/1/saludo.html" target="_blank"  rel="noopener noreferrer">Ejercicio 1</a>, showCheckbox:false,},
 				{ icon:<i className="fas fa-film text-dark"></i>, value: 'video11', 
 					label:<>Video sobre algo (<a href="#vervideo" onClick={() => this.setState({presentacion: "", showPresentacion:"d-none",showVideo:"",video:"https://www.youtube.com/watch?v=6djggrlkHY8" })}>Ver</a>)</>, showCheckbox:false,}
@@ -320,11 +321,11 @@ class SeccionMaterial extends Component{
 		];
 		return(
 			<div>
-				<h1 className="sicky-list display-4">Material Digital</h1>
+				<h1 className="display-4">Material Digital</h1>
 				<hr></hr>
 				<p>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
 				<CheckboxTree
-				iconsClass="fa5"
+				iconsClassName="fa5"
                 nodes={nodes}
 				expanded={this.state.expanded}
                 onExpand={expanded => this.setState({ expanded })}/>
@@ -339,10 +340,62 @@ class SeccionMaterial extends Component{
 	}
 }
 
+class Importante extends Component{
+	render(){
+		return(
+			<div className={"bs-callout shadow-sm bs-callout-warning "+this.props.color}>
+				<h5>{this.props.titulo}</h5>
+				<p>{this.props.contenido}</p>
+			</div>
+		)
+	}
+}
+
+class Recomendacion extends Component{
+	render(){
+		return(
+			<div style={{marginBottom:"35px"}}>
+			<hr></hr>
+			<h2 style={{marginTop:"25px",marginBottom:"15px"}}>{this.props.titulo}</h2>
+			<p>{this.props.contenido}</p>		
+			<Importante color="warning" titulo="Importante" contenido="Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis." />
+			</div>
+		)
+	}
+}
+
+class Recomendaciones extends Component{
+	render(){
+		return(
+			<div>
+				<h1 className="display-4 correccionCelular">Recomendaciones</h1>
+				<hr></hr>
+				<div className="row" style={{marginTop:"30px"}}>
+					<div className="col-lg-3 text-center d-none d-lg-block">
+						<i className="fas fa-7x fa-chalkboard-teacher"></i>
+					</div>
+					<div className="col-lg-9"> 
+						<p className="lead" style={{fontSize:"1.1rem"}}>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
+					</div>
+				</div>
+				<Recomendacion titulo="Recomendación 1" contenido="Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus."/>
+				<Recomendacion titulo="Recomendación 2" contenido="Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus."/>
+				<Recomendacion titulo="Recomendación 3" contenido="Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus."/>
+				<div className="d-none d-lg-block "></div>
+				<div className="d-none d-lg-block ">
+					<ScrollToTop showUnder={360} style={{bottom: "90px"}}>
+						<span style={{color:"rgba(0,0,0,.5)"}} ><i className="fas fa-chevron-up fa-2x"></i></span>
+					</ScrollToTop>
+				</div>
+			</div>
+		)
+	}
+}
+
 export default class Material extends Component{
     render(){
         return(
-        	<section>
+        	<section className="material">
 				<div className="jumbotron-fluid paral paralbackground" >
 					<div className="overlay ">
 						<div className="container">
@@ -389,8 +442,26 @@ export default class Material extends Component{
 											<SeccionMaterial s1="Nombre Sesión 1"/>
 											
 										</div>
-										<div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...2</div>
-										<div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...3</div>
+										<div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+											<Recomendaciones />
+										</div>
+										
+										<div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+										<div className="jumbotron shadow-sm bg-light">
+  <h1 className="display-4 ">Hello, world!</h1>
+  <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr className="my-4"></hr>
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+<div className="jumbotron shadow-sm">
+  <h1 className="display-4">Hello, world!</h1>
+  <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr className="my-4"></hr>
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+										</div>
 									</div>
 								</div>
 							</div>

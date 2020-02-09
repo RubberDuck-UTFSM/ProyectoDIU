@@ -1,15 +1,15 @@
 var refractor = require('refractor');
-
-import React, { Component } from 'react' 
+import React, { Component } from 'react';
 import './Contenido.css';
 import 'katex/dist/katex.min.css';
 //import { InlineMath, BlockMath } from 'react-katex';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 //import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {agate as estiloCodigo} from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import ReactPlayer from 'react-player'
-import imagen from './frog-solid.svg'
-import imagen2 from './imagen.jpeg'
+import ReactPlayer from 'react-player';
+import imagen from './frog-solid.svg';
+import imagen2 from './imagen.jpeg';
+import ScrollToTop from "react-scroll-up";
 //agate
 //androidstudio
 //atomOneDarkReasonable
@@ -201,7 +201,13 @@ export default class Contenido extends Component {
 							{secciones}
 						</div>
 					</div>
+					
 				</div>
+				<div className="d-none d-lg-block ">
+					<ScrollToTop showUnder={360} style={{bottom: "90px"}}>
+						<span style={{color:"rgba(0,0,0,.5)"}} ><i className="fas fa-chevron-up fa-2x"></i></span>
+					</ScrollToTop>
+				</div>				
         	</section>
 	    )
     };
