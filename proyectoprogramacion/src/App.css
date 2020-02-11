@@ -26,4 +26,7 @@
 		font-size: 1.1rem !important;
 	}
 }
+.btn-rounded{
+  border-radius: 10em !important;
+}
 

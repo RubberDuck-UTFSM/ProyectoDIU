@@ -29,7 +29,9 @@ class Contenido extends Component{
                             <div className="card-body">
                                 <h5 className="card-title">{this.props.numero}. {this.props.titulo} </h5>
                                 <p className="card-text">{this.props.descripcion}</p>
-                                <a href={"/contenido/"+this.props.nivel+"/"+this.props.numero+"/"+this.props.titulo+"/"+this.props.color}><button type="button" className={"text-white btn btn-"+this.props.color}>Acceder <i className="fas fa-chevron-right icono"></i></button></a>
+                                <a href={"/contenido/"+this.props.nivel+"/"+this.props.numero+"/"+this.props.titulo+"/"+this.props.color}>
+                                    <button type="button" className={"text-white btn-change btn btn-"+this.props.color}>Acceder <i className="fas fa-chevron-right icono"></i></button>
+                                </a>
                             </div>
                         </div>
                     </div>
