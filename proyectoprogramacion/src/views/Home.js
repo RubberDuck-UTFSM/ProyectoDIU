@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './Home.css';
 
-
 export default class Home extends Component{  
     render(){
         return(
@@ -52,7 +51,7 @@ export default class Home extends Component{
                     </a>
                 </div>
                 <div className="cuerpo-home">
-                    <div className="container" style={{marginBottom:"30px"}}>
+                    <div className="container" style={{marginBottom:"60px",marginTop:"50px"}}>
                         <div className="row informacion1">
                             <div className="d-none d-lg-block col-md-3 text-center imagen-robot  ">
                                 <i className="fas fa-robot fa-10x"></i>
@@ -64,37 +63,38 @@ export default class Home extends Component{
                                 </div>
                             </div>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center" style={{marginTop:"15px"}}>
                             <a href="/estudiantes"><button type="button" className="btn btn-danger"><i className="fas fa-terminal icono"></i>A programar! </button></a>
                         </div>
                     </div>
                     <div className="container">
                         <hr></hr>  
                     </div>                          
-                    <div  className="jumbotron bg-white" style={{margin:"0px",paddingTop:"10px",paddingBottom:"30px"}}>
+                    <div  className="jumbotron bg-white" style={{margin:"0px",paddingTop:"40px",paddingBottom:"70px"}}>
                         <div className="container">
                             <h1  className="display-4" style={{fontSize:"3rem"}}>Herramientas Docentes</h1>
                             <p  className="lead ">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                            <div className="row">
+                            <div className="row" style={{marginTop:"40px"}}>
                                 <div className="col-md-6 caja1" style={{paddingRight:"40px",paddingLeft:"40px"}}>
                                     <h2> <i className="fas fa-chalkboard-teacher" style={{paddingRight:"20px"}}></i>Hello, world!</h2>
                                     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                                    <div className="text-center">
+                                    <div className="text-center" style={{marginTop:"20px"}}>
                                         <button type="button" className="btn btn-info text-white">Saber más <i className="fas fa-chevron-right icono"></i> </button>
                                     </div>
                                 </div>
                                 <div className="col-md-6 caja2" style={{paddingRight:"40px",paddingLeft:"40px"}}>
                                     <h2><i className="icono fas fa-folder-open" style={{paddingRight:"20px"}}></i>Hello, world!</h2>
                                     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                                    <div className="text-center">
+                                    <div className="text-center" style={{marginTop:"20px"}}>
                                         <button type="button" className="btn btn-info">Ir al repositorio <i className="fas fa-chevron-right icono"></i></button>
                                     </div>
                                 </div>
                             </div>                           
                         </div>
                     </div>
+                   
                     <div className="container-fluid" style={{backgroundColor:"#e9ecef"}}>
-                        <div className="container text-center" style={{paddingTop:"1px",paddingBottom:"20px"}}>
+                        <div className="container text-center" style={{paddingTop:"30px",paddingBottom:"60px"}}>
                             <div className="container fotos mt-5">
                                 <div className="row">
                                     <div className="col-lg-4 informaciones caja1" align="center">
@@ -103,7 +103,7 @@ export default class Home extends Component{
                                         <p>
                                         Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
                                         </p>
-                                        <button type="button" className="btn btn-secondary">Saber más <i className="fas fa-chevron-right icono"></i></button>
+                                        <button type="button" className="btn btn-danger">Saber más <i className="fas fa-chevron-right icono"></i></button>
                                     </div>
                                     <div className="col-lg-4 informaciones caja1 caja2" align="center">
                                         <img alt="" className="rounded-circle imagen-circular" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEWIiIhYZW6zAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="Generic placeholder image" width="140" height="140"/>
@@ -111,7 +111,7 @@ export default class Home extends Component{
                                         <p>
                                         Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
                                         </p>
-                                        <button type="button" className="btn btn-secondary" >Saber más <i className="fas fa-chevron-right icono"></i></button>
+                                        <button type="button" className="btn btn-danger" >Saber más <i className="fas fa-chevron-right icono"></i></button>
                                     </div>
                                     <div className="col-lg-4 informaciones caja2" align="center">
                                         <img alt="" className="rounded-circle imagen-circular" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEWIiIhYZW6zAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="Generic placeholder image" width="140" height="140"/>
@@ -119,7 +119,7 @@ export default class Home extends Component{
                                         <p>
                                         Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.
                                         </p>
-                                        <button type="button" className="btn btn-secondary">Saber más <i className="fas fa-chevron-right icono"></i></button>
+                                        <button type="button" className="btn btn-danger">Saber más <i className="fas fa-chevron-right icono"></i></button>
                                     </div>
                                 </div>
                             </div>

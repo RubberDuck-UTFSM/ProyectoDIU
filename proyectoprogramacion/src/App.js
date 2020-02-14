@@ -111,9 +111,27 @@ class App extends Component {
           </Switch>
         </div>
         <footer id="sticky-footer cuerpo" className="py-4 bg-dark text-white-50">
-          <div className="container text-center ">
-            <small>Desarrollado por <i className="fas icono fa-fish"></i>  María Paz Morales & <i className="fas icono fa-frog"></i> Gonzalo Fernández</small>
+          <div className="container">
+            <div className="row informacion-footer">
+              <div className="col-lg-8">
+                <div style={{fontSize:"25px"}}><i className="fas fa-code icono"></i>Página<b>Programación</b></div>
+              </div>
+              <div className="col-lg-4 border-left border-secondary">
+                <h5 className="display-4">Contáctanos</h5>  
+                <p><i className="icono fas fa-phone-alt fa-xs"></i> +562 2303 7200</p>
+                <p><i className="fas fa-envelope icono fa-xs"></i> correo@email.com</p>
+                <div style={{paddingTop:"10px"}}>
+                  <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-facebook-square fa-lg" style={{color:"#4267b2"}}></a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-instagram fa-lg" style={{color:"#c13584"}}></a>
+                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-twitter fa-lg" style={{color:"rgba(29,161,242,1.00)"}}></a>
+                </div> 
+              </div>
+            </div>
+            
           </div>
+          <div className="container-fluid text-center" style={{marginTop:"30px"}}>
+              <small>Desarrollado por <i className="fas icono fa-fish"></i>  María Paz Morales & <i className="fas icono fa-frog"></i> Gonzalo Fernández</small>
+            </div>
         </footer>
       </Router>
     </React.Fragment>

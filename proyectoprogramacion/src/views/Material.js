@@ -392,6 +392,49 @@ class Recomendaciones extends Component{
 	}
 }
 
+class Actividad extends Component{
+	render(){
+		return(
+			<div style={{marginBottom:"30px"}}>
+				<div className="shadow-sm mb-3 rounded bg-light">
+					<div className="card-body" >
+						<h4 className="card-title"><i className="fas icono fa-gamepad"></i> {this.props.titulo}</h4>
+						<hr></hr>
+						<div >
+							<div className="row card-text">
+								<div className="col-lg-3 " align="center">
+								<img alt="" className="rounded-circle imagen-circular" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEWIiIhYZW6zAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="Generic placeholder image" width="140" height="140"/>
+								</div>
+								<div className="col"><p>{this.props.definicion}</p></div>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>	
+		)
+	}
+}
+
+class Actividades extends Component{
+	render(){
+		return(
+			<div>
+				<h1 className="display-4 correccionCelular">Actividades de Recreación</h1>
+				<hr></hr>
+				<p style={{marginBottom:"30px"}}>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
+				<Actividad titulo="Actividad 1" definicion="Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat."/>
+				<Actividad titulo="Actividad 2" definicion="Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat."/>
+				<Actividad titulo="Actividad 3" definicion="Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat."/>
+				<div className="d-none d-lg-block ">
+					<ScrollToTop showUnder={360} style={{bottom: "90px"}}>
+						<span style={{color:"rgba(0, 0, 0, 0.5)"}} ><i className="fas fa-chevron-up fa-2x"></i></span>
+					</ScrollToTop>
+				</div>
+			</div>
+		)
+	}
+}
+
 export default class Material extends Component{
     render(){
         return(
@@ -427,10 +470,10 @@ export default class Material extends Component{
 							<div className="row">
 								<div className="col-lg-2 ">
 									<div className="nav flex-column nav-pills nav-material2 stiky-list" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-										<div className="link-material nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Planificación</div>
-										<div className="link-material nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Material</div>
-										<div className="link-material nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Recomendaciones</div>
-										<div className="link-material nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Actividades de Recreación</div>
+										<a className="link-material nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Planificación</a>
+										<a className="link-material nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Material</a>
+										<a className="link-material nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Recomendaciones</a>
+										<a className="link-material nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Actividades de Recreación</a>
 									</div>
 								</div>
 								<div className="col-lg-10" style={{paddingTop:"30px",paddingBottom:"30px"}}>
@@ -447,20 +490,7 @@ export default class Material extends Component{
 										</div>
 										
 										<div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-										<div className="jumbotron shadow-sm bg-light">
-  <h1 className="display-4 ">Hello, world!</h1>
-  <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr className="my-4"></hr>
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
-<div className="jumbotron shadow-sm">
-  <h1 className="display-4">Hello, world!</h1>
-  <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr className="my-4"></hr>
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-</div>
+											<Actividades />
 										</div>
 									</div>
 								</div>

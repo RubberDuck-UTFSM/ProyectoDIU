@@ -30,3 +30,20 @@
   border-radius: 10em !important;
 }
 
+.informacion-footer p{
+  font-size: 14px !important;
+  margin: 0px !important;
+}
+
+.informacion-footer h5{
+  font-size: 23px;
+}
+
+.informacion-footer a{
+  text-decoration: none !important;
+  margin-right: 30px;
+}
+
+.informacion-footer .col-lg-4{
+  padding-left: 60px !important;
+}
