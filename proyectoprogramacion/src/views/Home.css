@@ -1,7 +1,7 @@
 
 .carousel-item {
     width: 100%;
-    max-height: 300px ;
+    max-height: 350px ;
 }
 
 
@@ -22,14 +22,11 @@
 .informaciones{
     padding-bottom: 20px;
 }
-.cuerpo-home{
-    margin-top: 30px;
-}
 
 .imagen-robot{
-    margin: auto;
-    
+    text-align: center;
 }
+
 @media only screen and (max-width: 600px) {
     .caja1{
 		border-bottom: 1px solid rgba(0,0,0,.1);
@@ -39,3 +36,49 @@
         padding-top: 30px;
     }
 } 
+
+.paralhome {
+    position: relative;
+    min-height: 581px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0% !important;
+    padding: 0% !important;
+    border-radius: 0% !important;
+} 
+
+.paralhome h1 {
+	font-size: 60px;
+}
+.paralhome .container {
+   padding-top:80px;
+   padding-right:400px;
+   padding-left:100px;
+}
+
+@media only screen and (max-width: 600px) {
+    .paralhome {
+        min-height: 450px !important;
+    } 
+    .paralhome .container {
+        padding-top:25px !important;
+        padding-right:0px !important; 
+        padding-left:0px !important;
+     }
+     .container-informaciones{
+        padding-top:5px !important; 
+        padding-bottom:30px !important;
+    }
+}
+@media only screen and (max-width: 991px) and (min-width: 601px) {
+    .paralhome .container {
+        padding-top:50px !important;
+        padding-right:20px !important; 
+        padding-left:20px !important;
+     }
+}
+
+.container-informaciones{
+    padding-top:30px;
+    padding-bottom:60px;
+}

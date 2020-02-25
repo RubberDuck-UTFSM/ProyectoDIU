@@ -116,7 +116,7 @@ class App extends Component {
               <div className="col-lg-8">
                 <div style={{fontSize:"25px"}}><i className="fas fa-code icono"></i>Página<b>Programación</b></div>
               </div>
-              <div className="col-lg-4 border-left border-secondary">
+              <div className="col-lg-4 columna-contacto">
                 <h5 className="display-4">Contáctanos</h5>  
                 <p><i className="icono fas fa-phone-alt fa-xs"></i> +562 2303 7200</p>
                 <p><i className="fas fa-envelope icono fa-xs"></i> correo@email.com</p>

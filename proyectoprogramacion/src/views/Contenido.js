@@ -208,7 +208,39 @@ export default class Contenido extends Component {
 					<ScrollToTop showUnder={360} style={{bottom: "90px"}}>
 						<span style={{color:"rgba(0,0,0,.5)"}} ><i className="fas fa-chevron-up fa-2x"></i></span>
 					</ScrollToTop>
-				</div>				
+				</div>	
+				<div className="jumbotron-fluid bg-light" style={{padding:"40px",marginTop:"60px"}}>
+                    <div className="container">
+                        <h3 className="display-4 achicar"><i className="fas icono fa-flip-horizontal fa-feather-alt"></i>Comentarios y Sugerencias </h3>
+                        <p> Tu opinión es muy importante para nosotros. A través de este formulario puedes realizar sugerencias o comentarios respecto a los contenidos y ejercicios de las diferentes secciones ¡todo es bienvenido!
+                            La información proporcionada no será compartida.
+                        </p>
+                        <hr className="my-4"></hr>
+                        <form>
+                        <div className="form-row">
+                            <div className="form-group col-md-4">
+                            <label >Nombre</label>
+                            <input type="text" className="form-control" id="inputNombre" placeholder="Severus Snape"></input>
+                            </div>
+                            <div className="form-group col-md-4">
+                            <label >Correo</label>
+                            <input type="email" className="form-control" id="inputCorreo" placeholder="severus.snape@email.com"></input>
+                            </div>
+                            <div className="form-group col-md-4">
+                            <label >Institución</label>
+                            <input type="text" className="form-control" id="inputInstitucion" placeholder="Hogwarts"></input>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <label >Comentario</label>
+                            <textarea className="form-control" id="inputComentario" rows="3" placeholder="Escribe aquí tus comentarios y sugerencias"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" style={{paddingRight:"30px"}} className={"btn text-white btn-dark"}><i className="fas icono fa-paper-plane"></i>Enviar</button>
+                        </div>
+                        </form>
+                    </div>  
+                </div>   			
         	</section>
 	    )
     };
