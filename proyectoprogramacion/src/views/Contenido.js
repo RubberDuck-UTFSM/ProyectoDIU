@@ -1,4 +1,4 @@
-
+var refractor = require('refractor');
 import React, { Component } from 'react';
 import './Contenido.css';
 import 'katex/dist/katex.min.css';
@@ -10,7 +10,7 @@ import ReactPlayer from 'react-player';
 import imagen from './frog-solid.svg';
 import imagen2 from './imagen.jpeg';
 import ScrollToTop from "react-scroll-up";
-var refractor = require('refractor');
+
 //agate
 //androidstudio
 //atomOneDarkReasonable

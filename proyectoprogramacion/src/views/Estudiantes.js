@@ -19,7 +19,7 @@ class Contenido extends Component{
     render(){
         return(
             <div className="col-md-6" >
-                <div className={"card tarjetaContenido  border-"+this.props.color+" rounded mb-5"} >
+                <div className={"card tarjetaContenido  shadow-sm rounded mb-5"} >
                     <div className="row no-gutters align-items-center justify-content-center">
                         <div className="col-md-4 d-none d-md-block">
                             <img src={this.props.image} 
@@ -129,7 +129,7 @@ export default class Estudiantes extends Component{
                 </div> 
                 <div className="jumbotron-fluid bg-light" style={{padding:"40px"}}>
                     <div className="container">
-                        <h3 className="display-4 achicar"><i className="fas icono fa-flip-horizontal fa-feather-alt"></i>Caja de comentarios </h3>
+                        <h3 className="display-4 achicar"><i className="fas icono fa-flip-horizontal fa-feather-alt"></i>Comentarios y Sugerencias </h3>
                         <p> Tu opinión es muy importante para nosotros. A través de este formulario puedes realizar sugerencias o comentarios respecto a los contenidos y ejercicios de las diferentes secciones ¡todo es bienvenido!
                             La información proporcionada no será compartida.
                         </p>
