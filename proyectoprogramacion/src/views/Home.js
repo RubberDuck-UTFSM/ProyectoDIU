@@ -8,7 +8,7 @@ export default class Home extends Component{
                  <div className="jumbotron paralhome" style={{backgroundImage:"url(https://cdn.pixabay.com/photo/2016/02/07/21/03/computer-1185626_960_720.jpg)"}}>
                     <div className="container-fluid">
                         <div className="container " >
-                            <h1 className="display-3"><strong>Aprende a <span className="text-light">programar</span> con un solo click</strong></h1>
+                            <h1 className="display-3">Aprende a <span className="text-light">programar</span> con un solo click</h1>
                             <div style={{marginTop:"20px"}}>
                                 <a href="/estudiantes"><button type="button" className="btn btn-lg btn-danger"><i className="fas fa-terminal icono"></i>A por ello! </button></a>
                             </div>
