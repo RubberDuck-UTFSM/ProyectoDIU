@@ -1,18 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import Navbar from './Layout/Navbar.js'
-import SideBar from './Layout/SideBar.js'
-import './Layout/bootstrap.css';
-import './App.css';
+import AppLayout from './Layout/AppLayout.js';
 
 function App() {
   return (
-    <React.Fragment>
-   		<Navbar></Navbar>
-   		<div className="container-fluid">
-			<SideBar></SideBar>
-   		</div>
-    </React.Fragment>
+	<AppLayout></AppLayout>
   );
 }
 

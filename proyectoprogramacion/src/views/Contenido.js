@@ -1,4 +1,3 @@
-var refractor = require('refractor');
 import React, { Component } from 'react';
 import './Contenido.css';
 import 'katex/dist/katex.min.css';
@@ -10,6 +9,9 @@ import ReactPlayer from 'react-player';
 import imagen from './frog-solid.svg';
 import imagen2 from './imagen.jpeg';
 import ScrollToTop from "react-scroll-up";
+import Compilador from '../components/Compilador.js'
+import Ide from '../components/Ide.js'
+var refractor = require('refractor');
 //agate
 //androidstudio
 //atomOneDarkReasonable
@@ -126,6 +128,9 @@ class Subseccion extends Component{
 				<Parrafo parrafo="Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus."/>
 				<Ecuacion contenido = "En esta línea va una bella ecuación que contiene un $x^2$"/> 
 				<Ecuacion contenido="$$\int_0^\infty x^2 dx$$"/>
+				<Ide url='https://www.jdoodle.com/embed/v0/1RUT' />
+				<Compilador lenguaje="c++" defaultCode={'#include <bits/stdc++.h>\nusing namepsace std;\nint main() {\n\tcout << "Ohayou Sekai!" << endl;\n\treturn 0;\n}'}>
+				</Compilador>
 				<Parrafo parrafo="Orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero."/>
 				<Codigo lenguaje="java" codigo={'public class MyClass {\n  public static void main(String[] args) {\n    for (int i = 0; i < 10; i++) {\n      if (i == 4) {\n        continue;\n      }\n      System.out.println(i);\n    }  \n  }\n}'}/>			
 				<Alerta color={this.props.color} titulo="Importante" contenido="En esta sección va algo muy importante que explica algún error común o algo por el estilo" />
