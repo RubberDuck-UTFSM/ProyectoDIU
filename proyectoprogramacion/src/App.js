@@ -94,7 +94,7 @@ class App extends Component {
             <Route path="/material">
               <Material/>
             </Route>
-            <Route path="/contenido/:nivel/:numero/:titulo/:color" children={<RedireccionarContenido/>}>
+            <Route path="/contenido/:id" children={<RedireccionarContenido/>}>
             </Route>
             <Route path="/estudiantes/Intermedio">
               <Estudiantes basico="" intermedio="show active" avanzado=""/>
@@ -127,7 +127,7 @@ class App extends Component {
                 </div> 
               </div>
             </div>
-            
+
           </div>
           <div className="container-fluid text-center" style={{marginTop:"30px"}}>
               <small>Desarrollado por <i className="fas icono fa-fish"></i>  María Paz Morales & <i className="fas icono fa-frog"></i> Gonzalo Fernández</small>
@@ -141,9 +141,9 @@ class App extends Component {
 export default App;
 
 function RedireccionarContenido() {
-  let { nivel,numero,titulo,color} = useParams();
+  let {id} = useParams();
   return (
-    <Contenido titulo={titulo} numero={numero} color={color} nivel={nivel}/>
+    <Contenido id={id}/>
   );
 }
 

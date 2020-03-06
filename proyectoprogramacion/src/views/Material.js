@@ -3,7 +3,8 @@ import './Material.css';
 import ScrollToTop from "react-scroll-up";
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import CheckboxTree from 'react-checkbox-tree';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+import fondo from './fondomaterial.jpg';
 //target="_blank" rel="noopener noreferrer" Para abrir link de manera segura en nueva pestaña
 //lead
 class Planificacion extends Component{
@@ -231,6 +232,19 @@ class Planificacion extends Component{
 	}
 }
 
+const dataDigital = {
+	descripcion: "Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.",
+	lista_material: [
+		[
+			{
+				titulo_subseccion: "Título Sección 1",
+				numero: 1,
+			} ,
+		],
+
+	]
+};
+
 class SeccionMaterial extends Component{
 	state = {
 		expanded: [],
@@ -323,7 +337,7 @@ class SeccionMaterial extends Component{
 			<div>
 				<h1 className="display-4">Material Digital</h1>
 				<hr></hr>
-				<p>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
+				<p>dataDigital.descripcion</p>
 				<CheckboxTree
 				iconsClassName="fa5"
                 nodes={nodes}
@@ -435,15 +449,21 @@ class Actividades extends Component{
 	}
 }
 
+const dataMaterial = {
+	descripcion:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus purus velit, sed suscipit neque maximus eget. Sed malesuada tempor tellus ut pretium. Etiam lorem ante, convallis in est eget, tempor molestie felis. Maecenas vitae risus vestibulum, rhoncus velit at, tincidunt diam. Suspendisse auctor eget sapien nec convallis. Aliquam erat volutpat.",
+	url_imagen:"./fondomaterial.jpg", 
+};
+
+
 export default class Material extends Component{
     render(){
         return(
         	<section className="material">
-				<div className="jumbotron-fluid paral paralbackground" >
+				<div className="jumbotron-fluid paral " style={{backgroundImage:'url('+fondo+')'}} >
 					<div className="overlay ">
 						<div className="container">
 						<h1 className="display-3">Material<strong> Docente</strong></h1>
-						<p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus purus velit, sed suscipit neque maximus eget. Sed malesuada tempor tellus ut pretium. Etiam lorem ante, convallis in est eget, tempor molestie felis. Maecenas vitae risus vestibulum, rhoncus velit at, tincidunt diam. Suspendisse auctor eget sapien nec convallis. Aliquam erat volutpat.</p>
+						<p className="lead">{dataMaterial.descripcion}</p>
 						</div>
 					</div>
 				</div>
