@@ -5,6 +5,7 @@ import About from './views/About';
 import Contenido from './views/Contenido';
 import Material from './views/Material';
 import Estudiantes from './views/Estudiantes';
+import Inscripcion from './views/Inscripcion';
 import {
   BrowserRouter as Router,
   Switch,
@@ -71,14 +72,17 @@ class App extends Component {
                         <Link className="nav-link" to="/about">Sobre Nosotros</Link>
                       </li>
                       <li className="nav-item">
-                        <Link onClick={this.handleChangeBasico} className="nav-link" to="/estudiantes"><i className="icono fas fa-robot"></i>Estudiantes</Link>
+                        <Link onClick={this.handleChangeBasico} className="nav-link" to="/estudiantes"><i className="icono fas fa-pen-alt"></i>Estudiantes</Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link" to="/material"><i className="icono fas fa-folder-open"></i>Material Docente</Link>
                       </li> 
                     </ul>
+                    <form className="form-inline my-2 my-lg-0" style={{marginRight:"14px"}}>
+                      <Link to="/inscripcion"><button className="btn btn-primary my-2 my-sm-0 btn-rounded" type="submit"><i className="fas icono fa-robot"></i> Inscripción Talleres</button></Link>
+                    </form>
                     <form className="form-inline my-2 my-lg-0">
-                      <button className="btn btn-primary my-2 my-sm-0 btn-rounded" type="submit"><i className="fas icono fa-user-astronaut"></i> Ingreso Docentes</button>
+                      <button className="btn btn-secondary my-2 my-sm-0 btn-rounded" type="submit"><i className="fas icono fa-user-astronaut"></i> Ingreso Docentes</button>
                     </form>
                   </div>
                 </nav>
@@ -104,6 +108,9 @@ class App extends Component {
             </Route>
             <Route path="/estudiantes">
               <Estudiantes basico={this.state.basico} intermedio={this.state.intermedio} avanzado={this.state.avanzado}/>
+            </Route>
+            <Route path="/inscripcion">
+              <Inscripcion />
             </Route>
             <Route path="/">
               <Home/>
