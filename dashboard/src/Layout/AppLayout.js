@@ -19,6 +19,8 @@ import {
 import "antd/dist/antd.css";
 import "./applayout.css";
 
+import SectionList from "../Components/SectionList.js";
+
 const { Header, Sider, Content } = Layout;
 
 class AppLayout extends React.Component {
@@ -100,29 +102,28 @@ class AppLayout extends React.Component {
               }}
             >
               <Switch>
-                <Route path="/">
-                  Ruta 0
-                </Route>
                 <Route path="/material/alumnos/basico">
-                  Ruta 1
+                  <SectionList />
                 </Route>
                 <Route path="/material/alumnos/intermedio">
-                  Ruta 2
+                  <SectionList />
                 </Route>
                 <Route path="/material/alumnos/avanzado">
-                  Ruta 3
+                  <SectionList />
                 </Route>
                 
                 <Route path="/material/docentes/basico">
-                  Ruta 4
+                  <SectionList />
                 </Route>
                 <Route path="/material/docentes/intermedio">
-                  Ruta 5
+                  <SectionList />
                 </Route>
                 <Route path="/material/docentes/avanzado">
-                  Ruta 6
+                  <SectionList />
                 </Route>
-                
+                <Route path="/">
+                  Ruta 0
+                </Route>
               </Switch>
             </Content>
           </Layout>
