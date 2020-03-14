@@ -3,9 +3,11 @@ import './Material.css';
 import ScrollToTop from "react-scroll-up";
 import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import CheckboxTree from 'react-checkbox-tree';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+import fondo from './fondomaterial.jpg';
 //target="_blank" rel="noopener noreferrer" Para abrir link de manera segura en nueva pestaña
 //lead
+
 class Planificacion extends Component{
 	render(){
 		return(
@@ -231,6 +233,59 @@ class Planificacion extends Component{
 	}
 }
 
+const dataDigital = {
+	descripcion: "Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.",
+	lista_material: [
+		[
+			{
+				titulo_subseccion: "Título Sección 1",
+				numero: 1,
+			} ,
+			{
+				tipo: "presentacion",
+				titulo: "Presentación Sesión 1",
+				url_presentacion: "https://docs.google.com/presentation/d/e/2PACX-1vRbv-mC5vfe3HlNgt7VfRkxUaCHSNeIDppO2Gm-nNqahn0-19OLbUaNZcuIB5BbOFrM2_7gWjkf2WG7/embed?start=false&loop=false&delayms=3000"
+			},
+			{
+				tipo: "ejercicio",
+				titulo: "Ejercicio 1",
+				url_ejercicio: "http://progra.usm.cl/apunte/ejercicios/1/saludo.html"
+			},
+			{
+				tipo: "ejercicio",
+				titulo: "Ejercicio 2",
+				url_ejercicio: "https://stackoverflow.com/questions/31712808/how-to-force-javascript-to-deep-copy-a-string"
+			},
+			{
+				tipo: "video",
+				titulo: "Video sobre algo",
+				url_video: "https://www.youtube.com/watch?v=6djggrlkHY8"
+			}
+		],
+		[
+			{
+				titulo_subseccion: "Título Sección 2",
+				numero: 2
+			},
+			{
+				tipo: "presentacion",
+				titulo: "Presentación Sesión 2",
+				url_presentacion:"https://docs.google.com/presentation/d/e/2PACX-1vQmd9ccIvLLrAKufpz6GcVE2cn1YlejwiAXh9Jz3yDw33zufAtiMrw4n6LnbeXOl9fLKtRG59yBXVB9/embed?start=false&loop=false&delayms=3000"
+			},
+			{
+				tipo: "archivo",
+				titulo: "Archivo de algo",
+				url_archivo: "http://progra.usm.cl/apunte/ejercicios/1/saludo.html"
+			},
+			{
+				tipo: "sitio",
+				titulo: "Un sitio de interés",
+				url_sitio: "https://dog.ceo/dog-api/"
+			},
+		],
+	]
+};
+
 class SeccionMaterial extends Component{
 	state = {
 		expanded: [],
@@ -240,7 +295,41 @@ class SeccionMaterial extends Component{
 		showVideo:"d-none",
 	};
 	render(){
-		const nodes = [
+		var nodes = [];
+		var hijos = [];
+		var i, j, url;
+		for(i = 0; i < dataDigital.lista_material.length; i++){
+			for(j = 1; j < dataDigital.lista_material[i].length;j++){
+				if(dataDigital.lista_material[i][j].tipo == "presentacion"){
+					url = dataDigital.lista_material[i][j].url_presentacion.slice(0);
+					hijos.push({ icon:<i className="fas fa-file-powerpoint text-dark"></i> ,value: i.toString()+j.toString(), 
+					label:<>{dataDigital.lista_material[i][j].titulo} (<a href="#verpresentacion" onClick={() => this.setState({presentacion: url.substring() ,showPresentacion:"",showVideo:"d-none",video:""})}>Ver</a>)</>, showCheckbox:false,});
+				}
+				else if(dataDigital.lista_material[i][j].tipo == "video"){
+					url = dataDigital.lista_material[i][j].url_video;
+					hijos.push({ icon:<i className="fas fa-film text-dark"></i>, value: i.toString()+j.toString(), 
+					label:<>{dataDigital.lista_material[i][j].titulo} (<a href="#vervideo" onClick={() => this.setState({presentacion: "", showPresentacion:"d-none",showVideo:"",video:url})}>Ver</a>)</>, showCheckbox:false,});
+				}
+				else if(dataDigital.lista_material[i][j].tipo == "ejercicio"){
+					hijos.push({ icon:<i className="fas fa-code text-dark"></i>, value: i.toString()+j.toString(), 
+					label:<a href={dataDigital.lista_material[i][j].url_ejercicio} target="_blank"  rel="noopener noreferrer">{dataDigital.lista_material[i][j].titulo}</a>, showCheckbox:false,});
+				}
+				else if(dataDigital.lista_material[i][j].tipo == "archivo"){
+					hijos.push({value: i.toString()+j.toString(), 
+					label:<a href={dataDigital.lista_material[i][j].url_archivo} target="_blank"  rel="noopener noreferrer">{dataDigital.lista_material[i][j].titulo}</a>, showCheckbox:false,});
+				}
+				else if(dataDigital.lista_material[i][j].tipo == "sitio"){
+					hijos.push({ icon:<i className="fas fa-external-link-alt text-dark"></i>, value: i.toString()+j.toString(), 
+					label:<a href={dataDigital.lista_material[i][j].url_sitio} target="_blank"  rel="noopener noreferrer">{dataDigital.lista_material[i][j].titulo}</a>, showCheckbox:false,});
+				}
+			}
+			nodes.push({value: [i],
+						label: 'Sesión '+dataDigital.lista_material[i][0].numero+': '+dataDigital.lista_material[i][0].titulo_subseccion,
+						showCheckbox:false,
+						children: hijos.slice()});
+			hijos = [];
+		}
+		/*const nodes = [
 			{value: '1',
 			label: 'Sesión 1: Título Sesión 1',
 			showCheckbox:false,
@@ -254,7 +343,7 @@ class SeccionMaterial extends Component{
 			]},
 			{value: '2',
 			label: 'Sesión 2: Título Sesión 2',
-			showCheckbox:false,
+			showCheckbox:false,				
 			children: [
 				{ icon:<i className="fas fa-file-powerpoint text-dark"></i> ,value: "presentacion2", 
 					label:<>Presentación Sesión 2 (<a href="#verpresentacion" onClick={() => this.setState({presentacion:"https://docs.google.com/presentation/d/e/2PACX-1vQmd9ccIvLLrAKufpz6GcVE2cn1YlejwiAXh9Jz3yDw33zufAtiMrw4n6LnbeXOl9fLKtRG59yBXVB9/embed?start=false&loop=false&delayms=3000",showPresentacion:"",showVideo:"d-none",video:""})}>Ver</a>)</>, showCheckbox:false,},
@@ -282,7 +371,8 @@ class SeccionMaterial extends Component{
 			label: 'Sesión 6: Título Sesión 6',
 			showCheckbox:false,
 			children: [
-				{ value: 'archivo6', label:<a > Archivos </a>,showCheckbox:false, },			]},
+				{ value: 'archivo6', label:<a > Archivos </a>,showCheckbox:false, },			
+			]},
 			{value: '7',
 			label: 'Sesión 7: Título Sesión 7',
 			showCheckbox:false,
@@ -318,12 +408,12 @@ class SeccionMaterial extends Component{
 			children: [
 				{ value: 'archivo12', label:<a > Archivos </a>,showCheckbox:false, },
 			]},
-		];
+		];*/	
 		return(
 			<div>
 				<h1 className="display-4">Material Digital</h1>
 				<hr></hr>
-				<p>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
+				<p>{dataDigital.descripcion}</p>
 				<CheckboxTree
 				iconsClassName="fa5"
                 nodes={nodes}
@@ -343,7 +433,7 @@ class SeccionMaterial extends Component{
 class Importante extends Component{
 	render(){
 		return(
-			<div className={"bs-callout shadow-sm bs-callout-warning "+this.props.color}>
+			<div className={"bs-callout shadow-sm sinmargen bs-callout-warning "+this.props.color}>
 				<h5>{this.props.titulo}</h5>
 				<p>{this.props.contenido}</p>
 			</div>
@@ -358,29 +448,64 @@ class Recomendacion extends Component{
 			<hr></hr>
 			<h2 style={{marginTop:"25px",marginBottom:"15px"}}>{this.props.titulo}</h2>
 			<p>{this.props.contenido}</p>		
-			<Importante color="warning" titulo="Importante" contenido="Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis." />
 			</div>
 		)
 	}
 }
 
+const dataRecomendaciones = {
+	descripcion : "Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.",
+	imagen: "https://sloanreview.mit.edu/wp-content/uploads/2018/10/MAG-Ransbotham-Ratings-Recommendations-1200.jpg",
+	color: "warning",
+	lista_recomendaciones: [
+		{
+			titulo: "Recomendación 1",
+			descripcion: "Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus.",
+			observacion: "Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis."
+		} ,
+		{
+			titulo: "Recomendación 2",
+			descripcion: "Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus.",
+			observacion: "Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis."
+		} ,
+		{
+			titulo: "Recomendación 3",
+			descripcion: "Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus.",
+			observacion: null
+		}
+	]
+};
+
 class Recomendaciones extends Component{
 	render(){
+		const recomendaciones = dataRecomendaciones.lista_recomendaciones.map((x,index) => {
+			if(x.observacion == null){
+				return(
+					<Recomendacion key={index} titulo={x.titulo} contenido={x.descripcion}/>
+				);
+			}
+			else{
+				return(
+					<div key={index}>
+						<Recomendacion  titulo={x.titulo} contenido={x.descripcion}/>
+						<Importante color={dataRecomendaciones.color} titulo="Importante" contenido={x.observacion}/>
+					</div>
+				);
+			}
+        });
 		return(
 			<div>
 				<h1 className="display-4 correccionCelular">Recomendaciones</h1>
 				<hr></hr>
 				<div className="row" style={{marginTop:"30px"}}>
 					<div className="col-lg-3 text-center d-none d-lg-block">
-						<i className="fas fa-7x fa-chalkboard-teacher"></i>
+						<img width="140" height="140" alt="" className="rounded-circle imagen-circular" src={dataRecomendaciones.imagen}></img>
 					</div>
 					<div className="col-lg-9"> 
-						<p className="lead" style={{fontSize:"1.1rem"}}>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
+						<p className="lead" style={{fontSize:"1.1rem"}}>{dataRecomendaciones.descripcion}</p>
 					</div>
 				</div>
-				<Recomendacion titulo="Recomendación 1" contenido="Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus."/>
-				<Recomendacion titulo="Recomendación 2" contenido="Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus."/>
-				<Recomendacion titulo="Recomendación 3" contenido="Quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Ut tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit at lacus blandit, commodo iaculis justo viverra. Etiam vitae est arcu. Mauris vel congue dolor. Aliquam eget mi mi. Fusce quam tortor, commodo ac dui quis, bibendum viverra erat. Maecenas mattis lectus enim, quis tincidunt dui molestie euismod. Curabitur et diam tristique, accumsan nunc eu, hendrerit tellus."/>
+				{recomendaciones}
 				<div className="d-none d-lg-block "></div>
 				<div className="d-none d-lg-block ">
 					<ScrollToTop showUnder={360} style={{bottom: "90px"}}>
@@ -403,7 +528,7 @@ class Actividad extends Component{
 						<div >
 							<div className="row card-text">
 								<div className="col-lg-3 " align="center">
-								<img alt="" className="rounded-circle imagen-circular" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEWIiIhYZW6zAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" alt="Generic placeholder image" width="140" height="140"/>
+								<img alt="" className="rounded-circle imagen-circular" src={this.props.imagen} alt="Generic placeholder image" width="140" height="140"/>
 								</div>
 								<div className="col"><p>{this.props.definicion}</p></div>
 							</div>	
@@ -415,16 +540,45 @@ class Actividad extends Component{
 	}
 }
 
+const dataActividades = {
+	descripcion: "Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.",
+	lista_actividades: [
+		{
+			titulo: "Actividad 1",
+			descripcion: "Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.								",
+			imagen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEWIiIhYZW6zAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
+		} ,
+		{
+			titulo: "Actividad 2",
+			descripcion: "Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.								",
+			imagen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEWIiIhYZW6zAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
+		} ,
+		{
+			titulo: "Actividad 3",
+			descripcion: "Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.								",
+			imagen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEWIiIhYZW6zAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
+		} ,
+		{
+			titulo: "Actividad 4",
+			descripcion: "Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.								",
+			imagen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEWIiIhYZW6zAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
+		} ,
+	]
+};
+
 class Actividades extends Component{
 	render(){
+		const actividades = dataActividades.lista_actividades.map((x,index) => {
+				return(
+					<Actividad key={index} titulo={x.titulo} definicion={x.descripcion} imagen={x.imagen}/>
+				);
+        });
 		return(
 			<div>
 				<h1 className="display-4 correccionCelular">Actividades de Recreación</h1>
 				<hr></hr>
-				<p style={{marginBottom:"30px"}}>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
-				<Actividad titulo="Actividad 1" definicion="Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat."/>
-				<Actividad titulo="Actividad 2" definicion="Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat."/>
-				<Actividad titulo="Actividad 3" definicion="Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat."/>
+				<p style={{marginBottom:"30px"}}>{dataActividades.descripcion}</p>
+				{actividades}
 				<div className="d-none d-lg-block ">
 					<ScrollToTop showUnder={360} style={{bottom: "90px"}}>
 						<span style={{color:"rgba(0, 0, 0, 0.5)"}} ><i className="fas fa-chevron-up fa-2x"></i></span>
@@ -435,15 +589,21 @@ class Actividades extends Component{
 	}
 }
 
+const dataMaterial = {
+	descripcion:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus purus velit, sed suscipit neque maximus eget. Sed malesuada tempor tellus ut pretium. Etiam lorem ante, convallis in est eget, tempor molestie felis. Maecenas vitae risus vestibulum, rhoncus velit at, tincidunt diam. Suspendisse auctor eget sapien nec convallis. Aliquam erat volutpat.",
+	url_imagen:"./fondomaterial.jpg", 
+};
+
+
 export default class Material extends Component{
     render(){
         return(
         	<section className="material">
-				<div className="jumbotron-fluid paral paralbackground" >
+				<div className="jumbotron-fluid paral " style={{backgroundImage:'url('+fondo+')'}} >
 					<div className="overlay ">
 						<div className="container">
 						<h1 className="display-3">Material<strong> Docente</strong></h1>
-						<p className="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus purus velit, sed suscipit neque maximus eget. Sed malesuada tempor tellus ut pretium. Etiam lorem ante, convallis in est eget, tempor molestie felis. Maecenas vitae risus vestibulum, rhoncus velit at, tincidunt diam. Suspendisse auctor eget sapien nec convallis. Aliquam erat volutpat.</p>
+						<p className="lead">{dataMaterial.descripcion}</p>
 						</div>
 					</div>
 				</div>

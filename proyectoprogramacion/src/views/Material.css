@@ -38,9 +38,7 @@
 } 
 .jumbotron .paral { margin-bottom: 0; }
 
-.paralbackground {
-	background-image: url("/img/fondomaterial.jpg");
-}
+
 
 .overlay {
 	position: absolute;
@@ -77,4 +75,7 @@
 }
 .material .display-4{
 	font-size: 3rem ;
+}
+.sinmargen{
+	margin-bottom: 40px !important;
 }

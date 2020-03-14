@@ -5,6 +5,7 @@ import About from './views/About';
 import Contenido from './views/Contenido';
 import Material from './views/Material';
 import Estudiantes from './views/Estudiantes';
+import Inscripcion from './views/Inscripcion';
 import {
   BrowserRouter as Router,
   Switch,
@@ -71,14 +72,17 @@ class App extends Component {
                         <Link className="nav-link" to="/about">Sobre Nosotros</Link>
                       </li>
                       <li className="nav-item">
-                        <Link onClick={this.handleChangeBasico} className="nav-link" to="/estudiantes"><i className="icono fas fa-robot"></i>Estudiantes</Link>
+                        <Link onClick={this.handleChangeBasico} className="nav-link" to="/estudiantes"><i className="icono fas fa-pen-alt"></i>Estudiantes</Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link" to="/material"><i className="icono fas fa-folder-open"></i>Material Docente</Link>
                       </li> 
                     </ul>
+                    <form className="form-inline my-2 my-lg-0" style={{marginRight:"14px"}}>
+                      <Link to="/inscripcion"><button className="btn btn-primary my-2 my-sm-0 btn-rounded" type="submit"><i className="fas icono fa-robot"></i> Inscripción Talleres</button></Link>
+                    </form>
                     <form className="form-inline my-2 my-lg-0">
-                      <button className="btn btn-primary my-2 my-sm-0 btn-rounded" type="submit"><i className="fas icono fa-user-astronaut"></i> Ingreso Docentes</button>
+                      <button className="btn btn-secondary my-2 my-sm-0 btn-rounded" type="submit"><i className="fas icono fa-user-astronaut"></i> Ingreso Docentes</button>
                     </form>
                   </div>
                 </nav>
@@ -94,7 +98,7 @@ class App extends Component {
             <Route path="/material">
               <Material/>
             </Route>
-            <Route path="/contenido/:nivel/:numero/:titulo/:color" children={<RedireccionarContenido/>}>
+            <Route path="/contenido/:id" children={<RedireccionarContenido/>}>
             </Route>
             <Route path="/estudiantes/Intermedio">
               <Estudiantes basico="" intermedio="show active" avanzado=""/>
@@ -104,6 +108,9 @@ class App extends Component {
             </Route>
             <Route path="/estudiantes">
               <Estudiantes basico={this.state.basico} intermedio={this.state.intermedio} avanzado={this.state.avanzado}/>
+            </Route>
+            <Route path="/inscripcion">
+              <Inscripcion />
             </Route>
             <Route path="/">
               <Home/>
@@ -116,7 +123,7 @@ class App extends Component {
               <div className="col-lg-8">
                 <div style={{fontSize:"25px"}}><i className="fas fa-code icono"></i>Página<b>Programación</b></div>
               </div>
-              <div className="col-lg-4 border-left border-secondary">
+              <div className="col-lg-4 columna-contacto">
                 <h5 className="display-4">Contáctanos</h5>  
                 <p><i className="icono fas fa-phone-alt fa-xs"></i> +562 2303 7200</p>
                 <p><i className="fas fa-envelope icono fa-xs"></i> correo@email.com</p>
@@ -127,7 +134,7 @@ class App extends Component {
                 </div> 
               </div>
             </div>
-            
+
           </div>
           <div className="container-fluid text-center" style={{marginTop:"30px"}}>
               <small>Desarrollado por <i className="fas icono fa-fish"></i>  María Paz Morales & <i className="fas icono fa-frog"></i> Gonzalo Fernández</small>
@@ -141,9 +148,9 @@ class App extends Component {
 export default App;
 
 function RedireccionarContenido() {
-  let { nivel,numero,titulo,color} = useParams();
+  let {id} = useParams();
   return (
-    <Contenido titulo={titulo} numero={numero} color={color} nivel={nivel}/>
+    <Contenido id={id}/>
   );
 }
 
