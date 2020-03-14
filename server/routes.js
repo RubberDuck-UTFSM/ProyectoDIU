@@ -1,16 +1,11 @@
+module.exports = function (fastify, opts, done) {
+
 const CursosController = require("./controllers/CursosController.js");
 
 const routes = [
   {
     method: "GET",
     url: "/cursos",
-    preValidation: fastify.auth([
-      (req, res, next) =>
-        fastify.authToken(req, res, next, {
-          public: global.public,
-          login: true
-        })
-    ]),
     handler: CursosController.getAllCursos
   },
   {
@@ -20,4 +15,7 @@ const routes = [
   }
 ];
 
-module.exports = routes;
+  routes.forEach(route => fastify.route(route));
+  done();
+}
+

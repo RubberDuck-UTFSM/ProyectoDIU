@@ -1,7 +1,6 @@
 
 const fastify = require("fastify")({ logger: true });
 const path = require('path');
-const routes = require('./routes.js');
 const mongoose = require('./database.js');
 
 const jwt = require('fastify-jwt');
@@ -16,21 +15,20 @@ fastify.get('/', (req, reply) => {
 	reply.sendFile('index.html');
 });
 
-// Registrar todas las rutas 
-routes.forEach(route => fastify.route(route));
+fastify.register(require('./routes.js', {})); 
 
 // Inicializar Fastify
 const start = async () => {
 	try {
 		// Iniciar servidor
-		await fastify.listen(3001, '0.0.0.0');
+		await fastify.listen(3002, '0.0.0.0');
 		fastify.log.info(
 			`server listening on ${fastify.server.address().port}`
 		);
 
-		fastify.register(jwt, {
+	/*	fastify.register(jwt, {
 			secret: nconf.get('secrets.jwt')
-		});
+		});*/
 		
 	} catch (err) {
 		fastify.log.error(err);
