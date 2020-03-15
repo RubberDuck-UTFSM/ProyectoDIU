@@ -5,7 +5,7 @@ const lista_sedes= {
     basico: [
         {
             sede: "Universidad 1",
-            id: 11
+            id: 11,
         },
         {
             sede: "Universidad 2",
@@ -47,6 +47,7 @@ const lista_sedes= {
 
 }
 
+
 export default class Inscripcion extends Component{
     constructor(props) {
         super(props)
@@ -60,6 +61,7 @@ export default class Inscripcion extends Component{
     }
     handleChange(val){
         this.setState({sede:val.target.value,value:val.target.value});
+        
     }
     render(){
         let visibility_mask = {
