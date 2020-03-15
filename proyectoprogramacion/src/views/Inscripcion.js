@@ -102,7 +102,7 @@ export default class Inscripcion extends Component{
                         <div className="col-md-2"></div>
                         <div className="form-group col-md-3">
                             <label htmlFor="nivel">Nivel</label>
-                            <select id="nivel" className="form-control" onChange={(val) => this.setState({nivel:val.target.value,value:"default",sede:null})}>
+                            <select id="nivel" className="form-control" onChange={(val) => this.setState({nivel:val.target.value,value:"default",sede:null,link:null})}>
                                 <option defaultValue value="basico">Básico</option>
                                 <option value="intermedio">Intermedio</option>
                                 <option value="avanzado">Avanzado</option>
