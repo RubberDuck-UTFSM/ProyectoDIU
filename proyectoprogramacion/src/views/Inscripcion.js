@@ -5,43 +5,43 @@ const lista_sedes= {
     basico: [
         {
             sede: "Universidad 1",
-            id: 11,
+            link: "https://docs.google.com/forms/d/1jrvd3F__Kz6r3Bg8xlroTHLnhJIiedAPYlECGbFwFxY/viewform?chromeless=1&edit_requested=true",
         },
         {
             sede: "Universidad 2",
-            id: 12
+            link: null
         },
         {
             sede: "Universidad 3",
-            id: 13
+            link: null
         }
     ],
     intermedio: [
         {
             sede: "Universidad 11",
-            id: 21
+            link: null
         },
         {
             sede: "Universidad 22",
-            id: 22
+            link: null
         },
         {
             sede: "Universidad 33",
-            id: 23
+            link: null
         }
     ],
     avanzado: [
         {
             sede: "Universidad 111",
-            id: 31
+            link: null
         },
         {
             sede: "Universidad 222",
-            id: 32
+            link: null
         },
         {
             sede: "Universidad 333",
-            id: 33
+            link: null
         }
     ]
 
@@ -61,15 +61,29 @@ export default class Inscripcion extends Component{
     }
     handleChange(val){
         this.setState({sede:val.target.value,value:val.target.value});
-        
+        if(val.target.value !== "default"){
+            for(var i = 0; i < lista_sedes[this.state.nivel].length; i++) {
+                if(lista_sedes[this.state.nivel][i].sede == val.target.value){
+                    this.setState({link:lista_sedes[this.state.nivel][i].link});
+                }
+            }
+        }
+        else{
+            this.setState({link:null});
+        }
     }
     render(){
         let visibility_mask = {
             display: 'block'
         }
-        if (this.state.link !== null) {
-            visibility_mask['display'] = "none"
+        let visibility_mask2 = {
+            display: 'none'
         }
+        if (this.state.link !== null) {
+            visibility_mask['display'] = "none";
+            visibility_mask2['display'] = "block"
+        }
+        
         return(
             <div className="container" style={{paddingTop:"40px",paddingBottom:"40px"}}>
                 <form>
@@ -104,7 +118,7 @@ export default class Inscripcion extends Component{
                                     )
                                 })}
                             </select>
-                            {console.log(this.state.sede)}
+                            {console.log(this.state.link)}
                         </div>
                         <div className="col-md-2"></div>
                     </div>
@@ -138,7 +152,8 @@ export default class Inscripcion extends Component{
                             <div className="form-group col-md-2">
                                 <label htmlFor="genero">Género</label>
                                 <select id="genero" className="form-control">
-                                    <option defaultValue>Femenino</option>
+                                    <option defaultValue value="default">Selecciona...</option>
+                                    <option>Femenino</option>
                                     <option>Masculino</option>
                                     <option>No informa</option>
                                 </select>
@@ -158,16 +173,35 @@ export default class Inscripcion extends Component{
                             <div className="form-group col-md-4">
                                 <label htmlFor="tipo">Tipo de Establecimiento Educacional</label>
                                 <select id="tipo" className="form-control">
-                                    <option defaultValue>Municipal</option>
+                                    <option defaultValue value="default">Selecciona...</option>
+                                    <option>Municipal</option>
                                     <option>Particular Subencionado</option>
                                     <option>Particular</option>
                                 </select>
                             </div>
                             <div className="col-md-2"></div>
                         </div>
-                        
                         <div align="center">
                             <button type="submit" style={{paddingRight:"30px",marginTop:"20px"}} className={"btn text-white btn-danger"}><i className="fas icono fa-paper-plane"></i>Enviar</button>
+                        </div>
+                    </div>
+                    <div style={visibility_mask2}>
+                        <div className="row">
+                            <div className="col-md-2"></div>
+                            <div className="col-md-8">
+                                <div className="card  bg-light border-white" style={{marginTop:"30px",marginBottom:"30px"}}>
+                                    <div className="card-body text-dark">
+                                        <p className="card-text">Esta sede tiene un formulario propio. Si deseas inscribirte, debes dirigirte al siguiente enlace: </p>
+                                        <div align="center">
+                                            <a href={this.state.link} target="_blank"  rel="noopener noreferrer">
+                                                <button type="button" className={"btn text-white btn-danger"}>Ir al formulario<i className="fas icono fa-chevron-right"></i></button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div className="col-md-2"></div>
                         </div>
                     </div>
                 </form>
