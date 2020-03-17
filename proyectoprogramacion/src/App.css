@@ -54,11 +54,19 @@
 
 .columna-contacto{
   border-color: #6c757d;
-  border-left: 1px solid ;
+  border-left: 1.5px solid ;
 }
 @media only screen and (max-width: 600px) {
   .columna-contacto{
     margin-top: 20px;
     border-left: 0px solid !important;
   }
+}
+
+.patrocinadores{
+  border-color: rgba(255,255,255,.5);
+  padding-right: 32px;
+  margin-right: 16px;
+  border-right: 1.5px solid ;
+  font-size: 23px !important;
 }

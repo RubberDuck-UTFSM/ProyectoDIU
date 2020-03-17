@@ -6,6 +6,11 @@ import Contenido from './views/Contenido';
 import Material from './views/Material';
 import Estudiantes from './views/Estudiantes';
 import Inscripcion from './views/Inscripcion';
+import logo1 from './views/Mineduc.png';
+import logo2 from './views/CentroInnovación.png'
+import logo3 from './views/PNLD.png'
+import logo4 from './views/logo-sccc.png'
+import logo5 from './views/logo_OCI.png'
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +21,7 @@ import {
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 
 class App extends Component {
   constructor(props) {
@@ -117,28 +123,42 @@ class App extends Component {
             </Route>
           </Switch>
         </div>
-        <footer id="sticky-footer cuerpo" className="py-4 bg-dark text-white-50">
-          <div className="container">
-            <div className="row informacion-footer">
-              <div className="col-lg-8">
-                <div style={{fontSize:"25px"}}><i className="fas fa-code icono"></i>Página<b>Programación</b></div>
+        <footer id="sticky-footer cuerpo" className="">
+        <div className="container-fluid bg-light text-secondary" >
+            <div className="row  py-4 justify-content-center ">
+              <div className="patrocinadores">
+                <h5 className="display-4 align-self-center" style={{fontSize:"23px", paddingTop:"19px",paddingLeft:"16px"}}>Patrocinadores </h5>  
               </div>
-              <div className="col-lg-4 columna-contacto">
-                <h5 className="display-4">Contáctanos</h5>  
-                <p><i className="icono fas fa-phone-alt fa-xs"></i> +562 2303 7200</p>
-                <p><i className="fas fa-envelope icono fa-xs"></i> correo@email.com</p>
-                <div style={{paddingTop:"10px"}}>
-                  <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-facebook-square fa-lg" style={{color:"#4267b2"}}></a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-instagram fa-lg" style={{color:"#c13584"}}></a>
-                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-twitter fa-lg" style={{color:"rgba(29,161,242,1.00)"}}></a>
-                </div> 
+              <img src={logo1} className="px-3 linea " alt="" height="70"></img>
+              <img src={logo2} className="px-3"  alt="" height="70"></img>
+              <img src={logo3} className="px-3"  alt="" height="70"></img>
+              <img src={logo4} className="px-3"  alt="" height="70"></img>
+              <img src={logo5} className="px-3"  alt="" height="55"></img>
+            </div>
+          </div>
+          <div className="container-fluid bg-dark text-white-50 py-4 ">
+            <div className="container">
+              <div className="row informacion-footer">
+                <div className="col-lg-8">
+                  <div style={{fontSize:"25px"}}><i className="fas fa-code icono"></i>Página<b>Programación</b></div>
+                </div>
+                <div className="col-lg-4 columna-contacto">
+                  <h5 className="display-4">Contáctanos</h5>  
+                  <p><i className="icono fas fa-phone-alt fa-xs"></i> +562 2303 7200</p>
+                  <p><i className="fas fa-envelope icono fa-xs"></i> correo@email.com</p>
+                  <div style={{paddingTop:"10px"}}>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-facebook-square fa-lg" style={{color:"#4267b2"}}></a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-instagram fa-lg" style={{color:"#c13584"}}></a>
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-twitter fa-lg" style={{color:"rgba(29,161,242,1.00)"}}></a>
+                  </div> 
+                </div>
               </div>
             </div>
-
-          </div>
-          <div className="container-fluid text-center" style={{marginTop:"30px"}}>
+            <div className="container-fluid text-center " style={{paddingTop:"20px"}}>
               <small>Desarrollado por <i className="fas icono fa-fish"></i>  María Paz Morales & <i className="fas icono fa-frog"></i> Gonzalo Fernández</small>
             </div>
+          </div>
+         
         </footer>
       </Router>
     </React.Fragment>
