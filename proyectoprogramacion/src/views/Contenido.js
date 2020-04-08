@@ -1,3 +1,5 @@
+import refractor from 'refractor';
+
 import React, { Component } from 'react';
 import './Contenido.css';
 import 'katex/dist/katex.min.css';

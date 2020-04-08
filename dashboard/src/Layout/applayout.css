@@ -1,3 +1,7 @@
+body {
+  background: #f0f2f5;
+}
+
 #components-layout-demo-custom-trigger .trigger {
   font-size: 18px;
   line-height: 64px;

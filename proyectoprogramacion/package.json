@@ -32,9 +32,9 @@
     "react-syntax-highlighter": "^12.2.1"
   },
   "scripts": {
-    "start": "parcel ./public/index.html",
+    "start": "parcel serve ./public/index.html -d ../dist/ --out-file front.html",
     "start-react": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "parcel build ./public/index.html -d ../dist/ --out-file front.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -1,25 +1,38 @@
-const mongoose = require("mongoose");
+const { Model } = require('objection');
 
-const cursoSchema = new mongoose.Schema({
-	id: {
-		type: String,
-		required: true, 
-		unique: true
-	},
-	titulo: {
-		type: String,
-		required: true
-	},
-	descripcion: {
-		type: String,
-		required: true
-	},
-	url_imagen: {
-		type: String,
-		required: true
-	}
-});
+class Curso extends Model {
+  static get tableName() {
+    return 'cursos';
+  }
 
-const Curso = mongoose.model("Curso", cursoSchema);
+  static get jsonSchema() {
+    return {
+      type: 'object',
+      required: ['nombre', 'color', 'descripcion', 'url_imagen'],
+      properties: {
+        id: { type: 'integer' },
+        nombre: { type: 'string' },
+        color: { type: 'string' },
+        descripcion: { type: 'string' },
+        url_imagen: { type: 'string' },
+      }
+    };
+  }
 
-module.exports = { Curso };
+  static get relationMappings() {
+    const Seccion = require('./Seccion');
+
+    return {
+    	secciones: {
+    	  relation: Model.HasManyRelation,
+    	  modelClass: Seccion,
+    	  join: {
+    	    from: 'cursos.id',
+    	    to: 'secciones.curso_id'
+    	  }
+    	},
+    };
+  }
+}
+
+module.exports = Curso;

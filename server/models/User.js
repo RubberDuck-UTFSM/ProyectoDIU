@@ -1,56 +1,52 @@
-const mongoose = require("mongoose");
+const { Model } = require('objection');
+const bcrypt = require('bcrypt-nodejs');
 
-const userSchema = new mongoose.Schema({
-	id: {
-		type: String,
-		required: true,
-		unique: true
-	},
-	name: {
-		type: String,
-		required: true
-	},
-	email: {
-		type: String,
-		required: true,
-		unique: true
-	},
-	password: {
-		type: String,
-		required: true
-	}
-});
+class User extends Model {
+  static get tableName() {
+    return 'users';
+  }
 
-const User = mongoose.model("User", userSchema);
+  static get jsonSchema() {
+    return {
+      type: 'object',
+      required: ['email', 'name', 'password'],
+      properties: {
+        id: { type: 'integer' },
+        name: { type: 'string', minLength: 1, maxLength: 300 },
+        email: { type: 'string', minLength: 1, maxLength: 300 },
+        password: { type: 'string', minLength: 1, maxLength: 300 },
+      }
+    };
+  }
 
-userSchema.pre("save", function save(next) {
-	const user = this;
-	if (!user.isModified("password")) {
-		return next();
-	}
-	bcrypt.genSalt(10, (err, salt) => {
-		if (err) {
-			return next(err);
-		}
-		bcrypt.hash(user.password, salt, null, (err, hash) => {
-			if (err) {
-				return next(err);
-			}
-			user.password = hash;
-			next();
-		});
-	});
-});
+  async $beforeInsert(queryContext) {
+    const user = this;
+    bcrypt.genSalt(10, (err, salt) => {
+      if (err) { return next(err); }
+      bcrypt.hash(user.password, salt, null, (err, hash) => {
+        if (err) { return next(err); }
+        user.password = hash;
+      });
+    });
+  }
 
-userSchema.methods.comparePassword = function comparePassword(candidatePassword) {
-	return new Promise((resolve, reject) => {
-		bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-			if (err) {
-				reject(err);
-			}
-			resolve(isMatch);
-		});
-	});
-};
+  async comparePassword (candidatePassword) {
+    return new Promise((resolve, reject) => {
+      bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+        if (err) { reject(err); }
+        resolve(isMatch);
+      });
+    });
+  };
 
-module.exports = { User };
+  static get relationMappings() {
+    const Event = require('./Event');
+
+    return {
+    };
+  }
+}
+
+module.exports = User;
+
+
