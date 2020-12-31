@@ -3,6 +3,9 @@
   padding-bottom: 10px;
 }
 
+.bg-custom{
+  background-color: #262635 !important;
+}
 
 .navbar{
   margin-top: 5px;
