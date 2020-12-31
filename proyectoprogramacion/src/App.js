@@ -149,9 +149,9 @@ class App extends Component {
                   <p>Universidad Técnica Federico Santa María</p>
                   <p><i className="fas fa-envelope icono fa-xs"></i>feria@inf.utfsm.cl</p>
                   <div style={{paddingTop:"10px"}}>
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-facebook-square fa-lg" style={{color:"#4267b2"}}></a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-instagram fa-lg" style={{color:"#c13584"}}></a>
-                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="fab icono fa-twitter fa-lg" style={{color:"rgba(29,161,242,1.00)"}}></a>
+                    <a href="https://www.facebook.com/feriadesoftwareutfsm/" target="_blank" rel="noopener noreferrer" className="fab icono fa-facebook-square fa-lg" style={{color:"#4267b2"}}></a>
+                    <a href="https://www.instagram.com/feriasoftware/" target="_blank" rel="noopener noreferrer" className="fab icono fa-instagram fa-lg" style={{color:"#c13584"}}></a>
+                    <a href="https://twitter.com/FeriaSoftware" target="_blank" rel="noopener noreferrer" className="fab icono fa-twitter fa-lg" style={{color:"rgba(29,161,242,1.00)"}}></a>
                   </div> 
                 </div>
                 <div className="col-lg-5"> 
