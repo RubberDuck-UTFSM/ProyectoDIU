@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react'
 import Home from './views/Home';
-import About from './views/About';
+import Informaciones from './views/Informaciones';
 import Material from './views/Material';
 import Estudiantes from './views/Estudiantes';
 import Votacion from './views/Votacion';
@@ -73,16 +73,13 @@ class App extends Component {
                           <Link onClick={this.handleChange1} to="/" className="nav-link">Hall Central</Link>
                         </li>
                         <li className={"nav-item" + this.state.s2}>
-                          <Link onClick={this.handleChange2} className="nav-link" to="/about"><i className="icono fas fa-robot"></i>Stands IA</Link>
-                        </li>
-                        <li className={"nav-item" + this.state.s3}>
-                          <Link onClick={this.handleChange3} className="nav-link" to="/estudiantes"><i className="icono fas fa-laptop-code"></i>Stands TD</Link>
+                          <Link onClick={this.handleChange2} className="nav-link" to="/estudiantes">Stands Proyectos</Link>
                         </li>
                         <li className={"nav-item" + this.state.s4}>
-                          <Link onClick={this.handleChange4} className="nav-link" to="/material"><i className="icono fas fa-user-tie"></i>Auspiciadores</Link>
+                          <Link onClick={this.handleChange4} className="nav-link" to="/material">Auspiciadores</Link>
                         </li>
                         <li className={"nav-item" + this.state.s5}>
-                          <Link onClick={this.handleChange5} className="nav-link" to="/material">Informaciones</Link>
+                          <Link onClick={this.handleChange5} className="nav-link" to="/informaciones">Informaciones</Link>
                         </li>
                       </ul>
                       <form className="form-inline my-2 my-lg-0" style={{ marginRight: "14px" }}>
@@ -96,8 +93,8 @@ class App extends Component {
           </div>
           <div >
             <Switch>
-              <Route path="/about">
-                <About/>
+              <Route path="/informaciones">
+                <Informaciones/>
               </Route>
               <Route path="/material">
                 <Material/>

@@ -1,0 +1,26 @@
+
+.paralinfo {
+    position: relative;
+    min-height: 540px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    margin: 0% !important;
+    padding: 0% !important;
+    border-radius: 0% !important;
+} 
+
+
+.special-card-informaciones{
+    border-radius: 25px !important;
+    background: rgba(255, 252, 252, 0.7) !important;
+    text-align: left !important;
+    height:440px;
+}
+
+.container-informaciones-feria{
+    padding-top:50px;
+    padding-bottom:60px;
+    padding-left: 40px;
+    padding-right: 40px;
+}

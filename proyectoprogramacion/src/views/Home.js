@@ -20,9 +20,9 @@ export default class Home extends Component {
                                             <div className="card special-card-left" style={{ width: "18rem" }}>
                                                 <div className="card-body">
                                                     <h5 className="display-1" style={{ fontSize: "2.0rem" }}>Informaciones</h5>
-                                                    <p className="card-text">¿Estás perdido? ¿no sabes a dónde ir? Ven a informarte sobre la Feria Virtual de Software de este año. </p>
+                                                    <p className="card-text">¿Estás perdido? ¿no sabes a dónde ir? Ven a informarte sobre la Feria Virtual de Software de este año. Podrás revisar el cronograma y conocer las distintas actividades. </p>
                                                     <div className="text-center">
-                                                        <a href="/about" className="btn btn-warning btn-yellow">Ir a informaciones<i className="fas fa-chevron-right icono"></i></a>
+                                                        <a href="/informaciones" className="btn btn-warning btn-yellow">Ir a informaciones<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -50,7 +50,7 @@ export default class Home extends Component {
                                                     <h5 className="display-1" style={{ fontSize: "2.7rem" }}>Stands de los Proyectos</h5>
                                                     <p className="card-text">Ven a conocer los distintos proyectos de la Feria de Software 2020. Podrás hablar en vivo con los estudiantes expositores, hacer preguntas y votar por tus proyectos favoritos.</p>
                                                     <div className="text-center">
-                                                        <a href="/about" className="btn btn-primary">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
+                                                        <a href="/proyectos" className="btn btn-primary">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -68,7 +68,7 @@ export default class Home extends Component {
                                                     <h5 className="display-1" style={{ fontSize: "2.0rem" }}>Stands de los auspiciadores</h5>
                                                     <p className="card-text">Ven a conocer e interactuar con las empresas auspiciadoras que hicieron prosible este evento virtual. </p>
                                                     <div className="text-center">
-                                                        <a href="/about" className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
+                                                        <a href="/auspiciadores" className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                 </div>
                                             </div>

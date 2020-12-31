@@ -87,15 +87,15 @@
     padding-right: 40px;
 }
 
-.special-card-right {
-    margin-top: 70px;
+.special-card-left {
+    margin-top: 100px;
     border-radius: 25px !important;
     background: rgba(255, 252, 252, 0.7) !important;
     text-align: left !important;
 }
 
-.special-card-left {
-    margin-top: 100px;
+.special-card-right {
+    margin-top: 60px;
     border-radius: 25px !important;
     background: rgba(255, 252, 252, 0.7) !important;
     text-align: left !important;
@@ -118,7 +118,7 @@
 .informaciones{
     width: 100px;
     margin-left: -70px !important;
-    margin-top: 280px;
+    margin-top: 320px;
 }
 
 .auspiciadores{
