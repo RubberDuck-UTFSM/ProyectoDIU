@@ -39,10 +39,10 @@
 
 .paralhome {
     position: relative;
-    min-height: 581px;
+    min-height: 700px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    
     margin: 0% !important;
     padding: 0% !important;
     border-radius: 0% !important;
@@ -81,6 +81,54 @@
 }
 
 .container-informaciones{
-    padding-top:30px;
+    padding-top:60px;
     padding-bottom:60px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
+
+.special-card-right {
+    margin-top: 70px;
+    border-radius: 25px !important;
+    background: rgba(255, 252, 252, 0.7) !important;
+    text-align: left !important;
+}
+
+.special-card-left {
+    margin-top: 100px;
+    border-radius: 25px !important;
+    background: rgba(255, 252, 252, 0.7) !important;
+    text-align: left !important;
+}
+
+.special-card-center{
+    margin-top: 50px;
+    border-radius: 25px !important;
+    background: rgba(255, 252, 252, 0.7) !important;
+    text-align: left !important;
+}
+
+.estudiante{
+    width: 250px;
+    margin-left: -120px !important;
+    margin-top: 100px;
+    margin-bottom: -330px !important;
+}
+
+.informaciones{
+    width: 100px;
+    margin-left: -70px !important;
+    margin-top: 280px;
+}
+
+.auspiciadores{
+    width: 140px;
+    margin-left: -150px !important;
+    margin-top: 330px;
+}
+
+.btn-orange{
+    background-color: rgb(227, 134, 53) !important;
+    border-color: rgb(227, 134, 53) !important;
+    color: white !important;
+  }

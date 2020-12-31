@@ -73,3 +73,9 @@
   border-right: 1.5px solid ;
   font-size: 23px !important;
 }
+
+.btn-yellow{
+  background-color: rgb(255, 176, 0) !important;
+  border-color: rgb(255, 176, 0) !important;
+  color: white !important;
+}
