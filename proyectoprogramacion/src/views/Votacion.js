@@ -119,7 +119,7 @@ export default class Inscripcion extends Component {
                             <p>En este formulario podrás votar por tus proyectos favoritos de las dos categorías. Te recomendamos visitar todos los stands de los proyectos antes de realizar tu votación.</p>
                             <hr></hr>
                             <h5>Información Personal</h5>
-                            <p>Tu inofrmación personal servirá para verificar que cada persona vote una sola vez. El voto será completamente anónimo y tu información sólo se utilizará para validar el voto.</p>
+                            <p>Tu información personal servirá para verificar que cada persona vote una sola vez. El voto será completamente anónimo y tu información sólo se utilizará para validar el voto.</p>
                             <div className="form-row">
                                 <div className="form-group col-md-3">
                                     <label htmlFor="nombre">Nombres</label>
