@@ -4,7 +4,7 @@ import Home from './views/Home';
 import About from './views/About';
 import Material from './views/Material';
 import Estudiantes from './views/Estudiantes';
-import Inscripcion from './views/Inscripcion';
+import Votacion from './views/Votacion';
 import logo1 from './views/images/logo_usm.png';
 import logo2 from './views/images/logo_scotiabank.png'
 import logo3 from './views/images/logo_ripley.png'
@@ -86,7 +86,7 @@ class App extends Component {
                         </li>
                       </ul>
                       <form className="form-inline my-2 my-lg-0" style={{ marginRight: "14px" }}>
-                        <Link onClick={this.handleChangeNone} to="/inscripcion"><button className="btn btn-warning btn-yellow my-2 my-sm-0 btn-rounded" type="submit" style={{ color: "white" }}><i className="fas icono fa-award"></i> Vota por tu favorito</button></Link>
+                        <Link onClick={this.handleChangeNone} to="/votacion"><button className="btn btn-warning btn-yellow my-2 my-sm-0 btn-rounded" type="submit" style={{ color: "white" }}><i className="fas icono fa-award"></i> Vota por tus favoritos</button></Link>
                       </form>
                     </div>
                   </nav>
@@ -113,8 +113,8 @@ class App extends Component {
               <Route path="/estudiantes">
                 <Estudiantes basico="show active" intermedio="" avanzado="" />
               </Route>
-              <Route path="/inscripcion">
-                <Inscripcion />
+              <Route path="/votacion">
+                <Votacion />
               </Route>
               <Route path="/">
                 <Home />

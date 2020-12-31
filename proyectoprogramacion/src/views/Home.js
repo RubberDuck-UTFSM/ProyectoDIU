@@ -20,7 +20,7 @@ export default class Home extends Component {
                                             <div className="card special-card-left" style={{ width: "18rem" }}>
                                                 <div className="card-body">
                                                     <h5 className="display-1" style={{ fontSize: "2.0rem" }}>Informaciones</h5>
-                                                    <p className="card-text">¿Estás perdido? ¿no sabes a dónde ir? Ven a informarte sobre la Feria Visrtual de Software de este año. </p>
+                                                    <p className="card-text">¿Estás perdido? ¿no sabes a dónde ir? Ven a informarte sobre la Feria Virtual de Software de este año. </p>
                                                     <div className="text-center">
                                                         <a href="/about" className="btn btn-warning btn-yellow">Ir a informaciones<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
