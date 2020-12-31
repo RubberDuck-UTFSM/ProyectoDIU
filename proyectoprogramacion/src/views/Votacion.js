@@ -1,80 +1,10 @@
 import React, { Component } from 'react'
 import './Votacion.css';
 
-/*
-const lista_sedes= {
-    basico: [
-        {
-            sede: "Universidad 1",
-            link: "https://docs.google.com/forms/d/1jrvd3F__Kz6r3Bg8xlroTHLnhJIiedAPYlECGbFwFxY/viewform?chromeless=1&edit_requested=true",
-        },
-        {
-            sede: "Universidad 2",
-            link: null
-        },
-        {
-            sede: "Universidad 3",
-            link: null
-        }
-    ],
-    intermedio: [
-        {
-            sede: "Universidad 11",
-            link: null
-        },
-        {
-            sede: "Universidad 22",
-            link: null
-        },
-        {
-            sede: "Universidad 33",
-            link: null
-        }
-    ],
-    avanzado: [
-        {
-            sede: "Universidad 111",
-            link: null
-        },
-        {
-            sede: "Universidad 222",
-            link: null
-        },
-        {
-            sede: "Universidad 333",
-            link: null
-        }
-    ]
-
-}
-*/
-
 const lista_proyectos = {
     IA: ["+Life", "Allegro Training", "Artificial Inventory", "DressUAPP", "Neurile", "OneCheck", "TrAIner", "Unveiled", "Weefly", "dBarrio"],
     TD: ["Bookaro", "DACoT", "Ecos", "Empaty", "EufoniApp", "TuReciclaje", "U-Assist", "Vinculados", "Vital Signs CheckUp", "Vpositive"]
 }
-
-/* 
-
-function validacion(){
-    var sede = document.getElementById("sede").value;
-    var nombres = document.getElementById("nombres").value;
-    var apellidos = document.getElementById("apellidos").value;
-    var rut = document.getElementById("rut").value;
-    var genero = document.getElementById("genero").value;
-    var email = document.getElementById("email").value;
-    var establecimiento = document.getElementById("nombres").value;
-    var tipo = document.getElementById("tipo").value;
-    if(sede == "default" || nombres == "" || apellidos == "" || rut == "" || genero == "default" || email == "" || establecimiento == "" || tipo == "default"){
-        alert("Debe rellenar todos los campos del formulario para poder enviar la votación.");
-        return false;
-    }
-    else{
-        return true;
-    }
-}
-
-*/
 
 function validacion() {
     var primerIA = document.getElementById("primerIA").value;
