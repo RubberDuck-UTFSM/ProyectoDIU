@@ -46,7 +46,7 @@ export default class About extends Component {
                                                     <br></br>
                                                     <h5 className="card-title" >3. Asistir a las charlas en línea.</h5>
                                                     <p className="card-text">
-                                                        Puedes asistir a las diferentes charlas de los auspiciadores que habrán a lo largo del día. Revisa el cronograma <a href="#cronograma">aquí.</a>
+                                                        Puedes asistir a las diferentes charlas de los auspiciadores que habrán a lo largo del día. Revisa el <b>cronograma</b> <a href="#cronograma">aquí.</a>
                                                     </p>
                                                 </div>
                                             </div>

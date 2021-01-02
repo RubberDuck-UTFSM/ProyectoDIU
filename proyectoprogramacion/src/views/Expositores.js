@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import './Votacion.css';
+import './Expositores.css';
+import hall from './images/hall3.jpg';
 
 const lista_proyectos = {
-    IA: ["+Life", "Allegro Training", "Artificial Inventory", "dBarrio", "DressUAPP", "Neurile", "OneCheck", "TrAIner", "Unveiled", "Weefly"],
+    IA: ["+Life", "Allegro Training", "Artificial Inventory", "DressUAPP", "Neurile", "OneCheck", "TrAIner", "Unveiled", "Weefly", "dBarrio"],
     TD: ["Bookaro", "DACoT", "Ecos", "Empaty", "EufoniApp", "TuReciclaje", "U-Assist", "Vinculados", "Vital Signs CheckUp", "Vpositive"]
 }
 
@@ -26,27 +27,46 @@ function validacion() {
     }
 }
 
-export default class Votacion extends Component {
+export default class Expositores extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            primerIA: "default",
-            segundoIA: "default",
-            tercerIA: "default",
-            primerTD: "default",
-            segundoTD: "default",
-            tercerTD: "default"
+            formulario: true,
+            proyecto: "",
+            link_youtube: "",
         }
     }
     render() {
-        return (
-            <div className="container" style={{ paddingTop: "40px", paddingBottom: "40px" }}>
+        return (<>
+            {this.state.formulario ? (<div className="jumbotron paralhome" style={{ backgroundImage: `url(${hall})` }}>
+                <div className="container-fluid overlay">
+                    <div className="container-informaciones" >
+                        xd
+                </div>
+                </div>
                 <form>
                     <div className="row">
                         <div className="col-md-1"></div>
                         <div className="col-md-10">
-                            <h1 className="display-4" style={{ fontSize: "2.5rem" }}> <i className="icono fas fa-award" style={{marginRight:"10px"}}></i>Formulario de Votación Mejores Proyectos Feria de Software 2020</h1>
-                            <p className="acceso-expositores">En este formulario podrás votar por tus proyectos favoritos de las dos categorías. Te recomendamos visitar todos los stands de los proyectos antes de realizar tu votación.</p>
+                            <h1 className="display-4" style={{ fontSize: "2.5rem" }}> <i className="icono fas fa-award" style={{ marginRight: "10px" }}></i>Formulario de Votación Mejores Proyectos Feria de Software 2020</h1>
+                            <p>En este formulario podrás votar por tus proyectos favoritos de las dos categorías. Te recomendamos visitar todos los stands de los proyectos antes de realizar tu votación.</p>
+                            <hr></hr>
+                            <h5>Información Personal</h5>
+                            <p>Tu información personal servirá para verificar que cada persona vote una sola vez. El voto será completamente anónimo y tu información sólo se utilizará para validar el voto.</p>
+                            <div className="form-row">
+                                <div className="form-group col-md-3">
+                                    <label htmlFor="nombre">Nombres</label>
+                                    <input type="text" className="form-control" id="nombres" placeholder="Primer y segundo nombre"></input>
+                                </div>
+                                <div className="form-group col-md-3">
+                                    <label htmlFor="apellidos">Apellidos</label>
+                                    <input type="text" className="form-control" id="apellidos" placeholder="Escribe ambos apellidos"></input>
+                                </div>
+                                <div className="form-group col-md-6">
+                                    <label htmlFor="email">Email</label>
+                                    <input type="email" className="form-control" id="email" placeholder="Escribe tu correo electrónico" ></input>
+                                </div>
+                            </div>
                         </div>
                         <div className="col-md-1"></div>
                     </div>
@@ -55,7 +75,7 @@ export default class Votacion extends Component {
                         <div className="col-md-10">
                             <hr></hr>
                             <h5>Votación Proyectos Inteligencia Artificial y Ciencia de Datos</h5>
-                            <p>Selecciona los tres mejores proyectos de la categoría Inteligencia Artificial y Ciencia de Datos.</p>
+                            <p>Selecciona los tres mejores proyectos de la categoría de Inteligencia Artificial y Ciencia de Datos.</p>
                             <div className="form-row">
                                 <div className="form-group col-md-4">
                                     <label htmlFor="primerIA">Primer Lugar</label>
@@ -160,6 +180,10 @@ export default class Votacion extends Component {
 
                 </form>
             </div>
+            ) : (<a> xd</a>
+                )}
+        </>
+
         )
     }
 
