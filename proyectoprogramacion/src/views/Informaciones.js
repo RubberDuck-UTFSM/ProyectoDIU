@@ -39,18 +39,15 @@ export default class About extends Component {
                                                         En los puestos de los auspiciadores podrás
                                                         conocer más sobre las empresas que hacen
                                                         posible el evento de Feria de Software.
-                                                        Allí habrá un chat en línea para poder
-                                                        conversar con ellos cuando estén disponibles
-                                                        y de esta manera puedas expresar tus dudas
-                                                        referentes a la empresa de tu interés.
                                                     </p>
-                                                    <p>
-                                                        También podrás visitar sus respectivas páginas
-                                                        presionando el botón de visitar sitio web.
-                                                    </p>
-                                                    <div className="text-center">
+                                                    <div className="text-center" style={{paddingTop:"-10px"}}>
                                                         <a href="/auspiciadores" className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
+                                                    <br></br>
+                                                    <h5 className="card-title" >3. Asistir a las charlas en línea.</h5>
+                                                    <p className="card-text">
+                                                        Puedes asistir a las diferentes charlas de los auspiciadores que habrán a lo largo del día. Revisa el cronograma <a href="#cronograma">aquí.</a>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -88,6 +85,7 @@ export default class About extends Component {
                 </div>
 
                 <div className="container" style={{ marginTop: "40px", marginBottom: "60px" }}>
+                    <a id="cronograma"></a>
                     <h1 className="display-4" style={{ fontSize: "2.5rem" }}>Cronograma Feria de Software 2020</h1>
                     <hr></hr>
                     <p><span className="font-weight-light">(12:00 a 12:30)</span> <b>Ceremonia inaugural</b> (on-line) en <a href="/">Hall Central</a>.</p>
