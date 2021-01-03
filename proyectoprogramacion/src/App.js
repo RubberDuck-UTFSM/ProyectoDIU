@@ -6,6 +6,7 @@ import Material from './views/Material';
 import Estudiantes from './views/Estudiantes';
 import Votacion from './views/Votacion';
 import Expositores from './views/Expositores';
+import Stand from './views/Stand';
 import logo1 from './views/images/logo_usm.png';
 import logo2 from './views/images/logo_scotiabank.png'
 import logo3 from './views/images/logo_ripley.png'
@@ -19,7 +20,6 @@ import {
   Switch,
   Route,
   Link,
-  useParams
 } from "react-router-dom"
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -73,6 +73,12 @@ class App extends Component {
 
   handleCorreo = (e) => {
     this.setState({ correo: e.target.value })
+  }
+
+  handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.handleClickFormularioExpositor();
+    }
   }
 
   handleChange1() {
@@ -153,7 +159,7 @@ class App extends Component {
                           <form>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                              <input onChange={this.handleClave} value={this.state.clave} type="password" class="form-control form-control-sm" id="exampleInputPassword1"></input>
+                              <input onKeyDown={this.handleKeyPress} onChange={this.handleClave} value={this.state.clave} type="password" class="form-control form-control-sm" id="exampleInputPassword1"></input>
                             </div>
                             <div className="text-center" style={{ marginTop: "30px" }}>
                               <a onClick={this.handleClickFormularioExpositor} className="btn btn-primary">Ingresar<i className="fas fa-chevron-right icono"></i></a>
@@ -174,7 +180,7 @@ class App extends Component {
                             <input onChange={this.handleNombre} value={this.state.nombre} type="text" className="form-control form-control-sm" id="nombre" ></input>
                           </div>
                           <div className="mb-3">
-                            <label for="apellido" className="form-label">Apellidos</label>
+                            <label for="apellido" className="form-label">Apellido</label>
                             <input onChange={this.handleApellido} value={this.state.apellido} type="text" className="form-control form-control-sm" id="apellido" ></input>
                           </div>
                           <div className="mb-3">
@@ -265,7 +271,7 @@ class App extends Component {
                   <Route path="/estudiantes/Avanzado">
                     <Estudiantes basico="" intermedio="" avanzado="show active" />
                   </Route>
-                  <Route path="/estudiantes">
+                  <Route path="/estudiantes" onChange={this.handleClickFormulario}>
                     <Estudiantes basico="show active" intermedio="" avanzado="" />
                   </Route>
                   <Route path="/expositores">
@@ -274,8 +280,11 @@ class App extends Component {
                   <Route path="/votacion">
                     <Votacion />
                   </Route>
+                  <Route path="/stand">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="dBarrio" video="K_c_7N2QIEs" pagina="https://dbarrio.feriadesoftware.cl/"/>
+                  </Route>
                   <Route path="/">
-                    {this.state.menu ? <Home /> : <Expositores />}
+                    {this.state.menu ? <Home /> : <Expositores proyecto={this.state.proyecto} />}
                   </Route>
                 </Switch>
               </div>

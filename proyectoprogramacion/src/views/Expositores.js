@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Expositores.css';
 import hall from './images/hall2.jpg';
 import YouTube from '@u-wave/react-youtube';
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 class Burbuja extends Component {
     render() {
@@ -74,7 +75,7 @@ export default class Expositores extends Component {
 
     sendHandler = () => {
         this.setState({
-            mensajes: [...this.state.mensajes, { nombre: "Proyecto UNVEILED", mensaje: this.state.texto, hora: "14:40", envia: true }],
+            mensajes: [...this.state.mensajes, { nombre: "Proyecto " + this.props.proyecto , mensaje: this.state.texto, hora: "14:40", envia: true }],
             texto: ""
         })
     }
@@ -117,11 +118,11 @@ export default class Expositores extends Component {
                     <div className="row">
                         <div className="col-8 sin-bordes borde-derecha" style={{ backgroundColor: "rgb(239,235,235)" }}>
                             <div className="row justify-content-between" style={{ marginTop: "10px", marginBottom: "10px" }}>
-                                <h1 className="display-4 chat" style={{ marginLeft: "30px" }}>Proyecto <b>UNVEILED</b> </h1>
+                                <h1 className="display-4 chat" style={{ marginLeft: "30px" }}>Proyecto <b>{this.props.proyecto}</b> </h1>
                                 <button type="button" onClick={this.handleClickFinalizar} className="btn btn-danger btn-rounded" style={{ marginRight: "30px", marginTop: "8px", marginBottom: "8px" }}>Finalizar transmisión</button>
                             </div>
                             <YouTube
-                                video={this.state.link}
+                                video={this.props.link}
                                 autoplay={true}
                                 width="100%"
                                 height="86.5%"
@@ -144,7 +145,8 @@ export default class Expositores extends Component {
                                     <i className="fas fa-ellipsis-v icono fa-lg" style={{ margin: "5px" }}></i>
                                 </div>
                             </div>
-                            <div className="container" style={{ height: "382px", paddingTop: "20px", paddingBottom: "10px", overflowY: "auto" }}>
+                            <ScrollToBottom className="cont-mensajes" useAtEnd={false}>
+                            <div className="container" style={{ height: "382px", paddingTop: "20px", paddingBottom: "10px" }}>
                                 {this.state.mensajes.map((x, _) => {
                                     if (x.envia == true) {
                                         return (
@@ -158,6 +160,7 @@ export default class Expositores extends Component {
                                     }
                                 })}
                             </div>
+                        </ScrollToBottom>
                             <div className="container borde-arriba borde-abajo" style={{ paddingTop: "15px", paddingBottom: "15px", backgroundColor: "rgb(239,235,235)" }}>
                                 <div className="row">
                                     <div className="col-10">

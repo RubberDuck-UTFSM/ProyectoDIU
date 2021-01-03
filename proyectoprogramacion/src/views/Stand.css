@@ -1,0 +1,73 @@
+.sin-bordes{
+    padding: 0% !important;
+}
+
+.borde-derecha{
+    border-right: 1px solid #d7d3d3!important;
+}
+
+.borde-abajo{
+    border-bottom: 1px solid #d7d3d3!important;
+}
+
+.borde-arriba{
+    border-top: 1px solid #d7d3d3!important;
+}
+
+.chat.display-4{
+	font-size: 2.7rem ;
+}
+
+.card.burbuja{
+    border-radius: 25px !important;
+    background:rgb(239,235,235) !important;
+    text-align: left !important;
+    border: transparent !important;
+    margin-bottom: 20px !important;
+    line-height: 20px !important;
+    padding-right: 0px !important;
+}
+
+.card-title.burbuja{
+    font-size: 0.9rem;
+    margin: 0px !important;
+}
+
+.col-10.burbuja{
+    padding-right: 0px !important;
+}
+
+.col-2.burbuja{
+    padding-left: 10px !important;
+}
+
+.hora{
+    font-size: 0.7rem;
+    color: rgb(158,156,156);
+    padding-bottom: 5px;
+}
+
+.hora2{
+    font-size: 0.7rem;
+    color: rgb(158,156,156);
+    padding-bottom: 5px;
+    margin-left: 35px !important;
+}
+
+.special-card-expositores{
+    border-radius: 25px !important;
+    background: rgba(255, 252, 252, 0.7) !important;
+    text-align: left !important;
+}
+
+.paral-expositores {
+    position: relative;
+    min-height: 330px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    margin: 0% !important;
+    padding: 0% !important;
+    border-radius: 0% !important;
+} 
+
