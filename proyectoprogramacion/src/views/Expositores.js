@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Expositores.css';
 import hall from './images/hall2.jpg';
 import YouTube from '@u-wave/react-youtube';
-import ScrollToBottom from 'react-scroll-to-bottom';
+import ScrollToBottom, { useScrollToBottom } from 'react-scroll-to-bottom';
 
 class Burbuja extends Component {
     render() {
@@ -71,13 +71,18 @@ export default class Expositores extends Component {
         this.handleClickFinalizar = this.handleClickFinalizar.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleInputMensaje = this.handleInputMensaje.bind(this);
+        this.sendHandler = this.sendHandler.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     sendHandler = () => {
-        this.setState({
-            mensajes: [...this.state.mensajes, { nombre: "Proyecto " + this.props.proyecto , mensaje: this.state.texto, hora: "14:40", envia: true }],
+        if(this.state.texto != ""){
+            this.setState({
+                mensajes: [...this.state.mensajes, { nombre: "Proyecto " + this.props.proyecto , mensaje: this.state.texto, hora: "14:40", envia: true }],
             texto: ""
-        })
+            })
+            useScrollToBottom();
+        }
     }
 
     handleKeyPress = (e) => {

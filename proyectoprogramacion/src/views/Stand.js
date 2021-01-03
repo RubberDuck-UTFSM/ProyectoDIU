@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Stand.css';
 import YouTube from '@u-wave/react-youtube';
 import { Redirect } from 'react-router';
-import ScrollToBottom from 'react-scroll-to-bottom';
+import ScrollToBottom, { useScrollToBottom } from 'react-scroll-to-bottom';
 
 class Burbuja extends Component {
     render() {
@@ -68,14 +68,18 @@ export default class Stand extends Component {
         }
         this.handleInput = this.handleInput.bind(this);
         this.handleInputMensaje = this.handleInputMensaje.bind(this);
+        this.sendHandler = this.sendHandler.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     sendHandler = () => {
-        this.setState({
-            mensajes: [...this.state.mensajes, { nombre: this.props.nombre + " " + this.props.apellido, mensaje: this.state.texto, hora: "14:40", envia: true }],
-            texto: ""
-        })
-        ScrollToBottom();
+        if(this.state.texto != ""){
+            this.setState({
+                mensajes: [...this.state.mensajes, { nombre: this.props.nombre + " " + this.props.apellido, mensaje: this.state.texto, hora: "14:40", envia: true }],
+                texto: ""
+            })
+            useScrollToBottom();
+        }
     }
 
     handleOnClick = () => {
