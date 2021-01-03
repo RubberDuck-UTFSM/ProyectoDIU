@@ -37,6 +37,7 @@ class App extends Component {
     this.handleChange5 = this.handleChange5.bind(this);
     this.handleChangeNone = this.handleChangeNone.bind(this);
     this.handleClickFormulario = this.handleClickFormulario.bind(this);
+    this.handleClickFormularioExpositor = this.handleClickFormularioExpositor.bind(this);
     this.handleClickExpositor = this.handleClickExpositor.bind(this);
     this.state = {
       s1: ' active',
@@ -44,9 +45,34 @@ class App extends Component {
       s3: '',
       s4: '',
       s5: '',
-      formulario: false,
-      expositor: false
+      formulario: true,
+      expositor: false,
+      menu: true,
+      proyecto: "default",
+      clave:"",
+      nombre:"",
+      apellido:"",
+      correo:""
     };
+  }
+
+  handleInput = (e) => {
+    this.setState({ proyecto: e.target.value })
+  }
+  handleClave = (e) => {
+    this.setState({ clave: e.target.value })
+  }
+
+  handleNombre = (e) => {
+    this.setState({ nombre: e.target.value })
+  }
+
+  handleApellido = (e) => {
+    this.setState({ apellido: e.target.value })
+  }
+
+  handleCorreo = (e) => {
+    this.setState({ correo: e.target.value })
   }
 
   handleChange1() {
@@ -68,11 +94,29 @@ class App extends Component {
     this.setState({ s1: '', s2: '', s3: '', s4: '', s5: '' });
   }
   handleClickFormulario() {
-    this.setState({ formulario: false });
+    if(this.state.nombre == "" || this.state.apellido == "" || this.state.correo == ""){
+      alert("Debe rellenar todos los campos para ingresar.");
+    }
+    else{
+      this.setState({ formulario: false, menu: true });
+    }
   }
   handleClickExpositor() {
     this.setState({ expositor: true });
   }
+
+  handleClickFormularioExpositor() {
+    if(this.state.proyecto == "default" || this.state.clave == ""){
+      alert("Debe rellenar todos los campos para ingresar.");
+    }
+    else if(this.state.clave != "feria1234"){
+      alert("Clave incorrecta.");
+    }
+    else{
+      this.setState({ formulario: false, menu: false });
+    }
+  }
+
   render() {
     return (
       <>
@@ -97,7 +141,7 @@ class App extends Component {
                           </div>
                           <div className="form-group ">
                             <label htmlFor="proyecto">Proyecto</label>
-                            <select id="proyecto" className="form-control form-control-sm">
+                            <select id="proyecto" className="form-control form-control-sm" onChange={this.handleInput} value = {this.state.proyecto}>
                               <option defaultValue value="default">Selecciona...</option>
                               {lista_proyectos.map((x, index) => {
                                 return (
@@ -109,10 +153,10 @@ class App extends Component {
                           <form>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                              <input type="password" class="form-control form-control-sm" id="exampleInputPassword1"></input>
+                              <input onChange={this.handleClave} value={this.state.clave} type="password" class="form-control form-control-sm" id="exampleInputPassword1"></input>
                             </div>
                             <div className="text-center" style={{ marginTop: "30px" }}>
-                              <a onClick={this.handleClickFormulario} className="btn btn-primary">Ingresar<i className="fas fa-chevron-right icono"></i></a>
+                              <a onClick={this.handleClickFormularioExpositor} className="btn btn-primary">Ingresar<i className="fas fa-chevron-right icono"></i></a>
                             </div>
                           </form>
                         </div>
@@ -127,15 +171,15 @@ class App extends Component {
                         <form>
                           <div className="mb-3">
                             <label for="nombre" className="form-label">Nombre</label>
-                            <input type="text" className="form-control form-control-sm" id="nombre" ></input>
+                            <input onChange={this.handleNombre} value={this.state.nombre} type="text" className="form-control form-control-sm" id="nombre" ></input>
                           </div>
                           <div className="mb-3">
                             <label for="apellido" className="form-label">Apellidos</label>
-                            <input type="email" className="form-control form-control-sm" id="apellido" ></input>
+                            <input onChange={this.handleApellido} value={this.state.apellido} type="text" className="form-control form-control-sm" id="apellido" ></input>
                           </div>
                           <div className="mb-3">
                             <label for="email" className="form-label">Correo</label>
-                            <input type="email" className="form-control form-control-sm" id="email"></input>
+                            <input onChange={this.handleCorreo} value={this.state.correo} type="email" className="form-control form-control-sm" id="email"></input>
                           </div>
                           <div className="text-center" style={{ marginTop: "30px", marginBottom: "30px" }}>
                             <a onClick={this.handleClickFormulario} className="btn btn-primary">Ingresar a la feria<i className="fas fa-chevron-right icono"></i></a>
@@ -143,9 +187,9 @@ class App extends Component {
                         </form>
                         <hr className="linea-blanca"></hr>
                         <div className="text-center">
-                        <p className="card-text acceso-expositores">¿Eres expositor?</p>
-                        <a onClick={this.handleClickExpositor} className="text-white btn-link " style={{cursor: "pointer"}}><u>Acceso Expositores</u></a>
-                      </div>
+                          <p className="card-text acceso-expositores">¿Eres expositor?</p>
+                          <a onClick={this.handleClickExpositor} className="text-white btn-link " style={{ cursor: "pointer" }}><u>Acceso Expositores</u></a>
+                        </div>
                       </div>
                     </div>
                   }
@@ -164,28 +208,42 @@ class App extends Component {
                     <div className="navbar-dark bg-custom ">
                       <nav className="navbar navbar-expand-lg ">
                         <a><Link className="navbar-brand correccionTitulo" onClick={this.handleChange1} to="/"><img src={logo} className="px-3 linea " alt="" height="40"></img> Feria de <b>Software</b></Link></a>
-                        <div data-target="#navbarSupportedContent" className="collapse navbar-collapse" id="navbarSupportedContent">
-                          <ul className="navbar-nav mr-auto " >
-                            <li className={"nav-item" + this.state.s1} >
-                              <Link onClick={this.handleChange1} to="/" className="nav-link">Hall Central</Link>
-                            </li>
-                            <li className={"nav-item" + this.state.s2}>
-                              <Link onClick={this.handleChange2} className="nav-link" to="/estudiantes">Stands Proyectos</Link>
-                            </li>
-                            <li className={"nav-item" + this.state.s4}>
-                              <Link onClick={this.handleChange4} className="nav-link" to="/material">Auspiciadores</Link>
-                            </li>
-                            <li className={"nav-item" + this.state.s5}>
-                              <Link onClick={this.handleChange5} className="nav-link" to="/informaciones">Informaciones</Link>
-                            </li>
-                          </ul>
-                          <form className="form-inline my-2 my-lg-0" style={{ marginRight: "14px" }}>
-                            <Link onClick={this.handleChangeNone} to="/votacion"><button className="btn btn-warning btn-yellow my-2 my-sm-0 btn-rounded" type="submit" style={{ color: "white" }}><i className="fas icono fa-award"></i> Vota por tus favoritos</button></Link>
-                          </form>
-                        </div>
-                        <div style={{cursor: "pointer"}}>
-                        <i className="far fa-user-circle text-white fa-2x"></i>
-                        </div>
+                        {this.state.menu ?
+                          <>
+                            <div data-target="#navbarSupportedContent" className="collapse navbar-collapse" id="navbarSupportedContent">
+                              <ul className="navbar-nav mr-auto " >
+                                <li className={"nav-item" + this.state.s1} >
+                                  <Link onClick={this.handleChange1} to="/" className="nav-link">Hall Central</Link>
+                                </li>
+                                <li className={"nav-item" + this.state.s2}>
+                                  <Link onClick={this.handleChange2} className="nav-link" to="/estudiantes">Stands Proyectos</Link>
+                                </li>
+                                <li className={"nav-item" + this.state.s4}>
+                                  <Link onClick={this.handleChange4} className="nav-link" to="/material">Auspiciadores</Link>
+                                </li>
+                                <li className={"nav-item" + this.state.s5}>
+                                  <Link onClick={this.handleChange5} className="nav-link" to="/informaciones">Informaciones</Link>
+                                </li>
+                              </ul>
+                              <form className="form-inline my-2 my-lg-0" style={{ marginRight: "14px" }}>
+                                <Link onClick={this.handleChangeNone} to="/votacion"><button className="btn btn-warning btn-yellow my-2 my-sm-0 btn-rounded" type="submit" style={{ color: "white" }}><i className="fas icono fa-award"></i> Vota por tus favoritos</button></Link>
+                              </form>
+                            </div>
+                            <div style={{ cursor: "pointer" }}>
+                              <i className="far fa-user-circle text-white fa-2x"></i>
+                            </div>
+                          </>
+                          :
+                          <>
+                            <div data-target="#navbarSupportedContent" className="collapse navbar-collapse" id="navbarSupportedContent">
+
+                            </div>
+                            <h5 className="navbar-brand correccionTitulo" > Proyecto <b>{this.state.proyecto}</b></h5>
+                            <div style={{ cursor: "pointer" }}>
+                              <i className="far fa-user-circle text-white fa-2x"></i>
+                            </div>
+                          </>
+                        }
                       </nav>
                     </div>
                   </div>
@@ -211,13 +269,13 @@ class App extends Component {
                     <Estudiantes basico="show active" intermedio="" avanzado="" />
                   </Route>
                   <Route path="/expositores">
-                    <Expositores/>
+                    <Expositores />
                   </Route>
                   <Route path="/votacion">
                     <Votacion />
                   </Route>
                   <Route path="/">
-                    <Home />
+                    {this.state.menu ? <Home /> : <Expositores />}
                   </Route>
                 </Switch>
               </div>

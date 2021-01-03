@@ -13,10 +13,7 @@ function validacion() {
     var primerTD = document.getElementById("primerTD").value;
     var segundoTD = document.getElementById("segundoTD").value;
     var terceroTD = document.getElementById("terceroTD").value;
-    var nombres = document.getElementById("nombres").value;
-    var apellidos = document.getElementById("apellidos").value;
-    var email = document.getElementById("email").value;
-    if (primerIA == "default" || segundoIA == "default" || terceroIA == "default" || primerTD == "default" || segundoTD == "default" || terceroTD == "default" || nombres == "" || apellidos == "" || email == "") {
+    if (primerIA == "default" || segundoIA == "default" || terceroIA == "default" || primerTD == "default" || segundoTD == "default" || terceroTD == "default") {
         alert("Debe rellenar todos los campos del formulario para poder enviar la votación.");
         return false;
     }
