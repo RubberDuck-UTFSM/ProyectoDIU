@@ -70,7 +70,7 @@ export default class Informaciones extends Component {
                                                         también podrás votar por tus 3 favoritos.
                                                     </p>
                                                     <div className="text-center">
-                                                        <a onClick={this.handleOnClickProy} className="btn btn-primary text-white">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
+                                                        <a onClick={this.handleOnClickProy} href="#up" className="btn btn-primary text-white">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                 </div>
                                                 <div className="col-6">
@@ -81,7 +81,7 @@ export default class Informaciones extends Component {
                                                         posible el evento de Feria de Software.
                                                     </p>
                                                     <div className="text-center" style={{ paddingTop: "-10px" }}>
-                                                        <a onClick={this.handleOnClickAusp} className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
+                                                        <a onClick={this.handleOnClickAusp} href="#up" className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                     <br></br>
                                                     <h5 className="card-title" >3. Asistir a las charlas en línea.</h5>
