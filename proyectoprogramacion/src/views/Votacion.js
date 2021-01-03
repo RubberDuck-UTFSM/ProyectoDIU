@@ -157,7 +157,6 @@ export default class Votacion extends Component {
                     <div align="center">
                         <button type="button" onClick={validacion} style={{ paddingRight: "30px", marginTop: "20px" }} className={"btn text-white btn-primary"}><i className="fas icono fa-paper-plane"></i>Enviar</button>
                     </div>
-
                 </form>
             </div>
         )

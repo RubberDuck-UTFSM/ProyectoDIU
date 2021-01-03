@@ -44,7 +44,7 @@ class App extends Component {
       s3: '',
       s4: '',
       s5: '',
-      formulario: true,
+      formulario: false,
       expositor: false
     };
   }
@@ -90,7 +90,7 @@ class App extends Component {
                 <div className="col-4">
                   {this.state.expositor ?
                     <div>
-                      <div className="card card-formulario text-white" style={{ marginTop: "100px", paddingLeft: "20px", paddingRight: "20px" }}>
+                      <div className="card card-formulario text-white" style={{ marginTop: "140px", paddingLeft: "20px", paddingRight: "20px" }}>
                         <div className="card-body">
                           <div className="text-center">
                             <h5 className="card-title" style={{ fontSize: "1.4rem" }}>Acceso Expositores</h5>
@@ -107,10 +107,6 @@ class App extends Component {
                             </select>
                           </div>
                           <form>
-                            <div className="mb-3">
-                              <label for="link" className="form-label">Link de Transmisión</label>
-                              <input type="text" className="form-control form-control-sm" id="link" ></input>
-                            </div>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                               <input type="password" class="form-control form-control-sm" id="exampleInputPassword1"></input>
@@ -157,7 +153,6 @@ class App extends Component {
                 <div className="col-4" style={{ borderColor: "white" }}></div>
               </div>
             </div>
-           
           </div>
           :
           <React.Fragment>
@@ -188,6 +183,9 @@ class App extends Component {
                             <Link onClick={this.handleChangeNone} to="/votacion"><button className="btn btn-warning btn-yellow my-2 my-sm-0 btn-rounded" type="submit" style={{ color: "white" }}><i className="fas icono fa-award"></i> Vota por tus favoritos</button></Link>
                           </form>
                         </div>
+                        <div style={{cursor: "pointer"}}>
+                        <i className="far fa-user-circle text-white fa-2x"></i>
+                        </div>
                       </nav>
                     </div>
                   </div>
@@ -211,6 +209,9 @@ class App extends Component {
                   </Route>
                   <Route path="/estudiantes">
                     <Estudiantes basico="show active" intermedio="" avanzado="" />
+                  </Route>
+                  <Route path="/expositores">
+                    <Expositores/>
                   </Route>
                   <Route path="/votacion">
                     <Votacion />

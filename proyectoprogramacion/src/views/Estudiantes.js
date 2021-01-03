@@ -6,7 +6,7 @@ function InformacionCurso(props){
         <div className="jumbotron paral2" style={{backgroundImage:"url("+props.image+")"}}>
             <div className="overlay container-fluid">
                 <div className="container" style={{paddingTop:"40px"}}>
-                <h1 className="display-3">Nivel <strong className={"text-"+props.color}>{props.nombreCurso}</strong></h1>
+                <h1 className="display-4">Nivel <strong className={"text-"+props.color}>{props.nombreCurso}</strong></h1>
                 <p className="lead">{props.descripcion}</p>
 
                 </div>

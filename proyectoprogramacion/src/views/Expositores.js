@@ -1,187 +1,216 @@
 import React, { Component } from 'react'
 import './Expositores.css';
-import hall from './images/hall3.jpg';
+import hall from './images/hall2.jpg';
+import YouTube from '@u-wave/react-youtube';
 
-const lista_proyectos = {
-    IA: ["+Life", "Allegro Training", "Artificial Inventory", "DressUAPP", "Neurile", "OneCheck", "TrAIner", "Unveiled", "Weefly", "dBarrio"],
-    TD: ["Bookaro", "DACoT", "Ecos", "Empaty", "EufoniApp", "TuReciclaje", "U-Assist", "Vinculados", "Vital Signs CheckUp", "Vpositive"]
+class Burbuja extends Component {
+    render() {
+        return (
+            <div className="row align-items-end">
+                <div className="col-10 burbuja">
+                    <div className="card burbuja">
+                        <div className="card-body">
+                            <h5 className="card-title burbuja">{this.props.nombre}</h5>
+                            <p className="card-text">
+                                <small>
+                                    {this.props.mensaje}
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-2 burbuja">
+                    <p className="hora">{this.props.hora}</p>
+                </div>
+            </div>
+        )
+    }
 }
 
-function validacion() {
-    var primerIA = document.getElementById("primerIA").value;
-    var segundoIA = document.getElementById("segundoIA").value;
-    var terceroIA = document.getElementById("terceroIA").value;
-    var primerTD = document.getElementById("primerTD").value;
-    var segundoTD = document.getElementById("segundoTD").value;
-    var terceroTD = document.getElementById("terceroTD").value;
-    var nombres = document.getElementById("nombres").value;
-    var apellidos = document.getElementById("apellidos").value;
-    var email = document.getElementById("email").value;
-    if (primerIA == "default" || segundoIA == "default" || terceroIA == "default" || primerTD == "default" || segundoTD == "default" || terceroTD == "default" || nombres == "" || apellidos == "" || email == "") {
-        alert("Debe rellenar todos los campos del formulario para poder enviar la votación.");
-        return false;
-    }
-    else {
-        alert("Votación enviada exitosamente.");
-        return true;
+class BurbujaEnvio extends Component {
+    render() {
+        return (
+            <div className="row align-items-end justify-content-end" style={{ marginRight: "5px" }}>
+                <div className="col-2 burbuja">
+                    <p className="hora2 ">{this.props.hora}</p>
+                </div>
+                <div className="col-10 burbuja">
+                    <div className="card burbuja ">
+                        <div className="card-body">
+                            <h5 className="card-title burbuja">{this.props.nombre}</h5>
+                            <p className="card-text">
+                                <small>
+                                    {this.props.mensaje}
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
     }
 }
+
+/* { nombre: "Juan Rodríguez", mensaje: "Hola! que buen proyecto :D", hora: "14:34", envia: false },
+{ nombre: "Juan Rodríguez", mensaje: "Me gustó mucho la idea que tuvieron, se nota toda la dedicación que le pusieron omg.", hora: "14:35", envia: false },
+{ nombre: "María José López", mensaje: "Hola! se ve todo muy bacán *-*", hora: "14:37", envia: false },
+{ nombre: "Rodrigo Álvarez", mensaje: "Cómo planean dar soporte económico a su iniciativa?", hora: "14:39", envia: false }*/
 
 export default class Expositores extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            formulario: true,
-            proyecto: "",
-            link_youtube: "",
+            transmision: false,
+            inputValue: "",
+            texto: "",
+            link:"",
+            mensajes: [ ],
+        }
+        this.handleClickIniciar = this.handleClickIniciar.bind(this);
+        this.handleClickFinalizar = this.handleClickFinalizar.bind(this);
+        this.handleInput = this.handleInput.bind(this);
+        this.handleInputMensaje = this.handleInputMensaje.bind(this);
+    }
+
+    sendHandler = () => {
+        this.setState({
+            mensajes: [...this.state.mensajes, { nombre: "Proyecto UNVEILED", mensaje: this.state.texto, hora: "14:40", envia: true }],
+            texto: ""
+        })
+    }
+
+    handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+          this.sendHandler();
         }
     }
+
+    handleInput = (e) => {
+        this.setState({ inputValue: e.target.value })
+    }
+
+    handleInputMensaje = (e) => {
+        this.setState({ texto: e.target.value })
+    }
+
+    handleClickFinalizar() {
+        this.setState({ transmision: false, link: ""});
+    }
+
+    handleClickIniciar() {
+        if (this.state.inputValue == "") {
+            alert("Debe rellenar el link del youtube.");
+        }
+        else {
+        var streamID = this.state.inputValue.split('=')[1];
+        this.setState({
+            link: streamID,
+            inputValue: "",
+            transmision: true });
+        }
+    }
+
     render() {
         return (<>
-            {this.state.formulario ? (<div className="jumbotron paralhome" style={{ backgroundImage: `url(${hall})` }}>
-                <div className="container-fluid overlay">
-                    <div className="container-informaciones" >
-                        xd
+            {this.state.transmision ? (
+                <div className="container-fluid ">
+                    <div className="row">
+                        <div className="col-8 sin-bordes borde-derecha" style={{ backgroundColor: "rgb(239,235,235)" }}>
+                            <div className="row justify-content-between" style={{ marginTop: "10px", marginBottom: "10px" }}>
+                                <h1 className="display-4 chat" style={{ marginLeft: "30px" }}>Proyecto <b>UNVEILED</b> </h1>
+                                <button type="button" onClick={this.handleClickFinalizar} className="btn btn-danger btn-rounded" style={{ marginRight: "30px", marginTop: "8px", marginBottom: "8px" }}>Finalizar transmisión</button>
+                            </div>
+                            <YouTube
+                                video={this.state.link}
+                                autoplay={true}
+                                width="100%"
+                                height="86.5%"
+                                modestBranding={true}
+                                annotations={false}
+                                showRelatedVideos={false}
+                                showInfo={false}
+                            />
+                        </div>
+                        <div className="col-4 sin-bordes" >
+                            <div className="container borde-abajo" style={{ backgroundColor: "rgb(239,235,235)", paddingTop: "10px", paddingBottom: "10px" }}>
+                                <div className="row justify-content-between" style={{ margin: "10px" }}>
+                                    <div style={{ fontSize: "1.1rem" }}><i className="fas fa-users icono"></i> Participantes (15)</div>
+
+                                </div>
+                            </div>
+                            <div className="container borde-abajo" style={{ backgroundColor: "rgb(239,235,235)", paddingTop: "10px", paddingBottom: "10px" }}>
+                                <div className="row justify-content-between" style={{ margin: "10px" }}>
+                                    <div style={{ fontSize: "1.1rem" }}><i className="fas fa-comments icono"></i> Chat</div>
+                                    <i className="fas fa-ellipsis-v icono fa-lg" style={{ margin: "5px" }}></i>
+                                </div>
+                            </div>
+                            <div className="container" style={{ height: "382px", paddingTop: "20px", paddingBottom: "10px", overflowY: "auto" }}>
+                                {this.state.mensajes.map((x, _) => {
+                                    if (x.envia == true) {
+                                        return (
+                                            <BurbujaEnvio nombre={x.nombre} hora={x.hora} mensaje={x.mensaje} />
+                                        )
+                                    }
+                                    else {
+                                        return (
+                                            <Burbuja nombre={x.nombre} hora={x.hora} mensaje={x.mensaje} />
+                                        )
+                                    }
+                                })}
+                            </div>
+                            <div className="container borde-arriba borde-abajo" style={{ paddingTop: "15px", paddingBottom: "15px", backgroundColor: "rgb(239,235,235)" }}>
+                                <div className="row">
+                                    <div className="col-10">
+                                        <input onKeyDown={this.handleKeyPress} className="form-control" onChange={this.handleInputMensaje} value = {this.state.texto} placeholder="Escribe tu mensaje aquí..." id="exampleFormControlTextarea1"></input>
+                                    </div>
+                                    <div className="col-2" style={{ marginTop: "8px" }}>
+                                        <button type="button" onClick={this.sendHandler} className="btn btn-sm sin-bordes"><i className="fas fa-arrow-right "></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <form>
-                    <div className="row">
-                        <div className="col-md-1"></div>
-                        <div className="col-md-10">
-                            <h1 className="display-4" style={{ fontSize: "2.5rem" }}> <i className="icono fas fa-award" style={{ marginRight: "10px" }}></i>Formulario de Votación Mejores Proyectos Feria de Software 2020</h1>
-                            <p>En este formulario podrás votar por tus proyectos favoritos de las dos categorías. Te recomendamos visitar todos los stands de los proyectos antes de realizar tu votación.</p>
-                            <hr></hr>
-                            <h5>Información Personal</h5>
-                            <p>Tu información personal servirá para verificar que cada persona vote una sola vez. El voto será completamente anónimo y tu información sólo se utilizará para validar el voto.</p>
-                            <div className="form-row">
-                                <div className="form-group col-md-3">
-                                    <label htmlFor="nombre">Nombres</label>
-                                    <input type="text" className="form-control" id="nombres" placeholder="Primer y segundo nombre"></input>
+            )
+                :
+                (
+                    <div className="jumbotron paral-expositores" style={{ backgroundImage: `url(${hall})` }}>
+                        <div className="container-fluid overlay">
+                            <div className="row" style={{ paddingTop: "40px", paddingBottom: "40px" }}>
+                                <div className="col-4"></div>
+                                <div className="col-4">
+                                    <div className="card special-card-expositores">
+                                        <div className="card-body">
+                                            <form>
+                                                <div className="row">
+                                                    <div className="col-md-1"></div>
+                                                    <div className="col-md-10">
+                                                        <div className="text-center">
+                                                            <h5 className="card-title" style={{ fontSize: "2.0rem" }}>Iniciar transmisión </h5>
+                                                        </div>
+                                                        <p className="card-text">
+                                                            Para iniciar la transmisión en vivo debe colocar el enlace al EN VIVO de Youtube.
+                                                        </p>
+                                                        <div className="mb-3">
+                                                            <input onChange={this.handleInput} type="enlace" className="form-control" id="enlace" placeholder="Ingresar link de youtube..."></input>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-1"></div>
+                                                </div>
+                                                <div align="center">
+                                                    <button type="button" onClick={this.handleClickIniciar} className={"btn text-white btn-primary btn-rounded"}>Comenzar transmisión</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="form-group col-md-3">
-                                    <label htmlFor="apellidos">Apellidos</label>
-                                    <input type="text" className="form-control" id="apellidos" placeholder="Escribe ambos apellidos"></input>
-                                </div>
-                                <div className="form-group col-md-6">
-                                    <label htmlFor="email">Email</label>
-                                    <input type="email" className="form-control" id="email" placeholder="Escribe tu correo electrónico" ></input>
-                                </div>
+                                <div className="col-4"></div>
                             </div>
                         </div>
-                        <div className="col-md-1"></div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-1"></div>
-                        <div className="col-md-10">
-                            <hr></hr>
-                            <h5>Votación Proyectos Inteligencia Artificial y Ciencia de Datos</h5>
-                            <p>Selecciona los tres mejores proyectos de la categoría de Inteligencia Artificial y Ciencia de Datos.</p>
-                            <div className="form-row">
-                                <div className="form-group col-md-4">
-                                    <label htmlFor="primerIA">Primer Lugar</label>
-                                    <select id="primerIA" className="form-control" onChange={(val) => this.setState({ primerIA: val.target.value })}>
-                                        <option defaultValue value="default">Selecciona...</option>
-                                        {lista_proyectos["IA"].map((x, index) => {
-
-                                            return (
-                                                <option key={index} value={x}>{x}</option>
-                                            )
-
-                                        })}
-                                    </select>
-                                </div>
-                                <div className="form-group col-md-4">
-                                    <label htmlFor="segundoIA">Segundo Lugar</label>
-                                    <select id="segundoIA" className="form-control" onChange={(val) => this.setState({ segundoIA: val.target.value })}>
-                                        <option defaultValue value="default">Selecciona...</option>
-                                        {lista_proyectos["IA"].map((x, index) => {
-                                            if (this.state.primerIA !== x) {
-                                                return (
-                                                    <option key={index} value={x}>{x}</option>
-                                                )
-                                            }
-                                            return (<></>)
-                                        })}
-                                    </select>
-                                </div>
-                                <div className="form-group col-md-4">
-                                    <label htmlFor="terceroIA">Tercer Lugar</label>
-                                    <select id="terceroIA" className="form-control" onChange={(val) => this.setState({ tercerIA: val.target.value })}>
-                                        <option defaultValue value="default">Selecciona...</option>
-                                        {lista_proyectos["IA"].map((x, index) => {
-                                            if (this.state.primerIA !== x && this.state.segundoIA !== x) {
-                                                return (
-                                                    <option key={index} value={x}>{x}</option>
-                                                )
-                                            }
-                                            return (<></>)
-                                        })}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-1"></div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-1"></div>
-                        <div className="col-md-10">
-                            <hr></hr>
-                            <h5>Votación Proyectos Transformación Digital y Social</h5>
-                            <p>Selecciona los tres mejores proyectos de la categoría Transformación Digital y Social.</p>
-                            <div className="form-row">
-                                <div className="form-group col-md-4">
-                                    <label htmlFor="primerTD">Primer Lugar</label>
-                                    <select id="primerTD" className="form-control" onChange={(val) => this.setState({ primerTD: val.target.value })}>
-                                        <option defaultValue value="default">Selecciona...</option>
-                                        {lista_proyectos["TD"].map((x, index) => {
-
-                                            return (
-                                                <option key={index} value={x}>{x}</option>
-                                            )
-
-                                        })}
-                                    </select>
-                                </div>
-                                <div className="form-group col-md-4">
-                                    <label htmlFor="segundoTD">Segundo Lugar</label>
-                                    <select id="segundoTD" className="form-control" onChange={(val) => this.setState({ segundoTD: val.target.value })}>
-                                        <option defaultValue value="default">Selecciona...</option>
-                                        {lista_proyectos["TD"].map((x, index) => {
-                                            if (this.state.primerTD !== x) {
-                                                return (
-                                                    <option key={index} value={x}>{x}</option>
-                                                )
-                                            }
-                                            return (<></>)
-                                        })}
-                                    </select>
-                                </div>
-                                <div className="form-group col-md-4">
-                                    <label htmlFor="terceroTD">Tercer Lugar</label>
-                                    <select id="terceroTD" className="form-control" onChange={(val) => this.setState({ tercerTD: val.target.value })}>
-                                        <option defaultValue value="default">Selecciona...</option>
-                                        {lista_proyectos["TD"].map((x, index) => {
-                                            if (this.state.primerTD !== x && this.state.segundoTD !== x) {
-                                                return (
-                                                    <option key={index} value={x}>{x}</option>
-                                                )
-                                            }
-                                            return (<></>)
-                                        })}
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-1"></div>
-                    </div>
-                    <div align="center">
-                        <button type="button" onClick={validacion} style={{ paddingRight: "30px", marginTop: "20px" }} className={"btn text-white btn-primary"}><i className="fas icono fa-paper-plane"></i>Enviar</button>
                     </div>
 
-                </form>
-            </div>
-            ) : (<a> xd</a>
-                )}
+                )
+            }
         </>
 
         )
