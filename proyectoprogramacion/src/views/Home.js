@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import hall from './hall.png';
+import hall from './images/hall.png';
 import estudiante from './images/estudiante.png';
 import informaciones from './images/informaciones.png';
 import auspiciadores from './images/auspiciadores.png';
