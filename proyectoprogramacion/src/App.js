@@ -206,7 +206,7 @@ class App extends Component {
           :
           <React.Fragment>
             <Router>
-              <a id="arriba"></a>
+              <a id="up"></a>
               <div className=" container-fluid ">
                 <div className="row bg-custom" >
                   <div className="container" style={{ padding: "0px" }}>

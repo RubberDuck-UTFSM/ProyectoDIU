@@ -8,7 +8,9 @@ export default class Informaciones extends Component {
         super(props)
         this.state = {
             redirectProy: false,
-            redirectAusp: false
+            redirectAusp: false,
+            redirectHome: false,
+            redirectVot: false
         }
     }
 
@@ -19,6 +21,15 @@ export default class Informaciones extends Component {
     handleOnClickAusp = () => {
         this.setState({ redirectAusp: true });
     }
+    
+    handleOnClickHome = () => {
+        this.setState({ redirectHome: true });
+    }
+
+    handleOnClickVot = () => {
+        this.setState({ redirectVot: true });
+    }
+
 
     render() {
         if (this.state.redirectProy) {
@@ -26,6 +37,12 @@ export default class Informaciones extends Component {
         }
         else if (this.state.redirectAusp) {
             return <Redirect push to="/auspiciadores" />;
+        }
+        else if (this.state.redirectHome) {
+            return <Redirect push to="/" />;
+        }
+        else if (this.state.redirectVot) {
+            return <Redirect push to="/votacion" />;
         }
         return (
             <div>
@@ -111,10 +128,10 @@ export default class Informaciones extends Component {
                     <a id="cronograma"></a>
                     <h1 className="display-4" style={{ fontSize: "2.5rem" }}>Cronograma Feria de Software 2020</h1>
                     <hr></hr>
-                    <p><span className="font-weight-light">(12:00 a 12:30)</span> <b>Ceremonia inaugural</b> (on-line) en <a href="/">Hall Central</a>.</p>
-                    <p><span className="font-weight-light">(12:30 a 18:30)</span> <b>Exposición Proyectos de Feria 2020</b> (on-line) en los <a href="/proyectos">stands de proyectos</a>: un total de 20 productos desarrollados por estudiantes en Categoría Inteligencia Artificial y Ciencia de Datos (IA&CD) y Categoría Transformación Digital y Social (TD&S) </p>
-                    <p><span className="font-weight-light">(12:30 a 18:30)</span> <b>Votación de los mejores proyectos</b> por parte del público (online) en <a href="/votacion">formulario de votación</a>.</p>
-                    <p><span className="font-weight-light">(12:30 a 18:30)</span> <b>Charlas de Tecnología</b> de nuestros auspiciadores (on-line) en <a href="/">Hall Central</a>.</p>
+                    <p><span className="font-weight-light">(12:00 a 12:30)</span> <b>Ceremonia inaugural</b> (on-line) en <a onClick={this.handleOnClickHome} href="#up">Hall Central</a>.</p>
+                    <p><span className="font-weight-light">(12:30 a 18:30)</span> <b>Exposición Proyectos de Feria 2020</b> (on-line) en los <a onClick={this.handleOnClickProy} href="#up">stands de proyectos</a>: un total de 20 productos desarrollados por estudiantes en Categoría Inteligencia Artificial y Ciencia de Datos (IA&CD) y Categoría Transformación Digital y Social (TD&S) </p>
+                    <p><span className="font-weight-light">(12:30 a 18:30)</span> <b>Votación de los mejores proyectos</b> por parte del público (online) en <a onClick={this.handleOnClickVot} href="#up">formulario de votación</a>.</p>
+                    <p><span className="font-weight-light">(12:30 a 18:30)</span> <b>Charlas de Tecnología</b> de nuestros auspiciadores (on-line) en <a onClick={this.handleOnClickHome} href="#up" >Hall Central</a>.</p>
                     <ul>
                         <li>“CD4ML: Aplicando prácticas de ingeniería de software para lograr la entrega continua de modelos de machine learning”. Álvaro Hernández, consultor y desarrollador en ThoughtWorks.</li>
                         <li>"Incursionando tecnología y logística: algoritmos, problema del viajero, recorrido hormigas y problemas reales". Andrés Colonia, VP of engineering en Beetrack.</li>
@@ -125,7 +142,7 @@ export default class Informaciones extends Component {
                         <li>“Despegando con Ripleytech”. Manuel Pastene del Valle, Subgerente de Innovación y Desarrollo en Ripley.</li>
                         <li>“Futuro del trabajo en Tecnología”. Mario Mora, CEO & Founder FirstJob.</li>
                     </ul>
-                    <p><span className="font-weight-light">(18:30 a 19:00)</span> <b>Ceremonia de cierre y premiación</b> (on-line) en <a href="/">Hall Central</a>.</p>
+                    <p><span className="font-weight-light">(18:30 a 19:00)</span> <b>Ceremonia de cierre y premiación</b> (on-line) en <a onClick={this.handleOnClickHome} href="#up">Hall Central</a>.</p>
                 </div>
             </div >
 
