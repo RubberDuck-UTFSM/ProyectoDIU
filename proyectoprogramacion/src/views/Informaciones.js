@@ -1,9 +1,32 @@
 import React, { Component } from 'react';
 import './Informaciones.css';
 import hall from './images/hall2.jpg';
+import { Redirect } from 'react-router';
 
-export default class About extends Component {
+export default class Informaciones extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            redirectProy: false,
+            redirectAusp: false
+        }
+    }
+
+    handleOnClickProy = () => {
+        this.setState({ redirectProy: true });
+    }
+
+    handleOnClickAusp = () => {
+        this.setState({ redirectAusp: true });
+    }
+
     render() {
+        if (this.state.redirectProy) {
+            return <Redirect push to="/proyectos" />;
+        }
+        else if (this.state.redirectAusp) {
+            return <Redirect push to="/auspiciadores" />;
+        }
         return (
             <div>
                 <div className="jumbotron paralinfo" style={{ backgroundImage: `url(${hall})` }}>
@@ -30,7 +53,7 @@ export default class About extends Component {
                                                         también podrás votar por tus 3 favoritos.
                                                     </p>
                                                     <div className="text-center">
-                                                        <a href="/proyectos" className="btn btn-primary">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
+                                                        <a onClick={this.handleOnClickProy} className="btn btn-primary text-white">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                 </div>
                                                 <div className="col-6">
@@ -40,8 +63,8 @@ export default class About extends Component {
                                                         conocer más sobre las empresas que hacen
                                                         posible el evento de Feria de Software.
                                                     </p>
-                                                    <div className="text-center" style={{paddingTop:"-10px"}}>
-                                                        <a href="/auspiciadores" className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
+                                                    <div className="text-center" style={{ paddingTop: "-10px" }}>
+                                                        <a onClick={this.handleOnClickAusp} className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                     <br></br>
                                                     <h5 className="card-title" >3. Asistir a las charlas en línea.</h5>

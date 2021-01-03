@@ -5,9 +5,40 @@ import informaciones from './images/informaciones.png';
 import auspiciadores from './images/auspiciadores.png';
 import './Home.css';
 import YouTube from '@u-wave/react-youtube';
+import { Redirect } from 'react-router';
 
 export default class Home extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            redirectInfo: false,
+            redirectProy: false,
+            redirectAusp: false
+        }
+    }
+
+    handleOnClickInfo = () => {
+        this.setState({ redirectInfo: true });
+    }
+
+    handleOnClickProy = () => {
+        this.setState({ redirectProy: true });
+    }
+
+    handleOnClickAusp = () => {
+        this.setState({ redirectAusp: true });
+    }
+    
     render() {
+        if (this.state.redirectInfo) {
+            return <Redirect push to="/informaciones" />;
+        }
+        else if(this.state.redirectProy){
+            return <Redirect push to="/proyectos" />;
+        }
+        else if(this.state.redirectAusp){
+            return <Redirect push to="/auspiciadores" />;
+        }
         return (
             <section>
                 <div className="jumbotron paralhome" style={{ backgroundImage: `url(${hall})` }}>
@@ -22,7 +53,7 @@ export default class Home extends Component {
                                                     <h5 className="display-1" style={{ fontSize: "2.0rem" }}>Informaciones</h5>
                                                     <p className="card-text">¿Estás perdido? ¿no sabes a dónde ir? Ven a informarte sobre la Feria Virtual de Software de este año. Podrás revisar el cronograma y conocer las distintas actividades. </p>
                                                     <div className="text-center">
-                                                        <a href="/informaciones" className="btn btn-warning btn-yellow">Ir a informaciones<i className="fas fa-chevron-right icono"></i></a>
+                                                        <a onClick={this.handleOnClickInfo} className="btn btn-warning btn-yellow">Ir a informaciones<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -50,7 +81,7 @@ export default class Home extends Component {
                                                     <h5 className="display-1" style={{ fontSize: "2.7rem" }}>Stands de los Proyectos</h5>
                                                     <p className="card-text">Ven a conocer los distintos proyectos de la Feria de Software 2020. Podrás hablar en vivo con los estudiantes expositores, hacer preguntas y votar por tus proyectos favoritos.</p>
                                                     <div className="text-center">
-                                                        <a href="/proyectos" className="btn btn-primary">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
+                                                        <a onClick={this.handleOnClickProy} className="btn btn-primary text-white">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -68,7 +99,7 @@ export default class Home extends Component {
                                                     <h5 className="display-1" style={{ fontSize: "2.0rem" }}>Stands de los auspiciadores</h5>
                                                     <p className="card-text">Ven a conocer e interactuar con las empresas auspiciadoras que hicieron prosible este evento virtual. </p>
                                                     <div className="text-center">
-                                                        <a href="/auspiciadores" className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
+                                                        <a onClick={this.handleOnClickAusp} className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                 </div>
                                             </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Component } from 'react'
 import Home from './views/Home';
 import Informaciones from './views/Informaciones';
-import Material from './views/Material';
 import Estudiantes from './views/Estudiantes';
 import Votacion from './views/Votacion';
 import Expositores from './views/Expositores';
@@ -157,9 +156,9 @@ class App extends Component {
                             </select>
                           </div>
                           <form>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                              <input onKeyDown={this.handleKeyPress} onChange={this.handleClave} value={this.state.clave} type="password" class="form-control form-control-sm" id="exampleInputPassword1"></input>
+                            <div className="mb-3">
+                              <label for="exampleInputPassword1" className="form-label">Contraseña</label>
+                              <input onKeyDown={this.handleKeyPress} onChange={this.handleClave} value={this.state.clave} type="password" className="form-control form-control-sm" id="exampleInputPassword1"></input>
                             </div>
                             <div className="text-center" style={{ marginTop: "30px" }}>
                               <a onClick={this.handleClickFormularioExpositor} className="btn btn-primary">Ingresar<i className="fas fa-chevron-right icono"></i></a>
@@ -225,7 +224,7 @@ class App extends Component {
                                   <Link onClick={this.handleChange2} className="nav-link" to="/estudiantes">Stands Proyectos</Link>
                                 </li>
                                 <li className={"nav-item" + this.state.s4}>
-                                  <Link onClick={this.handleChange4} className="nav-link" to="/material">Auspiciadores</Link>
+                                  <Link onClick={this.handleChange4} className="nav-link" to="/auspiciadores">Auspiciadores</Link>
                                 </li>
                                 <li className={"nav-item" + this.state.s5}>
                                   <Link onClick={this.handleChange5} className="nav-link" to="/informaciones">Informaciones</Link>
@@ -260,17 +259,6 @@ class App extends Component {
                   <Route path="/informaciones">
                     <Informaciones />
                   </Route>
-                  <Route path="/material">
-                    <Material />
-                  </Route>
-                  <Route path="/contenido" >
-                  </Route>
-                  <Route path="/estudiantes/Intermedio">
-                    <Estudiantes basico="" intermedio="show active" avanzado="" />
-                  </Route>
-                  <Route path="/estudiantes/Avanzado">
-                    <Estudiantes basico="" intermedio="" avanzado="show active" />
-                  </Route>
                   <Route path="/estudiantes" onChange={this.handleClickFormulario}>
                     <Estudiantes basico="show active" intermedio="" avanzado="" />
                   </Route>
@@ -279,6 +267,12 @@ class App extends Component {
                   </Route>
                   <Route path="/votacion">
                     <Votacion />
+                  </Route>
+                  <Route path="/proyectos">
+                    <Estudiantes basico="show active" intermedio="" avanzado="" />
+                  </Route>
+                  <Route path="/auspiciadores">
+                    <Estudiantes basico="" intermedio="show active" avanzado="" />
                   </Route>
                   <Route path="/stand">
                     <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="dBarrio" video="K_c_7N2QIEs" pagina="https://dbarrio.feriadesoftware.cl/"/>
