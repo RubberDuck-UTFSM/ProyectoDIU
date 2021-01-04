@@ -21,8 +21,8 @@ class CardStand extends Component {
                         <img href={this.props.puesto} src={this.props.logo} style={{ maxWidth: "200px", maxHeight: "120px", marginTop: this.props.marginTop, width: this.props.width, height: this.props.height, paddingTop: this.props.paddingTop, cursor: "pointer" }} alt="..." />
                     </div>
                     <div className="card-body " >
-                        <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >Para conocer mas sobre <strong>{this.props.titulo}</strong> accede al sitio.</p>
-                        <a href={this.props.info} rel="noopener noreferrer" target="_blank" type="button" className="btn btn-link btn-sm align-end"><i className="icono fas fa-external-link-alt fa-sm"></i>más info</a>
+                        <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >Para conocer mas sobre <strong>{this.props.titulo}</strong> accede al sitio <a href={this.props.info} rel="noopener noreferrer" target="_blank" type="button" className=""><i className="icono fas fa-external-link-alt fa-sm"></i>más info</a>. </p>
+                        <br></br>
                         <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >Pronto estará disponible la presentación en vivo</p>
                         <div className="text-center" style={{ marginTop: "10px" }}>
                             <a className="btn btn-primary text-white disabled">Visitar stand<i className="fas fa-chevron-right icono"></i></a>
@@ -86,10 +86,10 @@ const carousel_IA =
         slidesToSlide={1}
         swipeable
     >
-        <CardStand logo={usm} titulo="Admisión USM"  info="https://usm.cl/admision/" puesto="." marginTop="15%" width="70%" />
-        <CardStand logo={scotiabank} titulo="Scotiabank"  info="https://scotiabank.trabajando.cl/home/" puesto="."  paddingTop="10px" marginTop="15%" />
+        <CardStand logo={usm} titulo="Admisión USM" info="https://usm.cl/admision/" puesto="." marginTop="15%" width="70%" />
+        <CardStand logo={scotiabank} titulo="Scotiabank" info="https://scotiabank.trabajando.cl/home/" puesto="." paddingTop="10px" marginTop="15%" />
         <CardStand logo={ripley} titulo="Ripley tech" info="https://www.getonbrd.com/companies/ripley-cl" height="45%" marginTop="20%" puesto="." />
-        <CardStand logo={accenture} titulo="accenture"  info="https://www.accenture.com/cl-es" puesto="." paddingTop="20%" width="60%" />
+        <CardStand logo={accenture} titulo="accenture" info="https://www.accenture.com/cl-es" puesto="." paddingTop="20%" width="60%" />
         <CardStand logo={firstjob} titulo="firstjob" info="https://firstjob.me/" puesto="." paddingTop="20%" width="60%" />
     </Carousel>
 

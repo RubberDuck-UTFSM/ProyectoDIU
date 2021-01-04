@@ -73,9 +73,17 @@ export default class Stand extends Component {
     }
 
     sendHandler = () => {
-        if(this.state.texto != ""){
+        if (this.state.texto != "") {
+            var hora = "";
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+
+            hora += (h < 10) ? "0" + h : h;
+            hora += (m < 10) ? ":0" + m : ":" + m;
+            
             this.setState({
-                mensajes: [...this.state.mensajes, { nombre: this.props.nombre + " " + this.props.apellido, mensaje: this.state.texto, hora: "14:40", envia: true }],
+                mensajes: [...this.state.mensajes, { nombre: this.props.nombre + " " + this.props.apellido, mensaje: this.state.texto, hora: hora, envia: true }],
                 texto: ""
             })
             useScrollToBottom();
@@ -113,9 +121,9 @@ export default class Stand extends Component {
                             <a style={{ paddingTop: "20px", marginLeft: "30px", cursor: "pointer" }} onClick={this.handleOnClick} className="float-right h6 font-weight-light text-dark ">
                                 <u><i className="icono fas fa-chevron-left fa-sm"></i>volver a proyectos</u>
                             </a>
-                            <div className="row" style={{ marginRight: "40px"}}>
+                            <div className="row" style={{ marginRight: "40px" }}>
                                 <h1 className="display-4 chat" >Proyecto <b>{this.props.proyecto}</b> </h1>
-                                <a style={{ paddingTop: "20px", marginLeft:"20px", cursor: "pointer" }} href={this.props.pagina} target={"_blank"} className="float-right h6 font-weight-light text-dark ">
+                                <a style={{ paddingTop: "20px", marginLeft: "20px", cursor: "pointer" }} href={this.props.pagina} target={"_blank"} className="float-right h6 font-weight-light text-dark ">
                                     <u><i className="icono fas fa-external-link-alt fa-sm"></i>más info</u>
                                 </a>
                             </div>

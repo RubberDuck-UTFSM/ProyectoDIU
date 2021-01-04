@@ -43,7 +43,7 @@ class CardStand extends Component {
 
     render() {
         if (this.state.redirectProy) {
-            return <Redirect push to={"/stand/" + this.props.puesto} />;
+            return <Redirect push to={"/stand/" + this.props.titulo} />;
         }
         return (
             <div className="d-flex justify-content-center ">

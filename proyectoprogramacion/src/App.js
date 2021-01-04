@@ -272,8 +272,11 @@ class App extends Component {
                   <Route path="/auspiciadores">
                     <Auspiciadores />
                   </Route>
-                  <Route path="/stand">
+                  <Route path="/stand/dBarrio">
                     <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="dBarrio" video="K_c_7N2QIEs" pagina="https://dbarrio.feriadesoftware.cl/"/>
+                  </Route>
+                  <Route path="/stand/EufoniApp">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="EufoniApp" video="8SMLhoTa8Jw" pagina="https://eufoniapp.feriadesoftware.cl/"/>
                   </Route>
                   <Route path="/">
                     {this.state.menu ? <Home /> : <Expositores proyecto={this.state.proyecto} />}

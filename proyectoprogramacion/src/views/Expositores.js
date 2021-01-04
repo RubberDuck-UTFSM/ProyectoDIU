@@ -77,8 +77,16 @@ export default class Expositores extends Component {
 
     sendHandler = () => {
         if(this.state.texto != ""){
+            var hora = "";
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+
+            hora += (h < 10) ? "0" + h : h;
+            hora += (m < 10) ? ":0" + m : ":" + m;
+            
             this.setState({
-                mensajes: [...this.state.mensajes, { nombre: "Proyecto " + this.props.proyecto , mensaje: this.state.texto, hora: "14:40", envia: true }],
+                mensajes: [...this.state.mensajes, { nombre: "Proyecto " + this.props.proyecto , mensaje: this.state.texto, hora: hora, envia: true }],
             texto: ""
             })
             useScrollToBottom();
