@@ -45,7 +45,7 @@ class App extends Component {
       s3: '',
       s4: '',
       s5: '',
-      formulario: false,
+      formulario: true,
       expositor: false,
       menu: true,
       proyecto: "default",
