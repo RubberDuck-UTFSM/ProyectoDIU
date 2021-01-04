@@ -302,6 +302,38 @@ class App extends Component {
                   <Route path="/stand/Weefly">
                     <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Weefly" video="Ljt1_Ys2c7A" pagina="https://weefly.feriadesoftware.cl/" />
                   </Route>
+                  <Route path="/stand/Bookaro">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Bookaro" video="Qf4aj-bZiXc" pagina="https://bookaro.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/DACoT">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="DACoT" video="s9ZIrkZ9NDY" pagina="https://dacot.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/Ecos">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Ecos" video="GVqZVAu1rVg" pagina="https://ecos.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/Empaty">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Empaty" video="mTOwdkjogHw" pagina="https://empaty.feriadesoftware.cl/" />
+                  </Route>
+
+                  <Route path="/stand/EufoniApp">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="EufoniApp" video="8SMLhoTa8Jw" pagina="https://eufoniapp.feriadesoftware.cl/" />
+                  </Route>
+
+                  <Route path="/stand/TuReciclaje">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Tu Reciclaje" video="fIrRHBSlr5Y" pagina="https://tureciclaje.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/U-Assists">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="U-Assists" video="xZYEAqQC6Ng" pagina="https://www.uassist.cl/" />
+                  </Route>
+                  <Route path="/stand/Vinculados">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Vinculados" video="w1Zq7pX4E_U" pagina="https://vinculados.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/VitalSignsCheckUp">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Vital Signs CheckUp" video="lVtqkYMZ9KQ" pagina="https://vitalsignscheckup.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/Vpositive">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Vpositive" video="7qKBXzPllKk" pagina="https://vpositive.feriadesoftware.cl/" />
+                  </Route>
                   <Route path="/">
                     {this.state.menu ? <Home /> : <Expositores proyecto={this.state.proyecto} />}
                   </Route>
