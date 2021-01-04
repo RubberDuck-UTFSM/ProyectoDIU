@@ -62,7 +62,7 @@ class CardStand extends Component {
                         <i className="fas fa-microphone fa-xs icono-abajo2"></i>
                     </div>
                     <div style={{ width: "250px", height: "120px" }} >
-                        <img href={this.props.puesto} src={this.props.logo} style={{ maxWidth: "200px", maxHeight: "120px", marginTop: this.props.marginTop, width: this.props.width, height: this.props.height, paddingTop: this.props.paddingTop, cursor: "pointer" }} alt="..." />
+                        <img src={this.props.logo} style={{ maxWidth: "200px", maxHeight: "120px", marginTop: this.props.marginTop, width: this.props.width, height: this.props.height, paddingTop: this.props.paddingTop}} alt="..." />
                     </div>
                     <div className="card-body " >
                         <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >{this.props.descripcion}</p>

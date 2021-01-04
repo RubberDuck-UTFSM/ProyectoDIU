@@ -18,7 +18,7 @@ class CardStand extends Component {
             <div className="d-flex justify-content-center ">
                 <div className="card card-stand" style={{ height: "350px", width: "250px", marginBottom: "1rem" }}>
                     <div style={{ width: "250px", height: "120px" }} >
-                        <img href={this.props.puesto} src={this.props.logo} style={{ maxWidth: "200px", maxHeight: "120px", marginTop: this.props.marginTop, width: this.props.width, height: this.props.height, paddingTop: this.props.paddingTop, cursor: "pointer" }} alt="..." />
+                        <img src={this.props.logo} style={{ maxWidth: "200px", maxHeight: "120px", marginTop: this.props.marginTop, width: this.props.width, height: this.props.height, paddingTop: this.props.paddingTop }} alt="..." />
                     </div>
                     <div className="card-body " >
                         <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >Para conocer mas sobre <strong>{this.props.titulo}</strong> accede al sitio <a href={this.props.info} rel="noopener noreferrer" target="_blank" type="button" className=""><i className="icono fas fa-external-link-alt fa-sm"></i>más info</a>. </p>
