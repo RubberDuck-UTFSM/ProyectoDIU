@@ -45,14 +45,14 @@ class App extends Component {
       s3: '',
       s4: '',
       s5: '',
-      formulario: false,
+      formulario: true,
       expositor: false,
       menu: true,
       proyecto: "default",
-      clave:"",
-      nombre:"",
-      apellido:"",
-      correo:""
+      clave: "",
+      nombre: "",
+      apellido: "",
+      correo: ""
     };
   }
 
@@ -100,10 +100,10 @@ class App extends Component {
     this.setState({ s1: '', s2: '', s3: '', s4: '', s5: '' });
   }
   handleClickFormulario() {
-    if(this.state.nombre == "" || this.state.apellido == "" || this.state.correo == ""){
+    if (this.state.nombre == "" || this.state.apellido == "" || this.state.correo == "") {
       alert("Debe rellenar todos los campos para ingresar.");
     }
-    else{
+    else {
       this.setState({ formulario: false, menu: true });
     }
   }
@@ -112,13 +112,13 @@ class App extends Component {
   }
 
   handleClickFormularioExpositor() {
-    if(this.state.proyecto == "default" || this.state.clave == ""){
+    if (this.state.proyecto == "default" || this.state.clave == "") {
       alert("Debe rellenar todos los campos para ingresar.");
     }
-    else if(this.state.clave != "feria1234"){
+    else if (this.state.clave != "feria1234") {
       alert("Clave incorrecta.");
     }
-    else{
+    else {
       this.setState({ formulario: false, menu: false });
     }
   }
@@ -147,7 +147,7 @@ class App extends Component {
                           </div>
                           <div className="form-group ">
                             <label htmlFor="proyecto">Proyecto</label>
-                            <select id="proyecto" className="form-control form-control-sm" onChange={this.handleInput} value = {this.state.proyecto}>
+                            <select id="proyecto" className="form-control form-control-sm" onChange={this.handleInput} value={this.state.proyecto}>
                               <option defaultValue value="default">Selecciona...</option>
                               {lista_proyectos.map((x, index) => {
                                 return (
@@ -267,16 +267,40 @@ class App extends Component {
                     <Votacion />
                   </Route>
                   <Route path="/proyectos">
-                    <Proyectos/>
+                    <Proyectos />
                   </Route>
                   <Route path="/auspiciadores">
                     <Auspiciadores />
                   </Route>
                   <Route path="/stand/dBarrio">
-                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="dBarrio" video="K_c_7N2QIEs" pagina="https://dbarrio.feriadesoftware.cl/"/>
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="dBarrio" video="K_c_7N2QIEs" pagina="https://dbarrio.feriadesoftware.cl/" />
                   </Route>
-                  <Route path="/stand/EufoniApp">
-                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="EufoniApp" video="8SMLhoTa8Jw" pagina="https://eufoniapp.feriadesoftware.cl/"/>
+                  <Route path="/stand/+Life">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="+Life" video="iB697qEKB2U" pagina="https://life.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/AllegroTraining">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Allegro Training" video="Qd3RmVLrAQg" pagina="https://allegrotraining.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/ArtificialInventory">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Artificial Inventory" video="L3-HR4Uq93w" pagina="https://artificialinventory.feriadesoftware.cl/#/" />
+                  </Route>
+                  <Route path="/stand/DressUApp">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="DressUApp" video="r4rGf09XN7A" pagina="https://dressuapp.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/Neurile">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Neurile" video="9duGKz3hjTs" pagina="https://neurile.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/OneCheck">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="One Check" video="aNM-88gRVdk" pagina="https://onecheck.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/TrAIner">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="TrAIner" video="A6pMJO2EFtI" pagina="https://trainer.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/Unveiled">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Unveiled" video="IQKVRmm0CZc" pagina="https://unveiled.feriadesoftware.cl/" />
+                  </Route>
+                  <Route path="/stand/Weefly">
+                    <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Weefly" video="Ljt1_Ys2c7A" pagina="https://weefly.feriadesoftware.cl/" />
                   </Route>
                   <Route path="/">
                     {this.state.menu ? <Home /> : <Expositores proyecto={this.state.proyecto} />}
