@@ -67,7 +67,7 @@ const carousel_IA =
     <Carousel
         additionalTransfrom={0}
         arrows
-        autoPlaySpeed={6000}
+        autoPlaySpeed={7000}
         autoPlay={true}
         centerMode={false}
         containerclassName="react-multi-carousel-list "
