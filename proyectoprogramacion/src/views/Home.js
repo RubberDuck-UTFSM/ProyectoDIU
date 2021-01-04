@@ -13,7 +13,8 @@ export default class Home extends Component {
         this.state = {
             redirectInfo: false,
             redirectProy: false,
-            redirectAusp: false
+            redirectAusp: false,
+            redirectVot: false
         }
     }
 
@@ -28,16 +29,23 @@ export default class Home extends Component {
     handleOnClickAusp = () => {
         this.setState({ redirectAusp: true });
     }
-    
+
+    handleOnClickVot = () => {
+        this.setState({ redirectVot: true });
+    }
+
     render() {
         if (this.state.redirectInfo) {
             return <Redirect push to="/informaciones" />;
         }
-        else if(this.state.redirectProy){
+        else if (this.state.redirectProy) {
             return <Redirect push to="/proyectos" />;
         }
-        else if(this.state.redirectAusp){
+        else if (this.state.redirectAusp) {
             return <Redirect push to="/auspiciadores" />;
+        }
+        else if (this.state.redirectVot) {
+            return <Redirect push to="/votacion" />;
         }
         return (
             <section>
@@ -80,7 +88,7 @@ export default class Home extends Component {
                                                 <div className="card-body">
                                                     <h5 className="display-1" style={{ fontSize: "2.3rem" }}>Stands de los Proyectos</h5>
                                                     <p className="card-text">Ven a conocer los distintos proyectos de la Feria de Software 2020. Podrás hablar en vivo con los estudiantes expositores, hacer preguntas y votar por tus proyectos favoritos.</p>
-                                                    <div className="text-center" style={{marginBottom:"10px"}}>
+                                                    <div className="text-center" style={{ marginBottom: "10px" }}>
                                                         <a onClick={this.handleOnClickProy} href="#up" className="btn btn-primary text-white">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                     <p className="sin-bordes">¿Ya visitaste todos los proyectos? </p>
