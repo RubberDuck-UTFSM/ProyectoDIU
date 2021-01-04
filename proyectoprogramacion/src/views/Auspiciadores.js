@@ -86,11 +86,11 @@ const carousel_IA =
         slidesToSlide={1}
         swipeable
     >
-        <CardStand logo={usm} titulo="Admisión USM"  info="https://life.feriadesoftware.cl/" puesto="." marginTop="15%" width="70%" />
-        <CardStand logo={scotiabank} titulo="Scotiabank"  info="https://allegrotraining.feriadesoftware.cl/" puesto="."  paddingTop="10px" marginTop="15%" />
-        <CardStand logo={ripley} titulo="Ripley tech" info="https://artificialinventory.feriadesoftware.cl/#/" height="45%" marginTop="20%" puesto="." />
-        <CardStand logo={accenture} titulo="accenture"  info="https://dressuapp.feriadesoftware.cl/" puesto="." paddingTop="20%" width="60%" />
-        <CardStand logo={firstjob} titulo="firstjob" info="https://neurile.feriadesoftware.cl/" puesto="." paddingTop="20%" width="60%" />
+        <CardStand logo={usm} titulo="Admisión USM"  info="https://usm.cl/admision/" puesto="." marginTop="15%" width="70%" />
+        <CardStand logo={scotiabank} titulo="Scotiabank"  info="https://scotiabank.trabajando.cl/home/" puesto="."  paddingTop="10px" marginTop="15%" />
+        <CardStand logo={ripley} titulo="Ripley tech" info="https://www.getonbrd.com/companies/ripley-cl" height="45%" marginTop="20%" puesto="." />
+        <CardStand logo={accenture} titulo="accenture"  info="https://www.accenture.com/cl-es" puesto="." paddingTop="20%" width="60%" />
+        <CardStand logo={firstjob} titulo="firstjob" info="https://firstjob.me/" puesto="." paddingTop="20%" width="60%" />
     </Carousel>
 
 export default class Auspiciadores extends Component {
