@@ -15,17 +15,19 @@ import firstjob from './images/logo_firstjob.png';
 class CardStand extends Component {
     render() {
         return (
-            <div className="d-flex justify-content-center ">
-                <div className="card card-stand" style={{ height: "350px", width: "250px", marginBottom: "1rem" }}>
-                    <div style={{ width: "250px", height: "120px" }} >
-                        <img src={this.props.logo} style={{ maxWidth: "200px", maxHeight: "120px", marginTop: this.props.marginTop, width: this.props.width, height: this.props.height, paddingTop: this.props.paddingTop }} alt="..." />
-                    </div>
-                    <div className="card-body " >
-                        <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >Para conocer mas sobre <strong>{this.props.titulo}</strong> accede al sitio <a href={this.props.info} rel="noopener noreferrer" target="_blank" type="button" className=""><i className="icono fas fa-external-link-alt fa-sm"></i>más info</a>. </p>
-                        <br></br>
-                        <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >Pronto estará disponible la presentación en vivo</p>
-                        <div className="text-center" style={{ marginTop: "10px" }}>
-                            <a className="btn btn-primary text-white disabled">Visitar stand<i className="fas fa-chevron-right icono"></i></a>
+            <div style={{ marginBottom: "50px" }}>
+                <div className="d-flex justify-content-center ">
+                    <div className="card card-stand" style={{ height: "350px", width: "250px", marginBottom: "1rem" }}>
+                        <div style={{ width: "250px", height: "120px" }} >
+                            <img src={this.props.logo} style={{ maxWidth: "200px", maxHeight: "120px", marginTop: this.props.marginTop, width: this.props.width, height: this.props.height, paddingTop: this.props.paddingTop }} alt="..." />
+                        </div>
+                        <div className="card-body " >
+                            <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >Para conocer mas sobre <strong>{this.props.titulo}</strong> accede al sitio <a href={this.props.info} rel="noopener noreferrer" target="_blank" type="button" className=""><i className="icono fas fa-external-link-alt fa-sm"></i>más info</a>. </p>
+                            <br></br>
+                            <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >Pronto estará disponible la presentación en vivo</p>
+                            <div className="text-center" style={{ marginTop: "10px" }}>
+                                <a className="btn btn-primary text-white disabled">Visitar stand<i className="fas fa-chevron-right icono"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
