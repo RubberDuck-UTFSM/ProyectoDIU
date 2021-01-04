@@ -135,7 +135,7 @@ export default class Expositores extends Component {
                                 <button type="button" onClick={this.handleClickFinalizar} className="btn btn-danger btn-rounded" style={{ marginRight: "30px", marginTop: "8px", marginBottom: "8px" }}>Finalizar transmisión</button>
                             </div>
                             <YouTube
-                                video={this.props.link}
+                                video={this.state.link}
                                 autoplay={true}
                                 width="100%"
                                 height="86.5%"
