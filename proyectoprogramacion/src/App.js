@@ -2,9 +2,10 @@ import React from 'react';
 import { Component } from 'react'
 import Home from './views/Home';
 import Informaciones from './views/Informaciones';
-import Estudiantes from './views/Estudiantes';
+import Auspiciadores from './views/Auspiciadores';
 import Votacion from './views/Votacion';
 import Expositores from './views/Expositores';
+import Proyectos from './views/Proyectos';
 import Stand from './views/Stand';
 import logo1 from './views/images/logo_usm.png';
 import logo2 from './views/images/logo_scotiabank.png'
@@ -44,7 +45,7 @@ class App extends Component {
       s3: '',
       s4: '',
       s5: '',
-      formulario: true,
+      formulario: false,
       expositor: false,
       menu: true,
       proyecto: "default",
@@ -221,7 +222,7 @@ class App extends Component {
                                   <Link onClick={this.handleChange1} to="/" className="nav-link">Hall Central</Link>
                                 </li>
                                 <li className={"nav-item" + this.state.s2}>
-                                  <Link onClick={this.handleChange2} className="nav-link" to="/estudiantes">Stands Proyectos</Link>
+                                  <Link onClick={this.handleChange2} className="nav-link" to="/proyectos">Stands Proyectos</Link>
                                 </li>
                                 <li className={"nav-item" + this.state.s4}>
                                   <Link onClick={this.handleChange4} className="nav-link" to="/auspiciadores">Auspiciadores</Link>
@@ -259,9 +260,6 @@ class App extends Component {
                   <Route path="/informaciones">
                     <Informaciones />
                   </Route>
-                  <Route path="/estudiantes" onChange={this.handleClickFormulario}>
-                    <Estudiantes basico="show active" intermedio="" avanzado="" />
-                  </Route>
                   <Route path="/expositores">
                     <Expositores />
                   </Route>
@@ -269,10 +267,10 @@ class App extends Component {
                     <Votacion />
                   </Route>
                   <Route path="/proyectos">
-                    <Estudiantes basico="show active" intermedio="" avanzado="" />
+                    <Proyectos/>
                   </Route>
                   <Route path="/auspiciadores">
-                    <Estudiantes basico="" intermedio="show active" avanzado="" />
+                    <Auspiciadores />
                   </Route>
                   <Route path="/stand">
                     <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="dBarrio" video="K_c_7N2QIEs" pagina="https://dbarrio.feriadesoftware.cl/"/>

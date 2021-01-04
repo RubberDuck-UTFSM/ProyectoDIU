@@ -42,7 +42,7 @@ export default class Votacion extends Component {
                     <div className="row">
                         <div className="col-md-1"></div>
                         <div className="col-md-10">
-                            <h1 className="display-4" style={{ fontSize: "2.5rem" }}> <i className="icono fas fa-award" style={{marginRight:"10px"}}></i>Formulario de Votación Mejores Proyectos Feria de Software 2020</h1>
+                            <h1 className="display-4" style={{ fontSize: "2.5rem" }}> <i className="icono fas fa-award" style={{marginRight:"10px"}}></i>Votación Mejores Proyectos Feria de Software 2020</h1>
                             <p className="acceso-expositores">En este formulario podrás votar por tus proyectos favoritos de las dos categorías. Te recomendamos visitar todos los stands de los proyectos antes de realizar tu votación.</p>
                         </div>
                         <div className="col-md-1"></div>
@@ -50,8 +50,8 @@ export default class Votacion extends Component {
                     <div className="row">
                         <div className="col-md-1"></div>
                         <div className="col-md-10">
-                            <hr></hr>
-                            <h5>Votación Proyectos Inteligencia Artificial y Ciencia de Datos</h5>
+                            <br></br>
+                            <h5>Categoría Inteligencia Artificial y Ciencia de Datos</h5>
                             <p>Selecciona los tres mejores proyectos de la categoría Inteligencia Artificial y Ciencia de Datos.</p>
                             <div className="form-row">
                                 <div className="form-group col-md-4">
@@ -102,8 +102,8 @@ export default class Votacion extends Component {
                     <div className="row">
                         <div className="col-md-1"></div>
                         <div className="col-md-10">
-                            <hr></hr>
-                            <h5>Votación Proyectos Transformación Digital y Social</h5>
+                            <br></br>
+                            <h5>Categoría Transformación Digital y Social</h5>
                             <p>Selecciona los tres mejores proyectos de la categoría Transformación Digital y Social.</p>
                             <div className="form-row">
                                 <div className="form-group col-md-4">

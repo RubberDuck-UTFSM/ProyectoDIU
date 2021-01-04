@@ -1,0 +1,147 @@
+.dot{
+    display:inline-block;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    opacity:1;
+    padding:5px 5px 5px 5px;
+    box-shadow:none;
+    transition: .5s;
+    border-width:2px;
+    border-style:solid;
+    border-color:grey;
+    padding:0;
+    margin:0;
+    margin-right:6px;
+    outline:0;
+    cursor:pointer
+}
+.dot:active {
+    background-color: rgb(0,0,0)
+}
+
+.dot:focus{
+    background-color: rgb(0,0,0)
+}
+
+
+.arrow{
+    position:absolute;
+    outline:0;
+    transition:all .5s;
+    border-radius:35px;
+    z-index:1000;
+    border:0;
+    background:rgba(0,0,0,0.5);
+    min-width:43px;
+    min-height:43px;
+    opacity:1;
+    cursor:pointer
+}
+
+.arrow:hover{
+    background:rgba(0,0,0,0.8)
+}
+
+.arrow::before{
+    font-size:20px;
+    color:rgb(255, 255, 255);
+    display:block;
+    font-family:revicons;
+    text-align:center;
+    z-index:2;
+    position:relative
+}
+
+.arrow-left{
+    left: 0px !important;
+}
+
+.arrow-left::before{
+    content:"\e824"
+}
+
+.arrow-right{
+    right: 0
+}
+
+.arrow-right::before{
+    content:"\e825"
+}
+
+.card-stand{
+    background: rgba(252, 255, 255, 0.7) !important;
+    border-radius: 25px !important;
+}
+
+.paralCarr {
+    position: relative;
+    min-height: 540px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    margin: 0% !important;
+    padding: 0% !important;
+    border-radius: 0% !important;
+    text-align: center;
+} 
+
+.img-exp{
+    border-radius: 50%;
+    max-width: 70px;
+    max-height: 70px;
+    right: -35px;
+    margin-top: 5px;
+    display: block;
+}
+
+.img-container{
+    position: absolute;
+    margin-left: 90%;
+    margin-top: 10%;
+}
+
+.icon-container{
+    position: absolute;
+    margin-left: 110%;
+    margin-top: 30%;
+}
+
+.icon-container2{
+    position: absolute;
+    margin-left: 111.5%;
+    margin-top: 29.4%;
+}
+
+.container-proyectos{
+    padding-top:30px;
+    padding-bottom:60px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.paralProyectos {
+	position: relative;
+	min-height: 580px;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    margin: 0% !important;
+    padding: 0% !important;
+} 
+
+.borde-abajo-proyectos{
+    border-bottom: 4px solid #d7d3d3!important;
+}
+
+.verde{
+    color: rgb(52,216,121);
+}
+
+.icono-abajo{
+    margin-top: 55px;
+}
+
+.icono-abajo2{
+    margin-top: 59px;
+}
