@@ -66,7 +66,7 @@ export default class Home extends Component {
                                 <div className="col-6 text-center">
                                     <YouTube
                                         video="DJU9an-ZFYE"
-                                        autoplay={true}
+                                        autoplay={false}
                                         width={500}
                                         height={281}
                                         modestBranding={true}

@@ -32,7 +32,7 @@
     border-radius:35px;
     z-index:1000;
     border:0;
-    background:rgba(0,0,0,0.5);
+    background:#007bff;
     min-width:43px;
     min-height:43px;
     opacity:1;
@@ -40,11 +40,12 @@
 }
 
 .arrow:hover{
-    background:rgba(0,0,0,0.8)
+    background:#0d6dfde1;
 }
 
 .arrow::before{
     font-size:20px;
+    font-weight: bold;
     color:rgb(255, 255, 255);
     display:block;
     font-family:revicons;
@@ -122,7 +123,7 @@
 
 .paralProyectos {
 	position: relative;
-	min-height: 580px;
+	min-height: 600px;
 	background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;

@@ -46,30 +46,32 @@ class CardStand extends Component {
             return <Redirect push to={"/stand/" + this.props.titulo} />;
         }
         return (
-            <div className="d-flex justify-content-center ">
-                <div className="card card-stand" style={{ height: "350px", width: "250px", marginBottom: "1rem" }}>
-                    <div className="img-container">
-                        <img className="img-exp" src="https://www.lapi.com.mx/si-storage/Ecommerce/Images/57/57067/115316.png" alt="..." />
-                        <img className="img-exp" src="https://www.lapi.com.mx/si-storage/Ecommerce/Images/57/57067/115321.png" alt="..." />
-                    </div>
-                    
-                    <div className="icon-container">
-                        <i className="fas fa-circle verde"></i>
-                        <i className="fas fa-circle verde icono-abajo"></i>
-                    </div>
-                    <div className="icon-container2">
-                        <i className="fas fa-microphone fa-xs"></i>
-                        <i className="fas fa-microphone fa-xs icono-abajo2"></i>
-                    </div>
-                    <div style={{ width: "250px", height: "120px" }} >
-                        <img src={this.props.logo} style={{ maxWidth: "200px", maxHeight: "120px", marginTop: this.props.marginTop, width: this.props.width, height: this.props.height, paddingTop: this.props.paddingTop}} alt="..." />
-                    </div>
-                    <div className="card-body " >
-                        <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >{this.props.descripcion}</p>
-                        <a href={this.props.video} rel="noopener noreferrer" target="_blank" type="button" className="btn btn-link btn-sm align-end">video</a>
-                        <a href={this.props.info} rel="noopener noreferrer" target="_blank" type="button" className="btn btn-link btn-sm align-end"><i className="icono fas fa-external-link-alt fa-sm"></i>más info</a>
-                        <div className="text-center" style={{ marginTop: "10px" }}>
-                            <a onClick={this.handleOnClickProy} href="#up" className="btn btn-primary text-white">Visitar stand<i className="fas fa-chevron-right icono"></i></a>
+            <div style={{ marginBottom: "30px" }}>
+                <div className="d-flex justify-content-center">
+                    <div className="card card-stand" style={{ height: "350px", width: "250px", marginBottom: "1rem" }}>
+                        <div className="img-container">
+                            <img className="img-exp" src="https://www.lapi.com.mx/si-storage/Ecommerce/Images/57/57067/115316.png" alt="..." />
+                            <img className="img-exp" src="https://www.lapi.com.mx/si-storage/Ecommerce/Images/57/57067/115321.png" alt="..." />
+                        </div>
+
+                        <div className="icon-container">
+                            <i className="fas fa-circle verde"></i>
+                            <i className="fas fa-circle verde icono-abajo"></i>
+                        </div>
+                        <div className="icon-container2">
+                            <i className="fas fa-microphone fa-xs"></i>
+                            <i className="fas fa-microphone fa-xs icono-abajo2"></i>
+                        </div>
+                        <div style={{ width: "250px", height: "120px" }} >
+                            <img src={this.props.logo} style={{ maxWidth: "200px", maxHeight: "120px", marginTop: this.props.marginTop, width: this.props.width, height: this.props.height, paddingTop: this.props.paddingTop }} alt="..." />
+                        </div>
+                        <div className="card-body " >
+                            <p className="card-text text-left" style={{ fontSize: "0.8rem", marginBottom: "0px" }} >{this.props.descripcion}</p>
+                            <a href={this.props.video} rel="noopener noreferrer" target="_blank" type="button" className="btn btn-link btn-sm align-end">video</a>
+                            <a href={this.props.info} rel="noopener noreferrer" target="_blank" type="button" className="btn btn-link btn-sm align-end"><i className="icono fas fa-external-link-alt fa-sm"></i>más info</a>
+                            <div className="text-center" style={{ marginTop: "10px" }}>
+                                <a onClick={this.handleOnClickProy} href="#up" className="btn btn-primary text-white">Visitar stand<i className="fas fa-chevron-right icono"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,11 +113,14 @@ const carousel_IA =
     <Carousel
         additionalTransfrom={0}
         arrows
-        autoPlaySpeed={7000}
+        autoPlaySpeed={5000}
         autoPlay={true}
         centerMode={false}
+        partialVisbile="true"
         containerclassName="react-multi-carousel-list "
         draggable
+        transitionDuration={1000}
+        customTransition="transform 1000ms ease-in-out"
         focusOnSelect={false}
         infinite={true}
         keyBoardControl
@@ -125,9 +130,9 @@ const carousel_IA =
         customLeftArrow={arrowleft}
         customRightArrow={arrowright}
         responsive={responsive}
-        showDots={false}
+        showDots={true}
         sliderclassName="react-multi-carousel-track"
-        slidesToSlide={1}
+        slidesToSlide={3}
         swipeable
     >
         <CardStand logo={life} titulo="+Life" descripcion="Sistema informático para la predicción de escasez sanguínea y la realización de tareas esenciales de los centros de transfusión de sangre." video="https://www.youtube.com/watch?v=iB697qEKB2U" info="https://life.feriadesoftware.cl/" puesto="." marginTop="15%" width="70%" />
@@ -146,11 +151,14 @@ const carousel_TD =
     <Carousel
         additionalTransfrom={0}
         arrows
-        autoPlaySpeed={7000}
+        autoPlaySpeed={5000}
         autoPlay={true}
         centerMode={false}
+        partialVisbile="true"
         containerclassName="react-multi-carousel-list "
         draggable
+        transitionDuration={1000}
+        customTransition="transform 1000ms ease-in-out"
         focusOnSelect={false}
         infinite={true}
         keyBoardControl
@@ -160,9 +168,9 @@ const carousel_TD =
         customLeftArrow={arrowleft}
         customRightArrow={arrowright}
         responsive={responsive}
-        showDots={false}
+        showDots={true}
         sliderclassName="react-multi-carousel-track"
-        slidesToSlide={1}
+        slidesToSlide={3}
         swipeable
     >
         <CardStand logo={bookaro} titulo="Bookaro" descripcion="Aplicación enfocada hacia infantes con temática ‘storytelling’ con Realidad Aumentada, que enseña a través de sus cuentos la igualdad de género." video="https://www.youtube.com/watch?v=Qf4aj-bZiXc" info="https://bookaro.feriadesoftware.cl/" puesto="." marginTop="10%" />

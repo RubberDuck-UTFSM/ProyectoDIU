@@ -130,7 +130,7 @@ export default class Stand extends Component {
                         </div>
                         <YouTube
                             video={this.props.video}
-                            autoplay={true}
+                            autoplay={false}
                             width="100%"
                             height="86.5%"
                             modestBranding={true}

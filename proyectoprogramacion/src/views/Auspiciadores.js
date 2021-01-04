@@ -67,11 +67,14 @@ const carousel_IA =
     <Carousel
         additionalTransfrom={0}
         arrows
-        autoPlaySpeed={7000}
+        autoPlaySpeed={5000}
         autoPlay={true}
         centerMode={false}
+        partialVisbile="true"
         containerclassName="react-multi-carousel-list "
         draggable
+        transitionDuration={1000}
+        customTransition="transform 1000ms ease-in-out"
         focusOnSelect={false}
         infinite={true}
         keyBoardControl
@@ -81,9 +84,9 @@ const carousel_IA =
         customLeftArrow={arrowleft}
         customRightArrow={arrowright}
         responsive={responsive}
-        showDots={false}
+        showDots={true}
         sliderclassName="react-multi-carousel-track"
-        slidesToSlide={1}
+        slidesToSlide={3}
         swipeable
     >
         <CardStand logo={usm} titulo="Admisión USM" info="https://usm.cl/admision/" puesto="." marginTop="15%" width="70%" />

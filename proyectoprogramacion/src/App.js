@@ -45,7 +45,7 @@ class App extends Component {
       s3: '',
       s4: '',
       s5: '',
-      formulario: true,
+      formulario: false,
       expositor: false,
       menu: true,
       proyecto: "default",
@@ -211,7 +211,7 @@ class App extends Component {
               <div className=" container-fluid ">
                 <div className="row bg-custom" >
                   <div className="container" style={{ padding: "0px" }}>
-                    <div className="navbar-dark bg-custom ">
+                    <div className="navbar-dark bg-custom">
                       <nav className="navbar navbar-expand-lg ">
                         <a><Link className="navbar-brand correccionTitulo" onClick={this.handleChange1} to="/"><img src={logo} className="px-3 linea " alt="" height="40"></img> Feria de <b>Software</b></Link></a>
                         {this.state.menu ?
@@ -232,7 +232,7 @@ class App extends Component {
                                 </li>
                               </ul>
                               <form className="form-inline my-2 my-lg-0" style={{ marginRight: "14px" }}>
-                                <Link onClick={this.handleChangeNone} to="/votacion"><button className="btn btn-warning btn-yellow my-2 my-sm-0 btn-rounded" type="submit" style={{ color: "white" }}><i className="fas icono fa-award"></i> Vota por tus favoritos</button></Link>
+                                <Link onClick={this.handleChangeNone} to="/votacion"><button className="btn btn-warning btn-yellow my-2 my-sm-0 btn-rounded" type="submit" style={{ color: "white" }}><i className="fas icono fa-award"></i><b> Vota por tus favoritos</b></button></Link>
                               </form>
                             </div>
                             <div style={{ cursor: "pointer" }}>
