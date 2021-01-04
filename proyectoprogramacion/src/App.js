@@ -314,11 +314,9 @@ class App extends Component {
                   <Route path="/stand/Empaty">
                     <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Empaty" video="mTOwdkjogHw" pagina="https://empaty.feriadesoftware.cl/" />
                   </Route>
-
                   <Route path="/stand/EufoniApp">
                     <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="EufoniApp" video="8SMLhoTa8Jw" pagina="https://eufoniapp.feriadesoftware.cl/" />
                   </Route>
-
                   <Route path="/stand/TuReciclaje">
                     <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Tu Reciclaje" video="fIrRHBSlr5Y" pagina="https://tureciclaje.feriadesoftware.cl/" />
                   </Route>

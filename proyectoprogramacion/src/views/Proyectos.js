@@ -186,7 +186,20 @@ const carousel_TD =
     </Carousel>
 
 export default class Proyectos extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            redirectVot: false
+        }
+    }
+
+    handleOnClickVot = () => {
+        this.setState({ redirectVot: true });
+    }
     render() {
+        if (this.state.redirectVot) {
+            return <Redirect push to="/votacion/#up" />;
+        }
         return (
             <>
                 <div className=" bg-light">
@@ -210,6 +223,12 @@ export default class Proyectos extends Component {
                                 <br></br>
                                 {carousel_TD}
                             </div>
+                        </div>
+                    </div>
+                    <div className="jumbotron paralFav">
+                        <div className="container-fluid  text-center" style={{ paddingBottom: "20px", paddingTop: "25px" }}>
+                            <h1 className=" " style={{ fontSize: "1.3rem" }}>¿Ya visitaste todos los proyectos?</h1>
+                            <a className="btn btn-warning btn-yellow my-2 my-sm-0 btn-rounded" href="#up" onClick={this.handleOnClickVot} type="submit" style={{ color: "white" }}><i className="fas icono fa-award"></i><b> Vota por tus favoritos</b></a>
                         </div>
                     </div>
                 </div>

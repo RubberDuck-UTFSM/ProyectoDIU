@@ -39,7 +39,7 @@
 
 .paralhome {
     position: relative;
-    min-height: 700px;
+    min-height: 680px;
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -81,7 +81,7 @@
 }
 
 .container-informaciones{
-    padding-top:60px;
+    padding-top:40px;
     padding-bottom:60px;
     padding-left: 40px;
     padding-right: 40px;
@@ -95,14 +95,14 @@
 }
 
 .special-card-right {
-    margin-top: 60px;
+    margin-top: 90px;
     border-radius: 25px !important;
     background: rgba(255, 252, 252, 0.7) !important;
     text-align: left !important;
 }
 
 .special-card-center{
-    margin-top: 50px;
+    margin-top: 30px;
     border-radius: 25px !important;
     background: rgba(255, 252, 252, 0.7) !important;
     text-align: left !important;
@@ -124,11 +124,16 @@
 .auspiciadores{
     width: 140px;
     margin-left: -150px !important;
-    margin-top: 330px;
+    margin-top: 350px;
 }
 
 .btn-orange{
     background-color: rgb(227, 134, 53) !important;
     border-color: rgb(227, 134, 53) !important;
     color: white !important;
-  }
+}
+
+.sin-bordes{
+    margin: 0px !important;
+    padding: 0px !important;
+}

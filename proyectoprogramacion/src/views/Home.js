@@ -78,11 +78,13 @@ export default class Home extends Component {
                                         <div className="col-10">
                                             <div className="card special-card-center" >
                                                 <div className="card-body">
-                                                    <h5 className="display-1" style={{ fontSize: "2.7rem" }}>Stands de los Proyectos</h5>
+                                                    <h5 className="display-1" style={{ fontSize: "2.3rem" }}>Stands de los Proyectos</h5>
                                                     <p className="card-text">Ven a conocer los distintos proyectos de la Feria de Software 2020. Podrás hablar en vivo con los estudiantes expositores, hacer preguntas y votar por tus proyectos favoritos.</p>
-                                                    <div className="text-center">
+                                                    <div className="text-center" style={{marginBottom:"10px"}}>
                                                         <a onClick={this.handleOnClickProy} href="#up" className="btn btn-primary text-white">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
+                                                    <p className="sin-bordes">¿Ya visitaste todos los proyectos? </p>
+                                                    <p className="sin-bordes"><i className="fas icono fa-award"></i><b>Vota por tus favoritos <a className="" href="#up" onClick={this.handleOnClickVot}><u>aquí</u></a></b></p>
                                                 </div>
                                             </div>
                                         </div>
