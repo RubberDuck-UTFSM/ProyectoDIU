@@ -53,28 +53,30 @@ export default class Informaciones extends Component {
                                 <div className="col-8">
                                     <div className="card special-card-informaciones">
                                         <div className="card-body">
-                                            <h5 className="card-title" style={{ fontSize: "2.0rem" }}>¿Qué puedes hacer en la <b>Feria de Software Virtual 2020</b>?</h5>
+                                            <h5 className="card-title" style={{ fontSize: "2.0rem" }}>¿Qué puedes hacer en la <b>Feria de Software Virtual</b>?</h5>
                                             <div className="row">
                                                 <div className="col-6">
                                                     <h5 className="card-title" >1. Visitar los stands de los Proyectos</h5>
                                                     <p className="card-text">
-                                                        En los puestos de los proyectos podrás
+                                                        En los stands de los proyectos podrás
                                                         ver todos los proyectos de este año, acceder
-                                                        a su página oficial ,
-                                                        y conectarte a la reunión en línea del proyecto que te interese.
+                                                        a sus páginas oficiales ,
+                                                        y conectarte a las reuniones en línea.
                                                     </p>
-                                                    <p>
-                                                        En la reunión en línea podrás chatear con los
-                                                        estudiantes a cargo y con los demás asistentes.
-                                                        Cuando hayas visto todos los proyectos,
-                                                        también podrás votar por tus 3 favoritos.
-                                                    </p>
-                                                    <div className="text-center">
+                                                    <div className="text-center sin-borde">
                                                         <a onClick={this.handleOnClickProy} href="#up" className="btn btn-primary text-white">Ir con los proyectos<i className="fas fa-chevron-right icono"></i></a>
+                                                    </div>
+                                                    <br></br>
+                                                    <h5 className="card-title" >2. Votar por tus proyectos favoritos.</h5>
+                                                    <p className="card-text">
+                                                        Luego de visitar los stands, puedes votar por tus proyectos favoritos de las dos categorías.
+                                                    </p>
+                                                    <div className="text-center" style={{ paddingTop: "-10px" }}>
+                                                        <a onClick={this.handleOnClickVot} href="#up" className="btn btn-warning btn-yellow">Vota por tus favoritos<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                 </div>
                                                 <div className="col-6">
-                                                    <h5 className="card-title" >2. Visitar los stands de los Auspiciadores</h5>
+                                                    <h5 className="card-title" >3. Visitar los stands de los Auspiciadores</h5>
                                                     <p className="card-text">
                                                         En los puestos de los auspiciadores podrás
                                                         conocer más sobre las empresas que hacen
@@ -84,7 +86,7 @@ export default class Informaciones extends Component {
                                                         <a onClick={this.handleOnClickAusp} href="#up" className="btn btn-warning btn-orange">Ir con los auspiciadores<i className="fas fa-chevron-right icono"></i></a>
                                                     </div>
                                                     <br></br>
-                                                    <h5 className="card-title" >3. Asistir a las charlas en línea.</h5>
+                                                    <h5 className="card-title" >4. Asistir a las charlas en línea.</h5>
                                                     <p className="card-text">
                                                         Puedes asistir a las diferentes charlas de los auspiciadores que habrán a lo largo del día. Revisa el <b>cronograma</b> <a href="#cronograma">aquí.</a>
                                                     </p>
@@ -114,7 +116,7 @@ export default class Informaciones extends Component {
                                                 oficial.
                                             </p>
                                             <div className="text-center">
-                                                <a href="https://www.feriadesoftware.cl/" target={"_blank"} className="btn btn-warning btn-yellow">Ir a la página de Feria<i className="fas fa-chevron-right icono"></i></a>
+                                                <a href="https://www.feriadesoftware.cl/" target={"_blank"} className="btn btn-primary">Ir a la página de Feria<i className="fas fa-chevron-right icono"></i></a>
                                             </div>
                                         </div>
                                     </div>

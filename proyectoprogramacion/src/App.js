@@ -35,8 +35,10 @@ class App extends Component {
     this.handleChange3 = this.handleChange3.bind(this);
     this.handleChange4 = this.handleChange4.bind(this);
     this.handleChange5 = this.handleChange5.bind(this);
+    this.handleChange6 = this.handleChange6.bind(this);
     this.handleChangeNone = this.handleChangeNone.bind(this);
     this.handleClickFormulario = this.handleClickFormulario.bind(this);
+    this.handleClickVolver = this.handleClickVolver.bind(this);
     this.handleClickFormularioExpositor = this.handleClickFormularioExpositor.bind(this);
     this.handleClickExpositor = this.handleClickExpositor.bind(this);
     this.state = {
@@ -45,6 +47,7 @@ class App extends Component {
       s3: '',
       s4: '',
       s5: '',
+      s6: '',
       formulario: true,
       expositor: false,
       menu: true,
@@ -52,7 +55,9 @@ class App extends Component {
       clave: "",
       nombre: "",
       apellido: "",
-      correo: ""
+      correo: "",
+      link: "",
+      inputValue: ""
     };
   }
 
@@ -75,6 +80,10 @@ class App extends Component {
     this.setState({ correo: e.target.value })
   }
 
+  handleLink = (e) => {
+    this.setState({ inputValue: e.target.value })
+  }
+
   handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       this.handleClickFormularioExpositor();
@@ -82,19 +91,22 @@ class App extends Component {
   }
 
   handleChange1() {
-    this.setState({ s1: ' active', s2: '', s3: '', s4: '', s5: '' });
+    this.setState({ s1: ' active', s2: '', s3: '', s4: '', s5: '', s6: '' });
   }
   handleChange2() {
-    this.setState({ s1: '', s2: ' active', s3: '', s4: '', s5: '' });
+    this.setState({ s1: '', s2: ' active', s3: '', s4: '', s5: '', s6: '' });
   }
   handleChange3() {
-    this.setState({ s1: '', s2: '', s3: ' active', s4: '', s5: '' });
+    this.setState({ s1: '', s2: '', s3: ' active', s4: '', s5: '', s6: '' });
   }
   handleChange4() {
-    this.setState({ s1: '', s2: '', s3: '', s4: ' active', s5: '' });
+    this.setState({ s1: '', s2: '', s3: '', s4: ' active', s5: '', s6: '' });
   }
   handleChange5() {
-    this.setState({ s1: '', s2: '', s3: '', s4: '', s5: ' active' });
+    this.setState({ s1: '', s2: '', s3: '', s4: '', s5: ' active', s6: '' });
+  }
+  handleChange6() {
+    this.setState({ s1: '', s2: '', s3: '', s4: '', s5: '', s6: ' active' });
   }
   handleChangeNone() {
     this.setState({ s1: '', s2: '', s3: '', s4: '', s5: '' });
@@ -111,15 +123,25 @@ class App extends Component {
     this.setState({ expositor: true });
   }
 
+  handleClickVolver() {
+    this.setState({ expositor: false });
+  }
+
   handleClickFormularioExpositor() {
-    if (this.state.proyecto == "default" || this.state.clave == "") {
+    if (this.state.proyecto == "default" || this.state.clave == "" || this.state.inputValue == "") {
       alert("Debe rellenar todos los campos para ingresar.");
     }
     else if (this.state.clave != "feria1234") {
       alert("Clave incorrecta.");
     }
     else {
-      this.setState({ formulario: false, menu: false });
+      var streamID = this.state.inputValue.split('=')[1];
+      this.setState({
+        link: streamID,
+        inputValue: "",
+        formulario: false, 
+        menu: false
+      });
     }
   }
 
@@ -131,16 +153,24 @@ class App extends Component {
             <div className="container-fluid" style={{ background: "rgb(38, 38, 53)", minHeight: "110px" }}>
             </div>
             <div className="container-fluid overlay-formulario">
-              <div className="row justify-content-center" style={{ marginTop: "20px" }}>
-                <img src={logo} className="px-3 linea " alt="" height="60" style={{ marginRight: "60px" }}></img>
-                <img src={logodi} className="px-3 linea " alt="" height="70"></img>
+              <div className="row justify-content-between" style={{ marginTop: "20px" }}>
+                <div className="col-2">
+                  <a style={{ paddingTop: "20px", marginLeft: "30px", cursor: "pointer" }} onClick={this.handleClickVolver} className={"float-right h6 font-weight-light text-white " + (this.state.expositor ? "visible" : "invisible")}>
+                    <u><i className="icono fas fa-chevron-left fa-sm"></i>volver</u>
+                  </a>
+                </div>
+                <div className="col-8 text-center">
+                  <img src={logo} className="px-3 linea " alt="" height="60" style={{ marginRight: "60px" }}></img>
+                  <img src={logodi} className="px-3 linea " alt="" height="70"></img>
+                </div>
+                <div className="col-2"></div>
               </div>
               <div className="row">
                 <div className="col-4"></div>
                 <div className="col-4">
                   {this.state.expositor ?
                     <div>
-                      <div className="card card-formulario text-white" style={{ marginTop: "140px", paddingLeft: "20px", paddingRight: "20px" }}>
+                      <div className="card card-formulario text-white" style={{ marginTop: "100px", paddingLeft: "20px", paddingRight: "20px" }}>
                         <div className="card-body">
                           <div className="text-center">
                             <h5 className="card-title" style={{ fontSize: "1.4rem" }}>Acceso Expositores</h5>
@@ -158,6 +188,10 @@ class App extends Component {
                           </div>
                           <form>
                             <div className="mb-3">
+                            <label for="exampleInputPassword1" className="form-label">Link del en vivo de Youtube</label>
+                              <input onChange={this.handleLink} type="enlace" className="form-control form-control-sm" id="enlace" value={this.state.inputValue}></input>
+                            </div>
+                            <div className="mb-3">
                               <label for="exampleInputPassword1" className="form-label">Contraseña</label>
                               <input onKeyDown={this.handleKeyPress} onChange={this.handleClave} value={this.state.clave} type="password" className="form-control form-control-sm" id="exampleInputPassword1"></input>
                             </div>
@@ -169,7 +203,7 @@ class App extends Component {
                       </div>
                     </div>
                     :
-                    <div className="card  card-formulario text-white" style={{ marginTop: "45px", paddingLeft: "20px", paddingRight: "20px" }}>
+                    <div className="card card-formulario text-white" style={{ marginTop: "45px", paddingLeft: "20px", paddingRight: "20px" }}>
                       <div className="card-body">
                         <div className="text-center">
                           <h5 className="card-title" style={{ fontSize: "1.4rem" }}>Formulario de Inscripción Feria de Software 2020</h5>
@@ -227,13 +261,13 @@ class App extends Component {
                                 <li className={"nav-item" + this.state.s4}>
                                   <Link onClick={this.handleChange4} className="nav-link" to="/auspiciadores">Auspiciadores</Link>
                                 </li>
+                                <li className={"nav-item" + this.state.s6}>
+                                  <Link onClick={this.handleChange6} className="nav-link" to="/votacion">Vota por tus favoritos</Link>
+                                </li>
                                 <li className={"nav-item" + this.state.s5}>
                                   <Link onClick={this.handleChange5} className="nav-link" to="/informaciones">Informaciones</Link>
                                 </li>
                               </ul>
-                              <form className="form-inline my-2 my-lg-0" style={{ marginRight: "14px" }}>
-                                <Link onClick={this.handleChangeNone} to="/votacion"><button className="btn btn-warning btn-yellow my-2 my-sm-0 btn-rounded" type="submit" style={{ color: "white" }}><i className="fas icono fa-award"></i><b> Vota por tus favoritos</b></button></Link>
-                              </form>
                             </div>
                             <div style={{ cursor: "pointer" }}>
                               <i className="far fa-user-circle text-white fa-2x"></i>
@@ -261,7 +295,7 @@ class App extends Component {
                     <Informaciones />
                   </Route>
                   <Route path="/expositores">
-                    <Expositores />
+                    <Expositores link={this.state.link} />
                   </Route>
                   <Route path="/votacion">
                     <Votacion />
@@ -333,7 +367,7 @@ class App extends Component {
                     <Stand nombre={this.state.nombre} apellido={this.state.apellido} proyecto="Vpositive" video="7qKBXzPllKk" pagina="https://vpositive.feriadesoftware.cl/" />
                   </Route>
                   <Route path="/">
-                    {this.state.menu ? <Home /> : <Expositores proyecto={this.state.proyecto} />}
+                    {this.state.menu ? <Home /> : <Expositores proyecto={this.state.proyecto} link={this.state.link} />}
                   </Route>
                 </Switch>
               </div>
